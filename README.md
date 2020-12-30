@@ -16,7 +16,7 @@
 ### Properties
 
 * **InputActionMapPopup**: displays the action maps from a given **InputActionAsset** as a Popup field.
-![Action Map Popup Showcase](input-action-map-popup)
+![Action Map Popup Showcase][input-action-map-popup]
     
 * **InputActionPopup**: displays the actions from a given **InputActionMap** as a Popup field.
 ![Action Popup Showcase][input-action-popup]
