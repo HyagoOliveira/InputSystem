@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.1.0] - 2020-01-23
 ### Added
+- Input Action Popup Property
+- Input Action Map Popup Property
 - Unity Input System 1.1.0-preview.2 package
 - CHANGELOG
 - README
