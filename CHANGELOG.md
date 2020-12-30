@@ -8,9 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.1.0] - 2020-01-23
 ### Added
-- Add CHANGELOG
-- Add README
-- Add initial files
+- Unity Input System 1.1.0-preview.2 package
+- CHANGELOG
+- README
 - Initial commit
 
 [Unreleased]: https://bitbucket.org/nostgameteam/input-system/branches/compare/master%0D0.1.0

@@ -9,7 +9,9 @@
     "Buttons"
   ],
   "category": "Input",
-  "dependencies": {},
+  "dependencies": {
+    "com.unity.inputsystem": "1.1.0-preview.2"
+  },
   "license": "MIT",
   "homepage": "https://bitbucket.org/nostgameteam/input-system#readme",
   "repository": {
