@@ -7,24 +7,19 @@
 * Dependencies:
 	- [com.unity.inputsystem : 1.1.0-preview.2](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.1/changelog/CHANGELOG.html#110-preview2---2020-10-23)
 
-## Summary
-
-[...]
-
 ## How To Use
 
 ### Processors
-
-    * **StickDeadzoneProcessor**: clamps an input axis between a minimum and maximum value.
-    * **TruncateStickProcessor**: truncates an input axis using an absolute value.
+* **StickDeadzoneProcessor**: clamps an input axis between a minimum and maximum value.
+* **TruncateStickProcessor**: truncates an input axis using an absolute value.
 
 ### Properties
 
-    * **InputActionMapPopup**: displays the action maps from a given **InputActionAsset** as a Popup field.
-    ![Action Map Popup Showcase][input-action-map-popup]
+* **InputActionMapPopup**: displays the action maps from a given **InputActionAsset** as a Popup field.
+![Action Map Popup Showcase](input-action-map-popup)
     
-    * **InputActionPopup**: displays the actions from a given **InputActionMap** as a Popup field.
-    ![Action Popup Showcase][input-action-popup]
+* **InputActionPopup**: displays the actions from a given **InputActionMap** as a Popup field.
+![Action Popup Showcase][input-action-popup]
 
 ## Installation
 
