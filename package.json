@@ -1,0 +1,23 @@
+{
+  "name": "com.actioncode.input-system",
+  "displayName": "ActionCode-Input System",
+  "version": "0.1.0",
+  "unity": "2019.3",
+  "description": "This package is an extension for th new Unity Input System.",
+  "keywords": [
+    "Input",
+    "Buttons"
+  ],
+  "category": "Input",
+  "dependencies": {},
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/nostgameteam/input-system#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/nostgameteam/input-system.git"
+  },
+  "author": {
+    "name": "Hyago Oliveira",
+    "email": "hyagogow@gmail.com"
+  }
+}
