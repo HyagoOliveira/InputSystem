@@ -48,7 +48,8 @@ namespace ActionCode.InputSystem
 
         private void OnDeviceChange(InputDevice device)
         {
-            if (lastDevicePath.Equals(device.path)) return;
+            var sameDevice = lastDevicePath.Equals(device.path);
+            if (sameDevice) return;
 
             var settings = deviceSet.GetSettings(device.path);
             if (settings == null) return;
