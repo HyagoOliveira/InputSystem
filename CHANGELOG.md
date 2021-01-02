@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+- JSON input config for Keyboard&Mouse
 - JSON input config for DualMotorGamepad
 - Sprites from Xelu's FreePromptsPack
 - ScriptableObject for DeviceDisplaySet
