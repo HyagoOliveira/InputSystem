@@ -19,6 +19,8 @@ namespace ActionCode.InputSystem
         [Tooltip("Reference to the Input action. This will be used if Input Path is empty.")]
         public InputActionReference inputReference;
 
+        private string lastDevicePath = string.Empty;
+
         private void Reset()
         {
             image = GetComponent<Image>();
@@ -46,7 +48,8 @@ namespace ActionCode.InputSystem
 
         private void OnDeviceChange(InputDevice device)
         {
-            print(device.path);
+            if (lastDevicePath.Equals(device.path)) return;
+
             var settings = deviceSet.GetSettings(device.path);
             if (settings == null) return;
 
@@ -54,7 +57,11 @@ namespace ActionCode.InputSystem
             var sprite = hasInputPath ?
                 settings.GetSprite(inputPath) :
                 settings.GetSprite(inputReference);
-            if (sprite) image.sprite = sprite;
+            if (sprite)
+            {
+                image.sprite = sprite;
+                lastDevicePath = device.path;
+            }
         }
     }
 }
