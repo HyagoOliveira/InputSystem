@@ -1,0 +1,80 @@
+{
+    "controls": [
+        {
+            "name": "DPAD",
+            "path": "<Gamepad>/dpad"
+        },
+        {
+            "name": "DPAD Up",
+            "path": "<Gamepad>/dpad/up"
+        },
+        {
+            "name": "DPAD Left",
+            "path": "<Gamepad>/dpad/left"
+        },
+        {
+            "name": "DPAD Right",
+            "path": "<Gamepad>/dpad/right"
+        },
+        {
+            "name": "DPAD Down",
+            "path": "<Gamepad>/dpad/down"
+        },
+        {
+            "name": "Left Stick",
+            "path": "<Gamepad>/leftStick"
+        },
+        {
+            "name": "Left Stick Press",
+            "path": "<Gamepad>/leftStickPress"
+        },
+        {
+            "name": "Right Stick",
+            "path": "<Gamepad>/rightStick"
+        },
+        {
+            "name": "Right Stick Press",
+            "path": "<Gamepad>/rightStickPress"
+        },
+        {
+            "name": "North Button",
+            "path": "<Gamepad>/buttonNorth"
+        },
+        {
+            "name": "West Button",
+            "path": "<Gamepad>/buttonWest"
+        },
+        {
+            "name": "East Button",
+            "path": "<Gamepad>/buttonEast"
+        },
+        {
+            "name": "South Button",
+            "path": "<Gamepad>/buttonSouth"
+        },
+        {
+            "name": "Left Shoulder",
+            "path": "<Gamepad>/leftShoulder"
+        },
+        {
+            "name": "Left Trigger",
+            "path": "<Gamepad>/leftTrigger"
+        },
+        {
+            "name": "Right Shoulder",
+            "path": "<Gamepad>/rightShoulder"
+        },
+        {
+            "name": "Right Trigger",
+            "path": "<Gamepad>/rightTrigger"
+        },
+        {
+            "name": "Select Button",
+            "path": "<Gamepad>/select"
+        },
+        {
+            "name": "Start Button",
+            "path": "<Gamepad>/start"
+        }
+    ]
+}
