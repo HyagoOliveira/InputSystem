@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace ActionCode.InputSystem
@@ -46,11 +48,28 @@ namespace ActionCode.InputSystem
         /// Returns the control sprite based on the given path.
         /// </summary>
         /// <param name="path">The control path.</param>
-        /// <returns>The sprite or null if path is not found.</returns>
+        /// <returns>A sprite or null if path is not found.</returns>
         public Sprite GetSprite(string path)
         {
             var contains = Controls.ContainsKey(path);
             return contains ? Controls[path].sprite : null;
+        }
+
+        /// <summary>
+        /// Returns the control sprite based on the given action reference.
+        /// </summary>
+        /// <param name="actionReference">The input action reference.</param>
+        /// <returns>A sprite or null if a reference is not found.</returns>
+        public Sprite GetSprite(InputActionReference actionReference)
+        {
+            var bindings = actionReference.action.bindings.ToArray();
+            foreach (var binding in bindings)
+            {
+                var sprite = GetSprite(binding.path);
+                if (sprite) return sprite;
+            }
+
+            return null;
         }
 
         private void LoadControlsDictionary()
@@ -72,10 +91,24 @@ namespace ActionCode.InputSystem
             BindControls(path);
         }
 
+        [ContextMenu("Bind Keyboard And Mouse")]
+        private void BindKeyboardAndMouse()
+        {
+            const string path = "Packages/com.actioncode.input-system/Controls/Keyboard&Mouse.json";
+            BindControls(path);
+        }
+
         private void BindControls(string path)
         {
+            var sprites = controls.Select(display => display.sprite);
             var jsonAsset = UnityEditor.AssetDatabase.LoadAssetAtPath<TextAsset>(path);
             JsonUtility.FromJsonOverwrite(jsonAsset.text, this);
+
+            var i = 0;
+            foreach (Sprite sprite in sprites)
+            {
+                controls[i++].sprite = sprite;
+            }
         }
 #endif
     }

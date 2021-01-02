@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+- Device Input Visualizer component
+- Device DisplaySettings for PS4, XBOX360 and Keyboard&Mouse Dark/Light
 - JSON input config for Keyboard&Mouse
 - JSON input config for DualMotorGamepad
 - Sprites from Xelu's FreePromptsPack
