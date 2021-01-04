@@ -2,7 +2,7 @@
 
 * This package is an extension for Unity new Input System.
 * Unity minimum version: **2019.3**
-* Current version: **1.0.0-preview.1**
+* Current version: **1.0.0-preview.2**
 * License: **MIT**
 * Dependencies:
 	- Unity.Input System : [1.0.1](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/changelog/CHANGELOG.html#101---2020-11-20)
@@ -43,11 +43,9 @@ You can use those sprites on UI when the input device changes:
 
 ### How to Use a Device Input Visualizer
 
-You going to need a container asset grouping all the sprites from all the input devices buttons your game will use.
+You going to need a container asset grouping all the sprites from all the input devices buttons your game will use. This asset is a ScriptableObject called **DeviceDisplaySet** grouping an array of **DeviceDisplaySettings** ScriptableObjects, witch contains the sprites assets with the input path information.
 
-This asset is a ScriptableObject called **DeviceDisplaySet** grouping an array of **DeviceDisplaySettings** ScriptableObjects, witch contains the sprites assets with the input path information.
-
-To use the into your game, you must:
+To use them into your game, you must:
 
 * Create a **DeviceDisplaySet** by going to Asset > Create > ActionCode > Input System > Device Display Set;
 * Link the Device Display Settings assets to the **Settings** array attribute;
