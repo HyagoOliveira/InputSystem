@@ -5,14 +5,14 @@
 * Current version: **1.0.0-preview.1**
 * License: **MIT**
 * Dependencies:
-	- [com.unity.inputsystem : 1.0.1](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/changelog/CHANGELOG.html#101---2020-11-20)
+	- Unity.Input System : [1.0.1](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/changelog/CHANGELOG.html#101---2020-11-20)
 
 ## How To Use
 
 ### Input Sprites Pack
 ![Free Prompts Pack Preview][prompts-pack-preview]
 
-Input buttons sprites from the amazing Free Prompts Pack created by Nicolae (Xelu) Berbece.
+Input buttons sprites from the amazing **Free Prompts Pack** created by **Nicolae (Xelu) Berbece**.
 
 You can use all these assets in any project you want to (be it commercial or not).
 
@@ -37,13 +37,20 @@ Includes button prompts for:
 
 All in 100x100 px .png format.
 
-You can use those sprites when the input device changes:
+You can use those sprites on UI when the input device changes:
 
 ![Input Device Change Showcase][prompts-showcase]
 
-### How to Use
+### How to Use a Device Input Visualizer
+
+You going to need a container asset grouping all the sprites from all the input devices buttons your game will use.
+
+This asset is a ScriptableObject called **DeviceDisplaySet** grouping an array of **DeviceDisplaySettings** ScriptableObjects, witch contains the sprites assets with the input path information.
+
+To use the into your game, you must:
+
 * Create a **DeviceDisplaySet** by going to Asset > Create > ActionCode > Input System > Device Display Set;
-* Link Device Display Settings assets to the **Settings** array attribute;
+* Link the Device Display Settings assets to the **Settings** array attribute;
     * There are some  Device Display Settings assets already create at Sprites/FreePromptsPack.
 * Create a UI GameObject with an **Image** component;
 * Attach a **DeviceInputVisualizer** component to it;
