@@ -5,7 +5,7 @@
 * Current version: **1.0.0-preview.1**
 * License: **MIT**
 * Dependencies:
-	- [com.unity.inputsystem : 1.1.0-preview.2](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.1/changelog/CHANGELOG.html#110-preview2---2020-10-23)
+	- [com.unity.inputsystem : 1.0.1](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/changelog/CHANGELOG.html#101---2020-11-20)
 
 ## How To Use
 

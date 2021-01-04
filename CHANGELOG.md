@@ -14,6 +14,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - ScriptableObject for DeviceDisplaySet
 - ScriptableObject for DeviceDisplaySettings
 
+### Changed
+- Downgrade Unity Input System package to 1.0.1 
+
 ## [1.0.0-preview.1] - 2020-12-30
 ### Added
 - Input Action Popup Property
