@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797274b2ee559bf4ea1184436df9688a, type: 3}
   m_Name: PS4
   m_EditorClassIdentifier: 
-  path: /DualShock4GamepadHID
+  type: 7
   displayName: PlayStation 4
   mainColor: {r: 0.08627451, g: 0.08627451, b: 0.08627451, a: 1}
   sideColor: {r: 0.21176472, g: 0.20784315, b: 0.227451, a: 1}

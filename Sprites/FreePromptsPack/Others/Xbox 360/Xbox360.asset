@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797274b2ee559bf4ea1184436df9688a, type: 3}
   m_Name: Xbox360
   m_EditorClassIdentifier: 
-  path: /XInputControllerWindows
+  type: 9
   displayName: XBOX 360
   mainColor: {r: 0.0627451, g: 0.0627451, b: 0.0627451, a: 1}
   sideColor: {r: 0.48806015, g: 0.8113208, b: 0.2028302, a: 1}

@@ -11,8 +11,8 @@ namespace ActionCode.InputSystem
     [CreateAssetMenu(fileName = "DeviceSettings", menuName = "ActionCode/Input System/Device Display Settings", order = 110)]
     public sealed class DeviceDisplaySettings : ScriptableObject
     {
-        [Tooltip("The device path.")]
-        public string path;
+        [Tooltip("The device type.")]
+        public InputDeviceType type;
         [Tooltip("The device display name.")]
         public string displayName;
         [Tooltip("The device main color.")]
@@ -62,6 +62,7 @@ namespace ActionCode.InputSystem
         /// <returns>A sprite or null if a reference is not found.</returns>
         public Sprite GetSprite(InputActionReference actionReference)
         {
+            if (actionReference == null) return null;
             var bindings = actionReference.action.bindings.ToArray();
             foreach (var binding in bindings)
             {

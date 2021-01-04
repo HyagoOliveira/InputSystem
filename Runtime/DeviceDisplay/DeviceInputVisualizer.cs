@@ -12,14 +12,14 @@ namespace ActionCode.InputSystem
     {
         [SerializeField, Tooltip("Local Image component.")]
         private Image image;
-        [SerializeField, Tooltip("Device display set.")]
-        private DeviceDisplaySet deviceSet;
+        [Tooltip("Device display set.")]
+        public DeviceDisplaySet deviceSet;
         [Tooltip("Reference to the input path.")]
         public string inputPath;
         [Tooltip("Reference to the Input action. This will be used if Input Path is empty.")]
         public InputActionReference inputReference;
 
-        private string lastDevicePath = string.Empty;
+        private InputDeviceType lastDeviceType = InputDeviceType.None;
 
         private void Reset()
         {
@@ -48,10 +48,11 @@ namespace ActionCode.InputSystem
 
         private void OnDeviceChange(InputDevice device)
         {
-            var sameDevice = lastDevicePath.Equals(device.path);
+            var type = device.GetInputDeviceType();
+            var sameDevice = lastDeviceType == type;
             if (sameDevice) return;
 
-            var settings = deviceSet.GetSettings(device.path);
+            var settings = deviceSet ? deviceSet.GetSettings(type) : null;
             if (settings == null) return;
 
             var hasInputPath = !string.IsNullOrEmpty(inputPath);
@@ -61,7 +62,7 @@ namespace ActionCode.InputSystem
             if (sprite)
             {
                 image.sprite = sprite;
-                lastDevicePath = device.path;
+                lastDeviceType = type;
             }
         }
     }
