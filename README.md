@@ -9,6 +9,47 @@
 
 ## How To Use
 
+### Input Sprites Pack
+![Free Prompts Pack Preview][prompts-pack-preview]
+
+Input buttons sprites from the amazing Free Prompts Pack created by Nicolae (Xelu) Berbece.
+
+You can use all these assets in any project you want to (be it commercial or not).
+
+Includes button prompts for:
+
+* Xbox 360 controller
+* Xbox One controller
+* Play Station 3 controller*
+* Play Station 4 controller*
+* Play Station Move*
+* PS Vita*
+* Vive Controller
+* Oculus Controllers & Remote
+* Wii Controller
+* Wii U Controller
+* Nintentdo Switch
+* Steam Controller(Updated to commercial version)
+* Ouya
+* Keyboard and mouse buttons(Both in black and white including blanks)
+* Directional arrows for thumb sticks and movement keys
+* Touch Screen Gestures
+
+All in 100x100 px .png format.
+
+You can use those sprites when the input device changes:
+
+![Input Device Change Showcase][prompts-showcase]
+
+### How to Use
+* Create a **DeviceDisplaySet** by going to Asset > Create > ActionCode > Input System > Device Display Set;
+* Link Device Display Settings assets to the **Settings** array attribute;
+    * There are some  Device Display Settings assets already create at Sprites/FreePromptsPack.
+* Create a UI GameObject with an **Image** component;
+* Attach a **DeviceInputVisualizer** component to it;
+* Set the **Device Set** attribute with the one you create on the first step;
+* Set the **Input Path** or **Input Reference** attribute and Play the game.
+
 ### Processors
 * **StickDeadzoneProcessor**: clamps an input axis between a minimum and maximum value.
 * **TruncateStickProcessor**: truncates an input axis using an absolute value.
@@ -57,5 +98,7 @@ Use the **Package Manager** "Add package from git URL..." feature or add manuall
 [Unity Connect](https://connect.unity.com/u/hyago-oliveira) -
 <hyagogow@gmail.com>
 
+[prompts-pack-preview]: /Documentation~/prompts-pack-preview.gif "Free Prompts Pack Preview"
+[prompts-showcase]: /Documentation~/prompts-showcase.gif "Free Prompts Pack Showcase"
 [input-action-popup]: /Documentation~/showcase-input-action-popup.jpg "Action Popup"
 [input-action-map-popup]: /Documentation~/showcase-input-action-map-popup.jpg "Action Map Popup"
