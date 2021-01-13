@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.0.0-preview.3] - 2021-01-13
 ### Changed
 - Change InputVisualizer to the last device if available
 
@@ -31,6 +33,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - README
 - Initial commit
 
-[Unreleased]: https://bitbucket.org/nostgameteam/input-system/branches/compare/master%0D1.0.0-preview.2
+[Unreleased]: https://bitbucket.org/nostgameteam/input-system/branches/compare/master%0D1.0.0-preview.3
+[1.0.0-preview.3]: https://bitbucket.org/nostgameteam/input-system/src/1.0.0-preview.3/
 [1.0.0-preview.2]: https://bitbucket.org/nostgameteam/input-system/src/1.0.0-preview.2/
 [1.0.0-preview.1]: https://bitbucket.org/nostgameteam/input-system/src/1.0.0-preview.1/
