@@ -21,9 +21,17 @@ namespace ActionCode.InputSystem
 
         private InputDeviceType lastDeviceType = InputDeviceType.None;
 
+        public static InputDevice LastDevice { get; private set; }
+
         private void Reset()
         {
             image = GetComponent<Image>();
+        }
+
+        private void Awake()
+        {
+            // Changes to the last device if available.
+            if (LastDevice != null) OnDeviceChange(LastDevice);
         }
 
         private void OnEnable()
@@ -64,6 +72,8 @@ namespace ActionCode.InputSystem
                 image.sprite = sprite;
                 lastDeviceType = type;
             }
+
+            LastDevice = device;
         }
     }
 }
