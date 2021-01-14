@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+- Truncate input processor
 - Deadzone input processor
 
 ## [1.0.0-preview.3] - 2021-01-13
