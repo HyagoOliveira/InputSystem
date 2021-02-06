@@ -71,19 +71,7 @@ To use them into your game, you must:
 
 ### Using the Package Registry Server
 
-Open the **manifest.json** file inside your Unity project's **Packages** folder and add this code-block before `dependencies` attribute:
-
-```json
-"scopedRegistries": [ 
-	{ 
-		"name": "Action Code", 
-		"url": "http://34.83.179.179:4873/", 
-		"scopes": [ "com.actioncode" ] 
-	} 
-],
-```
-
-The package **ActionCode-Input System** will be available for you to install using the **Package Manager** windows.
+Follow the instructions inside [here](https://cutt.ly/ukvj1c8) and the package **ActionCode-Input System** will be available for you to install using the **Package Manager** windows.
 
 ### Using the Git URL
 
