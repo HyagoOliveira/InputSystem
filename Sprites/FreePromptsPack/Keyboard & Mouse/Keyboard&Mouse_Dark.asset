@@ -36,7 +36,7 @@ MonoBehaviour:
     path: <Keyboard>/downArrow
     sprite: {fileID: 21300000, guid: e9aaadfe2974ff7409c59bdbe53e4707, type: 3}
   - name: Arrow Navigation
-    path: <Keyboard>/arrows
+    path: 2DVector
     sprite: {fileID: 21300000, guid: 5c0fcd67ed1f86540abc42ad0e6de99f, type: 3}
   - name: Backspace
     path: <Keyboard>/backspace

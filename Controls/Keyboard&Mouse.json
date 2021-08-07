@@ -26,7 +26,7 @@
         },
         {
             "name": "Arrow Navigation",
-            "path": "<Keyboard>/arrows"
+            "path": "2DVector"
         },
         {
             "name": "Backspace",
