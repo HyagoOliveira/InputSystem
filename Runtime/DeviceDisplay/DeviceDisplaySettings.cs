@@ -63,7 +63,7 @@ namespace ActionCode.InputSystem
         public Sprite GetSprite(InputActionReference actionReference)
         {
             if (actionReference == null) return null;
-            var bindings = actionReference.action.bindings.ToArray();
+            var bindings = actionReference.action.bindings;
             foreach (var binding in bindings)
             {
                 var sprite = GetSprite(binding.path);
