@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797274b2ee559bf4ea1184436df9688a, type: 3}
   m_Name: PS3
   m_EditorClassIdentifier: 
-  type: 6
+  type: 11
   displayName: Play Station 3
   mainColor: {r: 0.08627451, g: 0.08627451, b: 0.08627451, a: 1}
   sideColor: {r: 0.21176471, g: 0.20784314, b: 0.22745098, a: 1}

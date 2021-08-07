@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797274b2ee559bf4ea1184436df9688a, type: 3}
   m_Name: XboxSeriresX
   m_EditorClassIdentifier: 
-  type: 9
+  type: 23
   displayName: Xbox Series X
   mainColor: {r: 0.06666667, g: 0.08627451, b: 0.098039225, a: 1}
   sideColor: {r: 0.227451, g: 0.227451, b: 0.26666668, a: 1}

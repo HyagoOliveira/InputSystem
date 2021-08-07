@@ -5,17 +5,26 @@ namespace ActionCode.InputSystem
     /// </summary>
     public enum InputDeviceType
     {
-        None = 0,
-        KeyboardAndMouse,
+        None = -1,
+        GenericGamepad = 0,
+        WebGLGamepad,
         AndroidGamepad,
         iOSGamepad,
-        GenericGamepad,
-        PlaystationSystem,
+        KeyboardAndMouse,
+
+        PlaystationSystem = 10,
         Playstation3,
         Playstation4,
+        Playstation5,
+
+        XboxSystem = 20,
+        Xbox360,
+        XboxOne,
+        XboxSeriesX,
+
+        NintendoSystem = 30,
         SwitchProController,
-        XboxSystem,
-        WebGLGamepad,
+
         NotFound = 99
     }
 }

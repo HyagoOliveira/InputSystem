@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797274b2ee559bf4ea1184436df9688a, type: 3}
   m_Name: Keyboard&Mouse_Dark
   m_EditorClassIdentifier: 
-  type: 1
+  type: 4
   displayName: Keyboard and Mouse
   mainColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
   sideColor: {r: 1, g: 1, b: 1, a: 1}

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 797274b2ee559bf4ea1184436df9688a, type: 3}
-  m_Name: XboxOne-GenericGamepad
+  m_Name: XboxOne-XboxSystem
   m_EditorClassIdentifier: 
-  type: 0
+  type: 20
   displayName: Xbox One
   mainColor: {r: 0.0627451, g: 0.04705883, b: 0.043137256, a: 1}
   sideColor: {r: 0.5019608, g: 0.4901961, b: 0.5019608, a: 1}

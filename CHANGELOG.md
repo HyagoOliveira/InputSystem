@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - Keyboard Navigation reference path
 
+### Changed
+- Update InputDeviceType enum
+
 ## [1.0.0-preview.4] - 2021-01-14
 ### Added
 - Truncate input processor
