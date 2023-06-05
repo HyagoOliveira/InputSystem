@@ -48,9 +48,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - README
 - Initial commit
 
-[Unreleased]: https://bitbucket.org/nostgameteam/input-system/branches/compare/master%0D1.0.0-preview.5
-[1.0.0-preview.5]: https://bitbucket.org/nostgameteam/input-system/src/1.0.0-preview.5/
-[1.0.0-preview.4]: https://bitbucket.org/nostgameteam/input-system/src/1.0.0-preview.4/
-[1.0.0-preview.3]: https://bitbucket.org/nostgameteam/input-system/src/1.0.0-preview.3/
-[1.0.0-preview.2]: https://bitbucket.org/nostgameteam/input-system/src/1.0.0-preview.2/
-[1.0.0-preview.1]: https://bitbucket.org/nostgameteam/input-system/src/1.0.0-preview.1/
+[Unreleased]: https://github.com/HyagoOliveira/InputSystem/compare/1.0.0-preview.5...main
+[1.0.0-preview.5]: https://github.com/HyagoOliveira/InputSystem/tree/1.0.0-preview.5/
+[1.0.0-preview.4]: https://github.com/HyagoOliveira/InputSystem/tree/1.0.0-preview.4/
+[1.0.0-preview.3]: https://github.com/HyagoOliveira/InputSystem/tree/1.0.0-preview.3/
+[1.0.0-preview.2]: https://github.com/HyagoOliveira/InputSystem/tree/1.0.0-preview.2/
+[1.0.0-preview.1]: https://github.com/HyagoOliveira/InputSystem/tree/1.0.0-preview.1/

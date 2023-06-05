@@ -13,11 +13,13 @@
     "com.unity.inputsystem": "1.0.1"
   },
   "license": "MIT",
-  "homepage": "https://bitbucket.org/nostgameteam/input-system#readme",
+  "homepage": "https://github.com/HyagoOliveira/InputSystem#readme",
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/nostgameteam/input-system.git"
+    "url": "https://github.com/HyagoOliveira/InputSystem.git"
   },
+  "documentationUrl": "https://github.com/HyagoOliveira/InputSystem#readme",
+  "changelogUrl": "https://github.com/HyagoOliveira/InputSystem/CHANGELOG.md",
   "author": {
     "name": "Hyago Oliveira",
     "email": "hyagogow@gmail.com"
