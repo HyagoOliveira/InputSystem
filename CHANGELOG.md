@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+- Refactor Deadzone Processor -> Stick Deadzone Clamper processor
+
 ## [1.0.0-preview.5] - 2021-07-08
 ### Added
 -  Device Display Settings for PS5
@@ -18,8 +21,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.0.0-preview.4] - 2021-01-14
 ### Added
-- Truncate input processor
-- Deadzone input processor
+- Truncate Stick Processor
+- Deadzone Processor
 
 ## [1.0.0-preview.3] - 2021-01-13
 ### Changed
