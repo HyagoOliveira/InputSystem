@@ -56,7 +56,7 @@ To use them into your game, you must:
 * Set the **Input Path** or **Input Reference** attribute and Play the game.
 
 ### Processors
-* **StickDeadzoneProcessor**: clamps an input axis between a minimum and maximum value.
+* **StickDeadzoneClampedProcessor**: clamps a Stick input axis between a minimum and maximum value.
 * **TruncateStickProcessor**: truncates an input axis using an absolute value.
 
 ### Properties
