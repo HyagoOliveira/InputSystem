@@ -2,7 +2,7 @@
 
 * This package is an extension for Unity new Input System.
 * Unity minimum version: **2019.3**
-* Current version: **1.0.0-preview.5**
+* Current version: **1.0.0-preview.6**
 * License: **MIT**
 * Dependencies:
 	- Unity.Input System : [1.0.1](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/changelog/CHANGELOG.html#101---2020-11-20)
