@@ -6,6 +6,7 @@
 * License: **MIT**
 * Dependencies:
 	- Unity.Input System : [1.0.1](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/changelog/CHANGELOG.html#101---2020-11-20)
+	- Unity.TextMesh Pro : [1.0.0](https://docs.unity3d.com/Packages/com.unity.textmeshpro@1.0/changelog/CHANGELOG.html)
 
 ## How To Use
 
