@@ -10,7 +10,7 @@
   ],
   "category": "Input",
   "dependencies": {
-    "com.unity.inputsystem": "1.0.1",
+    "com.unity.inputsystem": "1.2.0",
     "com.unity.textmeshpro": "1.0.0"
   },
   "license": "MIT",
