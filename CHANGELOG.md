@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Removed
 - Xbox360 and XboxSeriesX device types since Input System cannot differenciate them
 
+### Changed
+- Update Input System package to 1.2.0
+- Detect Playstation5 gamepad
+
 ## [1.0.0-preview.6] - 2023-06-15
 ### Changed
 - Refactor Deadzone Processor -> Stick Deadzone Clamper processor
