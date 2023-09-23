@@ -18,7 +18,7 @@ namespace ActionCode.InputSystem
         Playstation5,
 
         XboxSystem = 20,
-        Xbox360,
+        Xbox360,            // Only available for WebGL builds. Otherwise it'll be a XboxSystem.
         XboxOne,
         XboxSeriesX,
 

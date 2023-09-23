@@ -9,6 +9,10 @@ namespace ActionCode.InputSystem
     {
         /// <summary>
         /// Returns the type for an <see cref="InputDevice"/>.
+        /// <para>
+        /// <b>Note</b>: only WebGL supports difference between 
+        /// <see cref="InputDeviceType.XboxSystem"/> and <see cref="InputDeviceType.Xbox360"/>.
+        /// </para>
         /// </summary>
         /// <param name="device"></param>
         /// <returns>A <see cref="InputDeviceType"/> value.</returns>
@@ -43,8 +47,11 @@ namespace ActionCode.InputSystem
 #if UNITY_WEBGL
             if (device is UnityEngine.InputSystem.WebGL.WebGLGamepad)
             {
-                var isXbox = device.description.product.ToLower().Contains("xbox");
-                type = isXbox ? InputDeviceType.XboxSystem : InputDeviceType.WebGLGamepad;
+                var description = device.description.product.ToLower();
+
+                if (description.Contains("xbox 360")) type = InputDeviceType.Xbox360;
+                else if (description.Contains("xbox")) type = InputDeviceType.XboxSystem;
+                else if (description.Contains("dualsense")) type = InputDeviceType.Playstation5;
             }
 #endif
             return type;

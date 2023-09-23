@@ -10,7 +10,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 - Update Input System package to 1.2.0
-- Detect Playstation5 and XboxOne gamepad
+- Detect Playstation5 gamepad
+- Detect Xbox360 gamepad only on WebGL
 
 ## [1.0.0-preview.6] - 2023-06-15
 ### Changed
