@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - TextMesh Pro package dependency
 
+### Removed
+- Xbox360 and XboxSeriesX device types since Input System cannot differenciate them
+
 ## [1.0.0-preview.6] - 2023-06-15
 ### Changed
 - Refactor Deadzone Processor -> Stick Deadzone Clamper processor
