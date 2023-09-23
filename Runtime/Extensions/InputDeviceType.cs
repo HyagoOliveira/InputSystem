@@ -18,7 +18,9 @@ namespace ActionCode.InputSystem
         Playstation5,
 
         XboxSystem = 20,
+        Xbox360,
         XboxOne,
+        XboxSeriesX,
 
         NintendoSystem = 30,
         SwitchProController,

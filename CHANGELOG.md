@@ -8,9 +8,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - TextMesh Pro package dependency
 
-### Removed
-- Xbox360 and XboxSeriesX device types since Input System cannot differenciate them
-
 ### Changed
 - Update Input System package to 1.2.0
 - Detect Playstation5 and XboxOne gamepad
