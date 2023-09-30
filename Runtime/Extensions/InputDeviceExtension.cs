@@ -56,5 +56,11 @@ namespace ActionCode.InputSystem
 #endif
             return type;
         }
+
+        public static bool TryFindAction(this InputActionAsset asset, string actionName, out InputAction action)
+        {
+            action = asset.FindAction(actionName);
+            return action != null;
+        }
     }
 }
