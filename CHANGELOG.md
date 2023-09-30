@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - TextMesh Pro package dependency
+- InputSystem.OnDeviceInputChanged: event fired when any input from any connected device changed
 
 ### Changed
 - Update Input System package to 1.2.0
