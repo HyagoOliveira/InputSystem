@@ -19,23 +19,27 @@ namespace ActionCode.InputSystem
         {
             add
             {
-                var shouldBind = !ContainsAnyBinder();
+                var isFirstBinder = HasNoBinders();
                 InternalOnDeviceInputChanged += value;
 
-                if (shouldBind) BindIntoInputOnEvent();
+                // InputSystem.onEvent is a heavy event executed in every Update()
+                // To save performance, only binds into its event when the first binder is present
+                if (isFirstBinder) BindIntoInputOnEvent();
             }
 
             remove
             {
                 InternalOnDeviceInputChanged -= value;
-                if (!ContainsAnyBinder()) UnbindFromInputOnEvent();
+
+                // To save performance, unbinders from InputSystem.onEvent if no binder is present
+                if (HasNoBinders()) UnbindFromInputOnEvent();
             }
         }
 
         private static InputDeviceType lastDeviceType = InputDeviceType.None;
         private static event Action<InputDeviceType> InternalOnDeviceInputChanged;
 
-        private static bool ContainsAnyBinder() => InternalOnDeviceInputChanged?.GetInvocationList().Length > 0;
+        private static bool HasNoBinders() => InternalOnDeviceInputChanged == null;
         private static void BindIntoInputOnEvent() => UnityEngine.InputSystem.InputSystem.onEvent += HandleInputEvent;
         private static void UnbindFromInputOnEvent() => UnityEngine.InputSystem.InputSystem.onEvent -= HandleInputEvent;
 
