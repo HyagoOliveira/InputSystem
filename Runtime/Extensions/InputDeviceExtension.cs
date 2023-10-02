@@ -47,11 +47,12 @@ namespace ActionCode.InputSystem
 #if UNITY_WEBGL
             if (device is UnityEngine.InputSystem.WebGL.WebGLGamepad)
             {
-                var description = device.description.product.ToLower();
+                var description = device.description.product?.ToLower() ?? string.Empty;
 
                 if (description.Contains("xbox 360")) type = InputDeviceType.Xbox360;
                 else if (description.Contains("xbox")) type = InputDeviceType.XboxSystem;
                 else if (description.Contains("dualsense")) type = InputDeviceType.Playstation5;
+                else if (IsEastvitaR40Gamepad(description)) type = InputDeviceType.SwitchProController;
             }
 #endif
             return type;
@@ -62,5 +63,9 @@ namespace ActionCode.InputSystem
             action = asset.FindAction(actionName);
             return action != null;
         }
+
+        // Very common and accessible Nintendo Switch Pro controller
+        private static bool IsEastvitaR40Gamepad(string description) =>
+            description.Contains("vendor: 057e product: 2009");
     }
 }
