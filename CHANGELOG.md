@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - DeviceDisplaySet
 - DeviceDisplaySettings
 - DeviceInputVisualizer
+- FreePromptsPack Sprites
 
 ## [1.0.0-preview.6] - 2023-06-15
 ### Changed
