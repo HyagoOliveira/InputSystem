@@ -15,6 +15,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Detect Playstation5 gamepad
 - Detect Xbox360 gamepad only on WebGL
 
+### Removed
+- DeviceDisplayControl
+- DeviceDisplaySet
+- DeviceDisplaySettings
+- DeviceInputVisualizer
+
 ## [1.0.0-preview.6] - 2023-06-15
 ### Changed
 - Refactor Deadzone Processor -> Stick Deadzone Clamper processor

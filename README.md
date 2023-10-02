@@ -42,19 +42,8 @@ You can use those sprites on UI when the input device changes:
 
 ![Input Device Change Showcase][prompts-showcase]
 
-### How to Use a Device Input Visualizer
+### How to
 
-You going to need a container asset grouping all the sprites from all the input devices buttons your game will use. This asset is a ScriptableObject called **DeviceDisplaySet** grouping an array of **DeviceDisplaySettings** ScriptableObjects, witch contains the sprites assets with the input path information.
-
-To use them into your game, you must:
-
-* Create a **DeviceDisplaySet** by going to Asset > Create > ActionCode > Input System > Device Display Set;
-* Link the Device Display Settings assets to the **Settings** array attribute;
-    * There are some  Device Display Settings assets already create at Sprites/FreePromptsPack.
-* Create a UI GameObject with an **Image** component;
-* Attach a **DeviceInputVisualizer** component to it;
-* Set the **Device Set** attribute with the one you create on the first step;
-* Set the **Input Path** or **Input Reference** attribute and Play the game.
 
 ### Processors
 * **StickDeadzoneClampedProcessor**: clamps a Stick input axis between a minimum and maximum value.
