@@ -17,24 +17,14 @@ Input buttons sprites from the amazing **Free Prompts Pack** created by **Nicola
 
 You can use all these assets in any project you want to (be it commercial or not).
 
-Includes button prompts for:
+Includes buttons prompts for:
 
-* Xbox 360 controller
-* Xbox One controller
-* Play Station 3 controller*
-* Play Station 4 controller*
-* Play Station Move*
-* PS Vita*
-* Vive Controller
-* Oculus Controllers & Remote
-* Wii Controller
-* Wii U Controller
-* Nintentdo Switch
-* Steam Controller(Updated to commercial version)
-* Ouya
-* Keyboard and mouse buttons(Both in black and white including blanks)
-* Directional arrows for thumb sticks and movement keys
-* Touch Screen Gestures
+* Xbox 360
+* Xbox One
+* PlayStation 4
+* PlayStation 5
+* Nintentdo Switch Pro Controller
+* Keyboard and Mouse
 
 All in 100x100 px .png format.
 
@@ -43,7 +33,6 @@ You can use those sprites on UI when the input device changes:
 ![Input Device Change Showcase][prompts-showcase]
 
 ### How to
-
 
 ### Processors
 * **StickDeadzoneClampedProcessor**: clamps a Stick input axis between a minimum and maximum value.
