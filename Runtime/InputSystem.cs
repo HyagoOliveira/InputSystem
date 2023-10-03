@@ -25,6 +25,10 @@ namespace ActionCode.InputSystem
                 // InputSystem.onEvent is a heavy event executed in every Update()
                 // To save performance, only binds into its event when the first binder is present
                 if (isFirstBinder) BindIntoInputOnEvent();
+
+#if !UNITY_EDITOR
+                FindCurrentUsedDevice();
+#endif
             }
 
             remove
@@ -43,6 +47,15 @@ namespace ActionCode.InputSystem
         private static void BindIntoInputOnEvent() => UnityEngine.InputSystem.InputSystem.onEvent += HandleInputEvent;
         private static void UnbindFromInputOnEvent() => UnityEngine.InputSystem.InputSystem.onEvent -= HandleInputEvent;
 
+        private static void FindCurrentUsedDevice()
+        {
+            var gamepad = Gamepad.current;
+            var hasGamepad = gamepad != null;
+            InputDevice device = hasGamepad ? gamepad : Keyboard.current;
+
+            InternalOnDeviceInputChanged?.Invoke(device.GetInputDeviceType());
+        }
+
         private static void HandleInputEvent(InputEventPtr eventPtr, InputDevice control)
         {
             // Ignore anything that isn't a state event.
@@ -53,12 +66,12 @@ namespace ActionCode.InputSystem
             var isSupportedDevice = device is Gamepad || device is Keyboard || device is Mouse;
             if (!isSupportedDevice) return;
 
-            var deviceType = device.GetInputDeviceType();
-            if (deviceType == lastDeviceType) return;
-
             // Some devices span multiple events like PS4 and PS5 controllers on PC.
             var isSpanningEvents = !eventPtr.EnumerateChangedControls(device, magnitudeThreshold: 0.0001f).Any();
             if (isSpanningEvents) return;
+
+            var deviceType = device.GetInputDeviceType();
+            if (deviceType == lastDeviceType) return;
 
             lastDeviceType = deviceType;
             InternalOnDeviceInputChanged?.Invoke(lastDeviceType);
