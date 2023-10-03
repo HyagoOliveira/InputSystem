@@ -18,21 +18,21 @@ namespace ActionCode.InputSystem
     /// </summary>
     [DisallowMultipleComponent]
     [RequireComponent(typeof(TMP_Text))]
-    public sealed class SpriteDisplayer : MonoBehaviour
+    public class SpriteDisplayer : MonoBehaviour
     {
-        [SerializeField, Tooltip("The local TextMeshPro component")]
+        [SerializeField, Tooltip("The local TextMeshPro component.")]
         private TMP_Text textMeshPro;
-        [SerializeField, Tooltip("The input asset where your input name is")]
+        [SerializeField, Tooltip("The input asset where your input name is.")]
         private InputActionAsset inputAsset;
 
-        private string originalText;
+        protected string originalText;
 
-        private void Reset() => textMeshPro = GetComponent<TMP_Text>();
+        protected virtual void Reset() => textMeshPro = GetComponent<TMP_Text>();
         private void Awake() => originalText = textMeshPro.text;
-        private void OnEnable() => InputSystem.OnDeviceInputChanged += HandleDeviceInputChanged;
-        private void OnDisable() => InputSystem.OnDeviceInputChanged -= HandleDeviceInputChanged;
+        protected virtual void OnEnable() => InputSystem.OnDeviceInputChanged += HandleDeviceInputChanged;
+        protected virtual void OnDisable() => InputSystem.OnDeviceInputChanged -= HandleDeviceInputChanged;
 
-        private void HandleDeviceInputChanged(InputDeviceType device) =>
+        protected void HandleDeviceInputChanged(InputDeviceType device) =>
             textMeshPro.text = GetTextWithSpriteTags(device);
 
         private string GetTextWithSpriteTags(InputDeviceType device)
