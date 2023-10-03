@@ -28,8 +28,8 @@ namespace ActionCode.InputSystem
                 // To save performance, only binds into its event when the first binder is present
                 if (isFirstBinder) BindIntoInputOnEvent();
 
-#if !UNITY_EDITOR
-                FindCurrentUsedDevice();
+#if UNITY_WEBGL
+                FindInitialDeviceOnWebGL();
 #endif
             }
 
@@ -48,7 +48,7 @@ namespace ActionCode.InputSystem
         private static void BindIntoInputOnEvent() => UnityEngine.InputSystem.InputSystem.onEvent += HandleInputEvent;
         private static void UnbindFromInputOnEvent() => UnityEngine.InputSystem.InputSystem.onEvent -= HandleInputEvent;
 
-        private static void FindCurrentUsedDevice()
+        private static void FindInitialDeviceOnWebGL()
         {
             var gamepad = Gamepad.current;
             var hasGamepad = gamepad != null;
