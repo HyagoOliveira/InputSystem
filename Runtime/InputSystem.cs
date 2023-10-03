@@ -53,9 +53,6 @@ namespace ActionCode.InputSystem
             var isSupportedDevice = device is Gamepad || device is Keyboard || device is Mouse;
             if (!isSupportedDevice) return;
 
-            //var isValidMouseAction = device is Mouse mouse && mouse.delta.value.sqrMagnitude > 0.5f;
-            //if (!isValidMouseAction) return;
-
             var deviceType = device.GetInputDeviceType();
             if (deviceType == lastDeviceType) return;
 
