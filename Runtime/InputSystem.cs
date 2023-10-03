@@ -7,6 +7,8 @@ namespace ActionCode.InputSystem
 {
     public static class InputSystem
     {
+        public static InputDeviceType LastDeviceType { get; private set; } = InputDeviceType.None;
+
         /// <summary>
         /// Event fired when any input from any connected device changed.
         /// <para>
@@ -40,7 +42,6 @@ namespace ActionCode.InputSystem
             }
         }
 
-        private static InputDeviceType lastDeviceType = InputDeviceType.None;
         private static event Action<InputDeviceType> InternalOnDeviceInputChanged;
 
         private static bool HasNoBinders() => InternalOnDeviceInputChanged == null;
@@ -71,10 +72,10 @@ namespace ActionCode.InputSystem
             if (isSpanningEvents) return;
 
             var deviceType = device.GetInputDeviceType();
-            if (deviceType == lastDeviceType) return;
+            if (deviceType == LastDeviceType) return;
 
-            lastDeviceType = deviceType;
-            InternalOnDeviceInputChanged?.Invoke(lastDeviceType);
+            LastDeviceType = deviceType;
+            InternalOnDeviceInputChanged?.Invoke(LastDeviceType);
         }
     }
 }
