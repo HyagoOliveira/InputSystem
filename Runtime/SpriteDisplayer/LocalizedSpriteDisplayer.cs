@@ -1,4 +1,4 @@
-#if ENABLE_LOCALIZATION
+#if LOCALIZATION
 using UnityEngine;
 using UnityEngine.Localization.Components;
 
