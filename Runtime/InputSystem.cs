@@ -54,7 +54,8 @@ namespace ActionCode.InputSystem
             var hasGamepad = gamepad != null;
             InputDevice device = hasGamepad ? gamepad : Keyboard.current;
 
-            InternalOnDeviceInputChanged?.Invoke(device.GetInputDeviceType());
+            LastDeviceType = device.GetInputDeviceType();
+            InternalOnDeviceInputChanged?.Invoke(LastDeviceType);
         }
 
         private static void HandleInputEvent(InputEventPtr eventPtr, InputDevice control)
