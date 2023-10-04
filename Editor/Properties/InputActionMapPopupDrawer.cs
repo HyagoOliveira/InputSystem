@@ -32,15 +32,13 @@ namespace ActionCode.InputSystem.Editor
                     index = i;
             }
 
-            if (index > -1)
-            {
-                label = EditorGUI.BeginProperty(position, label, property);
-                index = EditorGUI.Popup(position, label.text, index, tags);
-                EditorGUI.EndProperty();
+            if (index == -1) index = 0;
 
-                mapNameProperty.stringValue = tags[index];
-            }
-            else DrawTextField(position, property, label, mapNameProperty);
+            label = EditorGUI.BeginProperty(position, label, property);
+            index = EditorGUI.Popup(position, label.text, index, tags);
+            EditorGUI.EndProperty();
+
+            mapNameProperty.stringValue = tags[index];
         }
 
         private void DrawTextField(Rect position, SerializedProperty property, GUIContent label, SerializedProperty serializableProperty)
