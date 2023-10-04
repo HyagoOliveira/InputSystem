@@ -15,7 +15,10 @@ namespace ActionCode.InputSystem
         /// <summary>
         /// Initializes the InputActionMapPopup.
         /// </summary>
-        /// <param name="assetName">The name of the InputActionAsset. Put the name of your local InputActionAsset variable.</param>
+        /// <param name="assetName">
+        /// The name of the InputActionAsset. Put the name of your local InputActionAsset variable.
+        /// <para><b>Tip</b>: use <c>nameof(assetName)</c>.</para>
+        /// </param>
         /// <param name="mapName">The name of the InputActionMap present on your local InputActionAsset variable.</param>
         public InputActionMapPopup(string assetName, string mapName = "")
         {

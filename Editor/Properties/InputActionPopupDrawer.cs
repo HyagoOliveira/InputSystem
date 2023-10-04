@@ -9,38 +9,38 @@ namespace ActionCode.InputSystem.Editor
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            SerializedProperty mapNameProperty = property.FindPropertyRelative("mapName");
-            SerializedProperty assetNameProperty = property.FindPropertyRelative("assetName");
-            SerializedProperty actionNameProperty = property.FindPropertyRelative("actionName");
-            SerializedProperty inputActionAssetProperty = property.serializedObject.FindProperty(assetNameProperty.stringValue);
-            InputActionAsset inputActionAsset = inputActionAssetProperty?.objectReferenceValue as InputActionAsset;
-            InputActionMap actionMap = inputActionAsset ?
-                inputActionAsset.FindActionMap(mapNameProperty.stringValue) : null;
+            var mapNameProperty = property.FindPropertyRelative(nameof(InputActionPopup.mapName));
+            var actionNameProperty = property.FindPropertyRelative(nameof(InputActionPopup.actionName));
+            var assetName = property.FindPropertyRelative(nameof(InputActionPopup.assetName)).stringValue;
+            var inputActionAssetProperty = property.serializedObject.FindProperty(assetName);
+            var inputActionAsset = inputActionAssetProperty?.objectReferenceValue as InputActionAsset;
+            var actionMap = inputActionAsset ? inputActionAsset.FindActionMap(mapNameProperty.stringValue) : null;
+            var hasInvalidActionMap = actionMap == null || actionMap.actions.Count == 0;
 
-            if (actionMap != null && actionMap.actions.Count > 0)
+            if (hasInvalidActionMap)
             {
-                int index = -1;
-                string[] tags = new string[actionMap.actions.Count];
+                DrawTextField(position, property, label, actionNameProperty);
+                return;
+            }
 
-                for (int i = 0; i < tags.Length; i++)
-                {
-                    tags[i] = actionMap.actions[i].name;
+            var index = -1;
+            var tags = new string[actionMap.actions.Count];
 
-                    if (index < 0 && tags[i] == actionNameProperty.stringValue)
-                    {
-                        index = i;
-                    }
-                }
+            for (int i = 0; i < tags.Length; i++)
+            {
+                tags[i] = actionMap.actions[i].name;
 
-                if (index > -1 && index < actionMap.actions.Count)
-                {
-                    label = EditorGUI.BeginProperty(position, label, property);
-                    index = EditorGUI.Popup(position, label.text, index, tags);
-                    EditorGUI.EndProperty();
+                if (index < 0 && tags[i] == actionNameProperty.stringValue)
+                    index = i;
+            }
 
-                    actionNameProperty.stringValue = tags[index];
-                }
-                else DrawTextField(position, property, label, actionNameProperty);
+            if (index > -1)
+            {
+                label = EditorGUI.BeginProperty(position, label, property);
+                index = EditorGUI.Popup(position, label.text, index, tags);
+                EditorGUI.EndProperty();
+
+                actionNameProperty.stringValue = tags[index];
             }
             else DrawTextField(position, property, label, actionNameProperty);
         }

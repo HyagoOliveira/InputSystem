@@ -13,10 +13,10 @@ namespace ActionCode.InputSystem
         /// <summary>
         /// Initializes the InputActionPopup.
         /// </summary>
-        /// <param name="assetName">The name of the InputActionAsset. Put the name of your local InputActionAsset variable.</param>
+        /// <param name="assetName"><inheritdoc cref="InputActionMapPopup(string, string)"/></param>
         /// <param name="mapName">The name of the InputActionMap present on your local InputActionAsset variable.</param>
         /// <param name="actionName">The name of the action present on your local InputActionMap.</param>
-        public InputActionPopup(string assetName, string mapName, string actionName)
+        public InputActionPopup(string assetName, string mapName, string actionName = "")
             : base(assetName, mapName)
         {
             this.actionName = actionName;
@@ -27,9 +27,6 @@ namespace ActionCode.InputSystem
         /// </summary>
         /// <param name="map"></param>
         /// <returns></returns>
-        public InputAction GetAction(InputActionMap map)
-        {
-            return map.FindAction(actionName);
-        }
+        public InputAction GetAction(InputActionMap map) => map.FindAction(actionName);
     }
 }
