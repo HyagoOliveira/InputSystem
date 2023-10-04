@@ -58,9 +58,30 @@ namespace ActionCode.InputSystem
             return type;
         }
 
-        public static bool TryFindAction(this InputActionAsset asset, string actionName, out InputAction action)
+        /// <summary>
+        /// Tries to find an <see cref="InputAction"/> by its name or ID 
+        /// in one of the  <see cref="InputActionMap"/>s in the asset.
+        /// </summary>
+        /// <param name="asset"></param>
+        /// <param name="actionNameOrId"><inheritdoc cref="InputActionAsset.FindAction(string, bool)"/></param>
+        /// <param name="action">The outputted action if found.</param>
+        /// <returns>Whether the outputted action was found.</returns>
+        public static bool TryFindAction(this InputActionAsset asset, string actionNameOrId, out InputAction action)
         {
-            action = asset.FindAction(actionName);
+            action = asset.FindAction(actionNameOrId);
+            return action != null;
+        }
+
+        /// <summary>
+        /// Tries to find an <see cref="InputAction"/> in the map by name or ID.
+        /// </summary>
+        /// <param name="map"></param>
+        /// <param name="actionNameOrId"><inheritdoc cref="InputActionMap.FindAction(string, bool)"/></param>
+        /// <param name="action"><inheritdoc cref="TryFindAction(InputActionAsset, string, out InputAction)"/></param>
+        /// <returns><inheritdoc cref="TryFindAction(InputActionAsset, string, out InputAction)"/></returns>
+        public static bool TryFindAction(this InputActionMap map, string actionNameOrId, out InputAction action)
+        {
+            action = map.FindAction(actionNameOrId);
             return action != null;
         }
 
