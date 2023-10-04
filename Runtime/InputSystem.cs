@@ -28,7 +28,7 @@ namespace ActionCode.InputSystem
                 // To save performance, only binds into its event when the first binder is present
                 if (isFirstBinder) BindIntoInputOnEvent();
 
-#if UNITY_WEBGL
+#if UNITY_WEBGL && !UNITY_EDITOR
                 FindInitialDeviceOnWebGL();
 #endif
             }
