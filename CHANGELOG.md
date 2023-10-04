@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - DeviceDisplaySettings
 - DeviceInputVisualizer
 - FreePromptsPack Sprites
+- InputActionMapPopup.FindActionMap function
 
 ## [1.0.0-preview.6] - 2023-06-15
 ### Changed
