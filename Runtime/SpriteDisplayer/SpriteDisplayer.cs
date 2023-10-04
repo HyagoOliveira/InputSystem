@@ -24,11 +24,20 @@ namespace ActionCode.InputSystem
         private TMP_Text textMeshPro;
         [SerializeField, Tooltip("The input asset where your input name is.")]
         private InputActionAsset inputAsset;
+        [SerializeField, Tooltip("The input action map inside your InputAsset.")]
+        private InputActionMapPopup actionMapPopup = new InputActionMapPopup("inputAsset");
 
         protected string originalText;
+        private InputActionMap actionMap;
 
         protected virtual void Reset() => textMeshPro = GetComponent<TMP_Text>();
-        private void Awake() => originalText = textMeshPro.text;
+
+        private void Awake()
+        {
+            originalText = textMeshPro.text;
+            actionMap = inputAsset.FindActionMap(actionMapPopup.mapName, throwIfNotFound: true);
+        }
+
         protected virtual void OnEnable() => InputSystem.OnDeviceInputChanged += HandleDeviceInputChanged;
         protected virtual void OnDisable() => InputSystem.OnDeviceInputChanged -= HandleDeviceInputChanged;
 
@@ -46,7 +55,7 @@ namespace ActionCode.InputSystem
             {
                 var actionTag = match.Groups[0].Value;
                 var actionName = match.Groups[1].Value;
-                var hasAction = inputAsset.TryFindAction(actionName, out InputAction action);
+                var hasAction = actionMap.TryFindAction(actionName, out InputAction action);
 
                 if (!hasAction) continue;
 
