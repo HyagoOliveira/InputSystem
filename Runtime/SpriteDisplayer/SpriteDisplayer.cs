@@ -25,7 +25,7 @@ namespace ActionCode.InputSystem
         [SerializeField, Tooltip("The input asset where your input name is.")]
         private InputActionAsset inputAsset;
         [SerializeField, Tooltip("The input action map inside your InputAsset.")]
-        private InputActionMapPopup actionMapPopup = new InputActionMapPopup("inputAsset");
+        private InputActionMapPopup actionMapPopup = new InputActionMapPopup(nameof(inputAsset));
 
         protected string originalText;
         private InputActionMap actionMap;
