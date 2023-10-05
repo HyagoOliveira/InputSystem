@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - SpriteDisplayer: replaces all occurrences of {input} by the corresponding TextMeshPro Sprite tag
 - LocalizedSpriteDisplayer: updates the local SpriteDisplayer component when a localization update event (from Unity Localization System) happens
 - Button sprites for Xbox 360, PlayStation 4/5, Nintentdo Switch Pro Controller and Keyboard/Mouse
+- Serialized Dictionary dependency
 
 ### Changed
 - Update Input System package to 1.2.0
