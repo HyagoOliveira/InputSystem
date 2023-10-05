@@ -17,7 +17,7 @@
         {
             "name": "com.unity.localization",
             "expression": "1.0.0",
-            "define": "LOCALIZATION"
+            "define": "UNITY_LOCALIZATION"
         }
     ],
     "noEngineReferences": false

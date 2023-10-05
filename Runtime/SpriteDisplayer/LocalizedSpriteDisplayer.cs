@@ -1,4 +1,4 @@
-#if LOCALIZATION
+#if UNITY_LOCALIZATION
 using UnityEngine;
 using UnityEngine.Localization.Components;
 
