@@ -12,35 +12,17 @@ namespace ActionCode.InputSystem
     /// </summary>
     [DisallowMultipleComponent]
     [RequireComponent(typeof(LocalizeStringEvent))]
-    public sealed class LocalizedSpriteDisplayer : SpriteDisplayer
+    public sealed class LocalizedSpriteDisplayer : MonoBehaviour
     {
         [Space]
         [SerializeField, Tooltip("The local Localization component.")]
         private LocalizeStringEvent localization;
 
-        protected override void Reset()
-        {
-            base.Reset();
-            localization = GetComponent<LocalizeStringEvent>();
-        }
+        private void Reset() => localization = GetComponent<LocalizeStringEvent>();
+        private void OnEnable() => localization.OnUpdateString.AddListener(HandleLocalizationChanged);
+        private void OnDisable() => localization.OnUpdateString.RemoveListener(HandleLocalizationChanged);
 
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-            localization.OnUpdateString.AddListener(HandleLocalizationChanged);
-        }
-
-        protected override void OnDisable()
-        {
-            base.OnDisable();
-            localization.OnUpdateString.RemoveListener(HandleLocalizationChanged);
-        }
-
-        private void HandleLocalizationChanged(string localizedText)
-        {
-            originalText = localizedText;
-            HandleDeviceInputChanged(InputSystem.LastDeviceType);
-        }
+        private void HandleLocalizationChanged(string localizedText) { }
     }
 }
 #endif

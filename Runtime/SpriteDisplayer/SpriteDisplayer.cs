@@ -18,30 +18,30 @@ namespace ActionCode.InputSystem
     /// </summary>
     [DisallowMultipleComponent]
     [RequireComponent(typeof(TMP_Text))]
-    public class SpriteDisplayer : MonoBehaviour
+    public sealed class SpriteDisplayer : MonoBehaviour
     {
         [SerializeField, Tooltip("The local TextMeshPro component.")]
         private TMP_Text textMeshPro;
-        [SerializeField, Tooltip("The input asset where your input name is.")]
+        [SerializeField, Tooltip("The Input Asset where your action is.")]
         private InputActionAsset inputAsset;
-        [SerializeField, Tooltip("The input action map inside your InputAsset.")]
-        private InputActionMapPopup actionMapPopup = new InputActionMapPopup(nameof(inputAsset));
+        [SerializeField, Tooltip("The Input Action.")]
+        private InputActionPopup actionPopup = new InputActionPopup(nameof(inputAsset), "UI", "Move");
 
-        protected string originalText;
-        private InputActionMap actionMap;
+        private InputAction action;
+        private string originalText;
 
-        protected virtual void Reset() => textMeshPro = GetComponent<TMP_Text>();
+        private void Reset() => textMeshPro = GetComponent<TMP_Text>();
 
         private void Awake()
         {
             originalText = textMeshPro.text;
-            actionMap = inputAsset.FindActionMap(actionMapPopup.mapName, throwIfNotFound: true);
+            action = inputAsset.FindAction(actionPopup.GetPath(), throwIfNotFound: true);
         }
 
-        protected virtual void OnEnable() => InputSystem.OnDeviceInputChanged += HandleDeviceInputChanged;
-        protected virtual void OnDisable() => InputSystem.OnDeviceInputChanged -= HandleDeviceInputChanged;
+        private void OnEnable() => InputSystem.OnDeviceInputChanged += HandleDeviceInputChanged;
+        private void OnDisable() => InputSystem.OnDeviceInputChanged -= HandleDeviceInputChanged;
 
-        protected void HandleDeviceInputChanged(InputDeviceType device) =>
+        private void HandleDeviceInputChanged(InputDeviceType device) =>
             textMeshPro.text = GetTextWithSpriteTags(device);
 
         private string GetTextWithSpriteTags(InputDeviceType device)
@@ -55,7 +55,7 @@ namespace ActionCode.InputSystem
             {
                 var actionTag = match.Groups[0].Value;
                 var actionName = match.Groups[1].Value;
-                var hasAction = actionMap.TryFindAction(actionName, out InputAction action);
+                var hasAction = inputAsset.TryFindAction(actionName, out InputAction action);
 
                 if (!hasAction) continue;
 
