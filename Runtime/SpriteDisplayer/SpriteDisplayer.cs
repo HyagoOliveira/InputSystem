@@ -1,3 +1,4 @@
+using ActionCode.SerializedDictionaries;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,6 +18,10 @@ namespace ActionCode.InputSystem
     /// Next, set the <see cref="inputAsset"/> and <see cref="actionPopup"/> fields.<br/>
     /// At runtime, all occurrences of  <b>{input}</b> will be replaced by a Sprite tag 
     /// corresponding to the <see cref="actionPopup"/> you have selected.
+    /// 
+    /// <para> 
+    /// You can also overriding the sprite by setting the <see cref="overridingSpriteNames"/> using an input device.
+    /// </para>
     /// </remarks>
     [DisallowMultipleComponent]
     [RequireComponent(typeof(TMP_Text))]
@@ -34,6 +39,9 @@ namespace ActionCode.InputSystem
         [Header("Text")]
         [SerializeField, Tooltip("The input field that will be replaced by the TMP Sprite Tag.")]
         private string inputField = "{input}";
+        [SerializeField, Tooltip("")]
+        private SerializedDictionary<InputDeviceType, string> overridingSpriteNames =
+            new SerializedDictionary<InputDeviceType, string>();
 
         private InputAction action;
         private string originalText;
@@ -58,6 +66,12 @@ namespace ActionCode.InputSystem
         {
             var assetName = device.ToString();
 
+            if (IsOverridingSpriteName(device))
+            {
+                var overridedSpriteName = overridingSpriteNames[device];
+                return ReplaceText(text, assetName, overridedSpriteName);
+            }
+
             var inputBinding = SpriteRegex.GetInputBinding(device);
             var bidingIndex = action.GetBindingIndex(inputBinding);
 
@@ -72,6 +86,9 @@ namespace ActionCode.InputSystem
 
             return ReplaceText(text, assetName, spriteName);
         }
+
+        private bool IsOverridingSpriteName(InputDeviceType device) =>
+            overridingSpriteNames.ContainsKey(device);
 
         private string ReplaceText(string text, string assetName, string spriteName) =>
             text.Replace(inputField, GetSpriteTag(assetName, spriteName));
