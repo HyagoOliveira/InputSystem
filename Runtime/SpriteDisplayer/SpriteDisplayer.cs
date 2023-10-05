@@ -29,7 +29,7 @@ namespace ActionCode.InputSystem
         [SerializeField, Tooltip("The Input Asset where your action is.")]
         private InputActionAsset inputAsset;
         [SerializeField, Tooltip("The Input Action.")]
-        private InputActionPopup actionPopup = new InputActionPopup(nameof(inputAsset), "UI", "Move");
+        private InputActionPopup actionPopup = new InputActionPopup(nameof(inputAsset));
 
         [Header("Text")]
         [SerializeField, Tooltip("The input field that will be replaced by the TMP Sprite Tag.")]
@@ -57,6 +57,7 @@ namespace ActionCode.InputSystem
         private string ReplaceTextWithSpriteTag(string text, InputDeviceType device)
         {
             var assetName = device.ToString();
+
             var inputBinding = SpriteRegex.GetInputBinding(device);
             var bidingIndex = action.GetBindingIndex(inputBinding);
 
@@ -68,14 +69,14 @@ namespace ActionCode.InputSystem
                 out string controlPath
             );
             var spriteName = controlPath ?? binding.ToString();
-            var spriteTag = GetSpriteTag(assetName, spriteName);
 
-            text = text.Replace(inputField, spriteTag);
-
-            return text;
+            return ReplaceText(text, assetName, spriteName);
         }
 
-        private static string GetSpriteTag(string assetName, string name) =>
-            $"<sprite=\"{assetName}\" name=\"{name}\">";
+        private string ReplaceText(string text, string assetName, string spriteName) =>
+            text.Replace(inputField, GetSpriteTag(assetName, spriteName));
+
+        private static string GetSpriteTag(string assetName, string spriteName) =>
+            $"<sprite=\"{assetName}\" name=\"{spriteName}\">";
     }
 }
