@@ -5,27 +5,35 @@ using UnityEngine.InputSystem;
 namespace ActionCode.InputSystem
 {
     /// <summary>
-    /// Replaces any occurrences of {inputName} by the corresponding TextMeshPro Sprite tag.
-    /// <para>
-    /// Place this component into the same GameObject containing a TextMeshPro and set its text field to:
-    /// <br/><br/>
-    /// <c>Press <b>{move}</b> to move the character.</c>
-    /// <br/><br/>
-    /// The <b>move</b> is the name of the Input Action on the <see cref="inputAsset"/> field.
-    /// This name can be lower, upper or camel case.<br/>
-    /// It's only important that this name matches the one into your action inside your InputAsset.
-    /// </para>
+    /// Replaces all occurrences of <see cref="inputField"/> by the corresponding TextMeshPro Sprite tag.
     /// </summary>
+    /// <remarks>
+    /// Place this component into the same GameObject containing a <see cref="TMP_Text"/> component and set its text field to:
+    /// 
+    /// <code>
+    /// Press {input} to move the character.
+    /// </code>
+    /// 
+    /// Next, set the <see cref="inputAsset"/> and <see cref="actionPopup"/> fields.<br/>
+    /// At runtime, all occurrences of  <b>{input}</b> will be replaced by a Sprite tag 
+    /// corresponding to the <see cref="actionPopup"/> you have selected.
+    /// </remarks>
     [DisallowMultipleComponent]
     [RequireComponent(typeof(TMP_Text))]
     public sealed class SpriteDisplayer : MonoBehaviour
     {
         [SerializeField, Tooltip("The local TextMeshPro component.")]
         private TMP_Text textMeshPro;
+
+        [Header("Input")]
         [SerializeField, Tooltip("The Input Asset where your action is.")]
         private InputActionAsset inputAsset;
         [SerializeField, Tooltip("The Input Action.")]
         private InputActionPopup actionPopup = new InputActionPopup(nameof(inputAsset), "UI", "Move");
+
+        [Header("Text")]
+        [SerializeField, Tooltip("The input field that will be replaced by the TMP Sprite Tag.")]
+        private string inputField = "{input}";
 
         private InputAction action;
         private string originalText;
@@ -41,39 +49,33 @@ namespace ActionCode.InputSystem
         private void OnEnable() => InputSystem.OnDeviceInputChanged += HandleDeviceInputChanged;
         private void OnDisable() => InputSystem.OnDeviceInputChanged -= HandleDeviceInputChanged;
 
-        private void HandleDeviceInputChanged(InputDeviceType device) =>
-            textMeshPro.text = GetTextWithSpriteTags(device);
+        public void UpgradeText(string text, InputDeviceType device) =>
+            textMeshPro.text = ReplaceTextWithSpriteTag(text, device);
 
-        private string GetTextWithSpriteTags(InputDeviceType device)
+        private void HandleDeviceInputChanged(InputDeviceType device) => UpgradeText(originalText, device);
+
+        private string ReplaceTextWithSpriteTag(string text, InputDeviceType device)
         {
-            var text = originalText;
             var assetName = device.ToString();
-            var matches = SpriteRegex.GetMatches(originalText);
             var inputBinding = SpriteRegex.GetInputBinding(device);
+            var bidingIndex = action.GetBindingIndex(inputBinding);
 
-            foreach (var match in matches)
-            {
-                var actionTag = match.Groups[0].Value;
-                var actionName = match.Groups[1].Value;
-                var hasAction = inputAsset.TryFindAction(actionName, out InputAction action);
+            if (bidingIndex < 0) return text;
 
-                if (!hasAction) continue;
+            var binding = action.GetBindingDisplayString(
+                bidingIndex,
+                out string _,
+                out string controlPath
+            );
+            var spriteName = controlPath ?? binding.ToString();
+            var spriteTag = GetSpriteTag(assetName, spriteName);
 
-                var bidingIndex = action.GetBindingIndex(inputBinding);
-                if (bidingIndex < 0) continue;
-
-                var binding = action.GetBindingDisplayString(
-                    bidingIndex,
-                    out string _,
-                    out string controlPath
-                );
-                var spriteName = controlPath ?? binding.ToString();
-                var spriteTag = SpriteRegex.GetSpriteTag(assetName, spriteName);
-
-                text = text.Replace(actionTag, spriteTag);
-            }
+            text = text.Replace(inputField, spriteTag);
 
             return text;
         }
+
+        private static string GetSpriteTag(string assetName, string name) =>
+            $"<sprite=\"{assetName}\" name=\"{name}\">";
     }
 }
