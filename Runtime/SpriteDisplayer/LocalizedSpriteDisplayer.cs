@@ -5,24 +5,30 @@ using UnityEngine.Localization.Components;
 namespace ActionCode.InputSystem
 {
     /// <summary>
-    /// Replaces any occurrences of {inputName} by the corresponding TextMeshPro Sprite tag in a Localization String.
-    /// <para>
-    /// This components works exactly as <see cref="SpriteDisplayer"/> but using the Unity localization system.
-    /// </para>
+    /// Updates the local <see cref="SpriteDisplayer"/> component when a 
+    /// localization update event (from Unity Localization System) happens.
     /// </summary>
     [DisallowMultipleComponent]
+    [RequireComponent(typeof(SpriteDisplayer))]
     [RequireComponent(typeof(LocalizeStringEvent))]
     public sealed class LocalizedSpriteDisplayer : MonoBehaviour
     {
-        [Space]
+        [SerializeField, Tooltip("The local SpriteDisplayer component.")]
+        private SpriteDisplayer displayer;
         [SerializeField, Tooltip("The local Localization component.")]
         private LocalizeStringEvent localization;
 
-        private void Reset() => localization = GetComponent<LocalizeStringEvent>();
+        private void Reset()
+        {
+            displayer = GetComponent<SpriteDisplayer>();
+            localization = GetComponent<LocalizeStringEvent>();
+        }
+
         private void OnEnable() => localization.OnUpdateString.AddListener(HandleLocalizationChanged);
         private void OnDisable() => localization.OnUpdateString.RemoveListener(HandleLocalizationChanged);
 
-        private void HandleLocalizationChanged(string localizedText) { }
+        private void HandleLocalizationChanged(string localizedText) =>
+            displayer.UpgradeText(localizedText, InputSystem.LastDeviceType);
     }
 }
 #endif
