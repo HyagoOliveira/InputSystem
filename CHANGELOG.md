@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Update Input System package to 1.2.0
 - Detect Playstation5 gamepad
 - Detect Xbox360 gamepad only on WebGL
+- InputActionPopup shows its Maps
 
 ### Removed
 - DeviceDisplayControl

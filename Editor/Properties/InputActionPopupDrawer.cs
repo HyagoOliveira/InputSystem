@@ -1,6 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 namespace ActionCode.InputSystem.Editor
 {
@@ -14,40 +15,83 @@ namespace ActionCode.InputSystem.Editor
             var assetName = property.FindPropertyRelative(nameof(InputActionPopup.assetName)).stringValue;
             var inputActionAssetProperty = property.serializedObject.FindProperty(assetName);
             var inputActionAsset = inputActionAssetProperty?.objectReferenceValue as InputActionAsset;
-            var actionMap = inputActionAsset ? inputActionAsset.FindActionMap(mapNameProperty.stringValue) : null;
-            var hasInvalidActionMap = actionMap == null || actionMap.actions.Count == 0;
+            var actionMaps = inputActionAsset != null ? inputActionAsset.actionMaps : default;
 
-            if (hasInvalidActionMap)
+            if (actionMaps.Count == 0)
             {
-                DrawTextField(position, property, label, actionNameProperty);
+                DrawTextField(position, property, label, mapNameProperty, actionNameProperty);
                 return;
             }
 
             var index = -1;
-            var tags = new string[actionMap.actions.Count];
+            var selectedIndex = -1;
+            var actionMapPaths = new List<string>();
+            var actionMapNames = new List<ActionMapName>();
+            var currentActionPath = InputActionPopup.BuildPath(
+                mapNameProperty.stringValue,
+                actionNameProperty.stringValue
+            );
 
-            for (int i = 0; i < tags.Length; i++)
+            foreach (var map in actionMaps)
             {
-                tags[i] = actionMap.actions[i].name;
+                foreach (var action in map.actions)
+                {
+                    var actionMapName = new ActionMapName(map.name, action.name);
+                    var actionMapNamePath = actionMapName.GetPath();
 
-                if (index < 0 && tags[i] == actionNameProperty.stringValue)
-                    index = i;
+                    actionMapNames.Add(actionMapName);
+                    actionMapPaths.Add(actionMapNamePath);
+
+                    index++;
+                    if (selectedIndex < 0 && actionMapNamePath.Equals(currentActionPath))
+                        selectedIndex = index;
+                }
             }
 
-            if (index == -1) index = 0;
+            if (selectedIndex == -1) selectedIndex = 0;
 
             label = EditorGUI.BeginProperty(position, label, property);
-            index = EditorGUI.Popup(position, label.text, index, tags);
+            selectedIndex = EditorGUI.Popup(position, label.text, selectedIndex, actionMapPaths.ToArray());
             EditorGUI.EndProperty();
 
-            actionNameProperty.stringValue = tags[index];
+            mapNameProperty.stringValue = actionMapNames[selectedIndex].mapName;
+            actionNameProperty.stringValue = actionMapNames[selectedIndex].actionName;
         }
 
-        private void DrawTextField(Rect position, SerializedProperty property, GUIContent label, SerializedProperty serializableProperty)
+        private void DrawTextField(
+            Rect position,
+            SerializedProperty property,
+            GUIContent label,
+            SerializedProperty mapNameProperty,
+            SerializedProperty actionNameProperty
+        )
         {
+            var currentActionPath = InputActionPopup.BuildPath(
+                mapNameProperty.stringValue,
+                actionNameProperty.stringValue
+            );
+
             EditorGUI.BeginProperty(position, label, property);
-            serializableProperty.stringValue = EditorGUI.TextField(position, label, serializableProperty.stringValue);
+            var text = EditorGUI.TextField(position, label, currentActionPath);
             EditorGUI.EndProperty();
+
+            var texts = text.Split("/");
+            mapNameProperty.stringValue = texts[0];
+            actionNameProperty.stringValue = texts[1];
+        }
+
+        private readonly struct ActionMapName
+        {
+            public readonly string mapName;
+            public readonly string actionName;
+
+            public ActionMapName(string mapName, string actionName)
+            {
+                this.mapName = mapName;
+                this.actionName = actionName;
+            }
+
+            public string GetPath() => InputActionPopup.BuildPath(mapName, actionName);
         }
     }
 }

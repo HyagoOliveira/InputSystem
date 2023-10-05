@@ -16,17 +16,24 @@ namespace ActionCode.InputSystem
         /// <param name="assetName"><inheritdoc cref="InputActionMapPopup(string, string)"/></param>
         /// <param name="mapName">The name of the InputActionMap present on your local InputActionAsset variable.</param>
         /// <param name="actionName">The name of the action present on your local InputActionMap.</param>
-        public InputActionPopup(string assetName, string mapName, string actionName = "")
+        public InputActionPopup(string assetName, string mapName = "", string actionName = "")
             : base(assetName, mapName)
         {
             this.actionName = actionName;
         }
 
         /// <summary>
-        /// Returns the input action from the given map.
+        /// Returns the path using the map and action name.
         /// </summary>
-        /// <param name="map"></param>
-        /// <returns></returns>
-        public InputAction GetAction(InputActionMap map) => map.FindAction(actionName);
+        /// <returns>Always a <c>string</c>.</returns>
+        public string GetPath() => BuildPath(mapName, actionName);
+
+        /// <summary>
+        /// Builds an action path using mapName/actionName
+        /// </summary>
+        /// <param name="mapName">The map name to use.</param>
+        /// <param name="actionName">The action name to use.</param>
+        /// <returns>Always a <c>string</c>.</returns>
+        public static string BuildPath(string mapName, string actionName) => $"{mapName}/{actionName}";
     }
 }
