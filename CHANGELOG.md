@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Detect Playstation5 gamepad
 - Detect Xbox360 gamepad only on WebGL
 - InputActionPopup shows its Maps
+- Increase Unity minimum version to >= 2020.2
 
 ### Removed
 - DeviceDisplayControl
