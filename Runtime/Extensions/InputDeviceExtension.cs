@@ -85,6 +85,19 @@ namespace ActionCode.InputSystem
             return action != null;
         }
 
+        /// <summary>
+        /// Returns the <see cref="InputBinding"/> corresponding to 
+        /// the given input device, Keyboard&Mouse or Gamepad.
+        /// </summary>
+        /// <param name="device"></param>
+        /// <returns>Always a InputBinding.</returns>
+        public static InputBinding GetInputBinding(this InputDeviceType device)
+        {
+            var isKeyboard = device == InputDeviceType.KeyboardAndMouse;
+            var group = isKeyboard ? "Keyboard&Mouse" : "Gamepad";
+            return InputBinding.MaskByGroup(group);
+        }
+
         // Very common and accessible Nintendo Switch Pro controller
         private static bool IsEastvitaR40Gamepad(string description) =>
             description.Contains("vendor: 057e product: 2009");
