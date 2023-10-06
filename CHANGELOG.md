@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - TextMesh Pro package dependency
 - InputSystem.OnDeviceInputChanged: event fired when any input from any connected device changed
 - ActionSpriteText: replaces all occurrences of {input} by the corresponding TextMeshPro Sprite tag
-- LocalizedSpriteDisplayer: updates the local SpriteDisplayer component when a localization update event (from Unity Localization System) happens
+- LocalizedSpriteText: updates the local AbstractSpriteText component when a localization update event (from Unity Localization System) happens
 - Button sprites for Xbox 360, PlayStation 4/5, Nintentdo Switch Pro Controller and Keyboard/Mouse
 - Serialized Dictionary dependency
 
