@@ -84,4 +84,4 @@ MonoBehaviour:
   m_SpriteGlyphTable: []
   spriteInfoList: []
   fallbackSpriteAssets:
-  - {fileID: 11400000, guid: 68c7d0ada0126154dbdb890c6786f983, type: 2}
+  - {fileID: 11400000, guid: ebd400c3812e11e469454c3d09f23b5d, type: 2}
