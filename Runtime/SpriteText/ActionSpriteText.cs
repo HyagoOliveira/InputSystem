@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using ActionCode.Attributes;
 
 namespace ActionCode.InputSystem
 {
@@ -26,9 +27,9 @@ namespace ActionCode.InputSystem
     public sealed class ActionSpriteText : AbstractSpriteText
     {
         [Header("Inputs")]
-        [SerializeField, Tooltip("The Input Asset where your action is.")]
+        [SerializeField, DisableInPlayMode, Tooltip("The Input Asset where your action is.")]
         private InputActionAsset inputAsset;
-        [SerializeField, Tooltip("The Input Action.")]
+        [SerializeField, DisableInPlayMode, Tooltip("The Input Action.")]
         private InputActionPopup actionPopup = new(nameof(inputAsset));
 
         private InputAction action;
