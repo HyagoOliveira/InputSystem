@@ -12,7 +12,8 @@
   "dependencies": {
     "com.unity.inputsystem": "1.2.0",
     "com.unity.textmeshpro": "1.0.0",
-    "com.actioncode.serialized-dictionary": "1.1.0"
+    "com.actioncode.serialized-dictionary": "1.1.0",
+    "com.actioncode.attributes": "2.1.0"
   },
   "license": "MIT",
   "homepage": "https://github.com/HyagoOliveira/InputSystem#readme",
