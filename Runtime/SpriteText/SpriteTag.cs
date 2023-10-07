@@ -29,17 +29,17 @@ namespace ActionCode.InputSystem
         [SerializeField, Tooltip("The Sprite Tag animation speed.")]
         private int speed;
 
-        public readonly string GetSpriteTag(string assetName) => type switch
+        public readonly string GetTag(string assetName) => type switch
         {
-            SpriteTagType.Name => GetSpriteTagUsingName(assetName, name),
-            SpriteTagType.Animation => GetSpriteTagUsingAnimation(assetName, initialIndex, finalIndex, speed),
+            SpriteTagType.Name => GetTagUsingName(assetName, name),
+            SpriteTagType.Animation => GetTagUsingAnimation(assetName, initialIndex, finalIndex, speed),
             _ => string.Empty
         };
 
-        public static string GetSpriteTagUsingName(string assetName, string spriteName) =>
+        public static string GetTagUsingName(string assetName, string spriteName) =>
             $"<sprite=\"{assetName}\" name=\"{spriteName}\">";
 
-        public static string GetSpriteTagUsingAnimation(
+        public static string GetTagUsingAnimation(
             string assetName,
             int intialIndex,
             int finalIndex,

@@ -53,7 +53,7 @@ namespace ActionCode.InputSystem
                 out string controlPath
             );
             var spriteName = controlPath ?? binding.ToString();
-            var spriteTag = SpriteTag.GetSpriteTagUsingName(assetName, spriteName);
+            var spriteTag = SpriteTag.GetTagUsingName(assetName, spriteName);
 
             return OriginalText.Replace(inputField, spriteTag);
         }

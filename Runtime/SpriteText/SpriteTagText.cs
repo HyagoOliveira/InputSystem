@@ -36,7 +36,7 @@ namespace ActionCode.InputSystem
             if (!hasTag) return OriginalText;
 
             var assetName = device.ToString();
-            var spriteTag = tag.GetSpriteTag(assetName);
+            var spriteTag = tag.GetTag(assetName);
 
             return OriginalText.Replace(inputField, spriteTag);
         }
