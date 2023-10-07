@@ -10,8 +10,6 @@
 	- Serialized Dictionary : [1.1.0](https://github.com/HyagoOliveira/SerializedDictionary/tree/1.1.0)
 	- Attributes : [3.0.0](https://github.com/HyagoOliveira/attributes/tree/3.0.0)
 
-### Summary
-
 ## Input Sprites Pack
 
 Input buttons sprites from the amazing **Free Prompts Pack**, created by **Nicolae (Xelu) Berbece**.
@@ -20,10 +18,8 @@ You can use all these assets in any project you want to (be it commercial or not
 
 Includes buttons prompts for:
 
-* Xbox 360
-* Xbox One
-* PlayStation 4
-* PlayStation 5
+* Xbox 360/One
+* PlayStation 4/5
 * Nintentdo Switch Pro Controller
 * Keyboard and Mouse
 
@@ -33,15 +29,17 @@ You can use those sprites on UI when the input device changes:
 
 ![Input Device Change Showcase][prompts-showcase]
 
+[Sprites Sheets](/Sprites/) and [TextMesh Pro Sprite Assets](/Sprite Assets) are available to use.
+
 ## How To Use
 
 ### Show Input Sprite using Text Mesh Pro
 
-Place [ActionSpriteText](/Runtime/SpriteText/ActionSpriteText.cs) component into the same GameObject containing a TextMeshPro and edit its text field, placing a ```{input}``` where the Sprite Tag will be placed. Next, set the InputAsset and ActionPopup fields.
+Place an [ActionSpriteText](/Runtime/SpriteText/ActionSpriteText.cs) component into the same GameObject containing a **TextMeshPro** and edit its text field, placing a ```{input}``` where the Sprite Tag will be placed. Next, set the **Input Asset** and **Action Popup** fields, like so:
 
 ![Action Sprite Text][action-sprite-text-inspector]
 
- At runtime, all occurrences of ```{input}``` will be replaced by a Sprite tag corresponding to the ActionPopup
+ At runtime, when any button or gamepad axis changes, all occurrences of ```{input}``` will be replaced by a Sprite tag corresponding to the provided Action.
 
 ![Action Sprite Text Runtime][action-sprite-text-runtime]
 
