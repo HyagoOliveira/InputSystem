@@ -10,12 +10,11 @@
 	- Serialized Dictionary : [1.1.0](https://github.com/HyagoOliveira/SerializedDictionary/tree/1.1.0)
 	- Attributes : [3.0.0](https://github.com/HyagoOliveira/attributes/tree/3.0.0)
 
-## How To Use
+### Summary
 
-### Input Sprites Pack
-![Free Prompts Pack Preview][prompts-pack-preview]
+## Input Sprites Pack
 
-Input buttons sprites from the amazing **Free Prompts Pack** created by **Nicolae (Xelu) Berbece**.
+Input buttons sprites from the amazing **Free Prompts Pack**, created by **Nicolae (Xelu) Berbece**.
 
 You can use all these assets in any project you want to (be it commercial or not).
 
@@ -34,9 +33,20 @@ You can use those sprites on UI when the input device changes:
 
 ![Input Device Change Showcase][prompts-showcase]
 
-### How to
+## How To Use
+
+### Show Input Sprite using Text Mesh Pro
+
+Place [ActionSpriteText](/Runtime/SpriteText/ActionSpriteText.cs) component into the same GameObject containing a TextMeshPro and edit its text field, placing a ```{input}``` where the Sprite Tag will be placed. Next, set the InputAsset and ActionPopup fields.
+
+![Action Sprite Text][action-sprite-text-inspector]
+
+ At runtime, all occurrences of ```{input}``` will be replaced by a Sprite tag corresponding to the ActionPopup
+
+![Action Sprite Text Runtime][action-sprite-text-runtime]
 
 ### Processors
+
 * **StickDeadzoneClampedProcessor**: clamps a Stick input axis between a minimum and maximum value.
 * **TruncateStickProcessor**: truncates an input axis using an absolute value.
 
@@ -76,7 +86,8 @@ You will need a **Git client** installed on your computer with the Path variable
 [LinkedIn](https://www.linkedin.com/in/hyago-oliveira/) -
 <hyagogow@gmail.com>
 
-[prompts-pack-preview]: /Documentation~/prompts-pack-preview.gif "Free Prompts Pack Preview"
 [prompts-showcase]: /Documentation~/prompts-showcase.gif "Free Prompts Pack Showcase"
+[action-sprite-text-inspector]: /Documentation~/ActionSpriteText.png "Action Sprite Text"
+[action-sprite-text-runtime]: /Documentation~/ActionSpriteText.gif "Action Sprite Text Runtime"
 [input-action-popup]: /Documentation~/showcase-input-action-popup.jpg "Action Popup"
 [input-action-map-popup]: /Documentation~/showcase-input-action-map-popup.jpg "Action Map Popup"
