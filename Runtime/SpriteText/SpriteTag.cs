@@ -29,6 +29,21 @@ namespace ActionCode.InputSystem
         [SerializeField, Tooltip("The Sprite Tag animation speed.")]
         private int speed;
 
+        public SpriteTag(
+            SpriteTagType type = SpriteTagType.Name,
+            string name = "",
+            int initialIndex = 0,
+            int finalIndex = 1,
+            int speed = 2
+        )
+        {
+            this.type = type;
+            this.name = name;
+            this.initialIndex = initialIndex;
+            this.finalIndex = finalIndex;
+            this.speed = speed;
+        }
+
         public readonly string GetTag(string assetName) => type switch
         {
             SpriteTagType.Name => GetTagUsingName(assetName, name),
