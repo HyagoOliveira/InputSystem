@@ -20,7 +20,7 @@ namespace ActionCode.InputSystem
         public string OriginalText { get; internal set; }
 
         protected virtual void Reset() => textMesh = GetComponent<TMP_Text>();
-        protected virtual void Awake() => OriginalText = textMesh.text;
+        protected virtual void Awake() => InitializeOriginalTextIfEmpty();
         protected virtual void OnEnable() => InputSystem.OnDeviceInputChanged += HandleDeviceInputChanged;
         protected virtual void OnDisable() => InputSystem.OnDeviceInputChanged -= HandleDeviceInputChanged;
 
@@ -33,5 +33,10 @@ namespace ActionCode.InputSystem
         protected abstract string GetTextWithSpriteTag(InputDeviceType device);
 
         private void HandleDeviceInputChanged(InputDeviceType device) => UpdateTextWithSpriteTag(device);
+
+        private void InitializeOriginalTextIfEmpty()
+        {
+            if (string.IsNullOrEmpty(OriginalText)) OriginalText = textMesh.text;
+        }
     }
 }

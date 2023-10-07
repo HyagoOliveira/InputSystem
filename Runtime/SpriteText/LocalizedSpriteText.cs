@@ -33,6 +33,7 @@ namespace ActionCode.InputSystem
         private void HandleLocalizationChanged(string localizedText)
         {
             spriteText.OriginalText = localizedText;
+            if (InputSystem.LastDeviceType == InputDeviceType.None) return;
             spriteText.UpdateTextWithSpriteTag(InputSystem.LastDeviceType);
         }
     }
