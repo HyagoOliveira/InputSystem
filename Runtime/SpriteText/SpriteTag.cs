@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using ActionCode.Attributes;
 
 namespace ActionCode.InputSystem
 {
@@ -12,13 +13,19 @@ namespace ActionCode.InputSystem
         [SerializeField, Tooltip("The Sprite Tag type.")]
         private SpriteTagType type;
 
+        [ShowIf(nameof(type), SpriteTagType.Name)]
         [SerializeField, Tooltip("The Sprite Tag name.")]
         private string name;
 
+        [ShowIf(nameof(type), SpriteTagType.Animation)]
         [SerializeField, Tooltip("The Sprite Tag animation initial index.")]
         private int initialIndex;
+
+        [ShowIf(nameof(type), SpriteTagType.Animation)]
         [SerializeField, Tooltip("The Sprite Tag animation final index.")]
         private int finalIndex;
+
+        [ShowIf(nameof(type), SpriteTagType.Animation)]
         [SerializeField, Tooltip("The Sprite Tag animation speed.")]
         private int speed;
 
