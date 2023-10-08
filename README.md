@@ -31,7 +31,7 @@ You can use those sprites on UI when the input device changes:
 
 ## Displaying Button Sprites
 
-Input sprites are displayed using TextMesh Pro (TMP) Sprite Tags. So, to do it, it's firt necessary to configure TMP Sprite Assets.
+Input sprites are displayed using TextMesh Pro (TMP) Sprite Tags. So, to do it, it's first necessary to configure TMP Sprite Assets.
 
 ### Configuring TMP Settings
 
@@ -43,21 +43,27 @@ Go to the Default Sprite Asset section and check for the path where your Sprites
 
 You need to place there all Sprite Assets your project is going to use. Also, you need to configure them. Use the [official TMP Sprite Asset section](https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.2/manual/Sprites.html) to know how.
 
-If you wish to use the Sprites from Free Prompts Pack, just copy and paste any file from the [Sprite Assets folder](/Sprite Assets/) to your project path where your Sprites Assets will be loaded. **You don't need to configure any of them**. They are already all set to use and its sprites are on the [Sprites Sheets folder](/Sprites/) (you don't need to copy any file from this folder for your project).
+If you wish to use the Sprites from **Free Prompts Pack**, just copy and paste any file from the [Sprite Assets folder](/Sprite Assets/) to your project path where your Sprites Assets will be loaded. **You don't need to configure any of them**. They are already all set to use and its sprites are on the [Sprites Sheets folder](/Sprites/) (you don't need to copy any file from this folder for your project).
 
-### Show Input Sprites using Text Mesh Pro
+### Showing Input Sprites using TMP
 
 Place an [ActionSpriteText](/Runtime/SpriteText/ActionSpriteText.cs) component into the same GameObject containing a **TextMeshPro** and edit its text field, placing a ```{input}``` where the Sprite Tag will be placed. Next, set the **Input Asset** and **Action Popup** fields, like so:
 
 ![Action Sprite Text][ActionSpriteText_Inspector]
 
- At runtime, when any button or gamepad axis changes, all occurrences of ```{input}``` will be replaced by a Sprite tag corresponding to the provided Action.
+ At runtime, when any keyboard/gamepad button is pressed or gamepad axis/mouse movement, all occurrences of ```{input}``` will be replaced by a Sprite tag corresponding to the provided Action:
 
 ![Action Sprite Text Runtime][ActionSpriteText_Runtime]
 
 ### Using Unity Localization System
 
-If your project uses the Localization System provided by Unity, you can also attach the [LocalizedSpriteText](/Runtime/SpriteText/LocalizedSpriteText.cs) component in the same GameObject.
+If your project uses the Localization System provided by Unity, you can also attach the [LocalizedSpriteText](/Runtime/SpriteText/LocalizedSpriteText.cs) component in the same GameObject and configure its localization as usual
+
+![Inspector for LocalizedSpriteText][LocalizedSpriteText_Inspector]
+
+At runtime, the Sprite tag corresponding to the provided Action will use the current language:
+
+![LocalizedSpriteText Runtime][LocalizedSpriteText_Runtime]
 
 ### Processors
 
@@ -106,3 +112,5 @@ You will need a **Git client** installed on your computer with the Path variable
 [InputActionPopup]: /Documentation~/InputActionPopup.jpg "Using Input Action Popup"
 [MenuShowcase]: /Documentation~/MenuShowcase.gif "Using Input Sprites in Main Menu"
 [TMPSettings_SpriteAsset]: /Documentation~/TMPSettings_SpriteAsset.png "TMP Settings, Sprite Asset section"
+[LocalizedSpriteText_Inspector]: /Documentation~/LocalizedSpriteText_Inspector.png "Inspector for LocalizedSpriteText component"
+[LocalizedSpriteText_Runtime]: /Documentation~/LocalizedSpriteText_Runtime.gif "LocalizedSpriteText at Runtime"
