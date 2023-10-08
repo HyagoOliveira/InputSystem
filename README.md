@@ -12,36 +12,52 @@
 
 ## Input Sprites Pack
 
-Input buttons sprites from the amazing **Free Prompts Pack**, created by **Nicolae (Xelu) Berbece**.
+You can show your game button inputs using sprites from the amazing [Free Prompts Pack, created by Nicolae (Xelu) Berbece](https://thoseawesomeguys.com/prompts/).
 
-You can use all these assets in any project you want to (be it commercial or not).
+You can use all these sprites in any project you want to (be it commercial or not).
 
 Includes buttons prompts for:
 
 * Xbox 360/One
 * PlayStation 4/5
-* Nintentdo Switch Pro Controller
+* Nintendo Switch Pro Controller
 * Keyboard and Mouse
 
-All in 100x100 px .png format.
+All are in 100x100 pixels, in .png format.
 
 You can use those sprites on UI when the input device changes:
 
-![Input Device Change Showcase][prompts-showcase]
+![Input Device Change Showcase][MenuShowcase]
 
-[Sprites Sheets](/Sprites/) and [TextMesh Pro Sprite Assets](/Sprite Assets) are available to use.
+## How to Display Button Sprites
 
-## How To Use
+Input sprites are displayed using TextMesh Pro (TMP) Sprite Tags. So, to do it, it's necessary to configure TMP Sprite Assets.
 
-### Show Input Sprite using Text Mesh Pro
+### Configuring TMP Settings
+
+Locate **TMP Settings** asset on your project (generally at ```Assets/TextMesh Pro/Resources/TMP Settings.asset```).
+
+Go to the Default Sprite Asset section and check for the path where your Sprites Assets will be loaded.
+
+![TMPSettings SpriteAsset][TMPSettings_SpriteAsset]
+
+You need to place there all Sprite Assets your project is going to use. Also, you need to configure them. Use the [official TMP Sprite Asset section](https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.2/manual/Sprites.html) to know how.
+
+If you wish to use the Sprites from Free Prompts Pack, just copy and paste any file from the [Sprite Assets folder](/Sprite Assets) to your project path where your Sprites Assets will be loaded. **You don't need to configure any of them**. They are already all set to use and its sprites are on the [Sprites Sheets folder](/Sprites/) (you don't need to copy any file from this folder for your project).
+
+### Show Input Sprites using Text Mesh Pro
 
 Place an [ActionSpriteText](/Runtime/SpriteText/ActionSpriteText.cs) component into the same GameObject containing a **TextMeshPro** and edit its text field, placing a ```{input}``` where the Sprite Tag will be placed. Next, set the **Input Asset** and **Action Popup** fields, like so:
 
-![Action Sprite Text][action-sprite-text-inspector]
+![Action Sprite Text][ActionSpriteText_Inspector]
 
  At runtime, when any button or gamepad axis changes, all occurrences of ```{input}``` will be replaced by a Sprite tag corresponding to the provided Action.
 
-![Action Sprite Text Runtime][action-sprite-text-runtime]
+![Action Sprite Text Runtime][ActionSpriteText_Runtime]
+
+### Using Unity Localization System
+
+If your project uses the Localization System provided by Unity, you can also attach the [LocalizedSpriteText](/Runtime/SpriteText/LocalizedSpriteText.cs) component in the same GameObject.
 
 ### Processors
 
@@ -51,10 +67,10 @@ Place an [ActionSpriteText](/Runtime/SpriteText/ActionSpriteText.cs) component i
 ### Properties
 
 * **InputActionMapPopup**: displays the action maps from a given **InputActionAsset** as a Popup field.
-![Action Map Popup Showcase][input-action-map-popup]
+![Action Map Popup Showcase][InputActionMapPopup]
     
 * **InputActionPopup**: displays the actions from a given **InputActionMap** as a Popup field.
-![Action Popup Showcase][input-action-popup]
+![Action Popup Showcase][InputActionPopup]
 
 ## Installation
 
@@ -84,8 +100,9 @@ You will need a **Git client** installed on your computer with the Path variable
 [LinkedIn](https://www.linkedin.com/in/hyago-oliveira/) -
 <hyagogow@gmail.com>
 
-[prompts-showcase]: /Documentation~/prompts-showcase.gif "Free Prompts Pack Showcase"
-[action-sprite-text-inspector]: /Documentation~/ActionSpriteText.png "Action Sprite Text"
-[action-sprite-text-runtime]: /Documentation~/ActionSpriteText.gif "Action Sprite Text Runtime"
-[input-action-popup]: /Documentation~/showcase-input-action-popup.jpg "Action Popup"
-[input-action-map-popup]: /Documentation~/showcase-input-action-map-popup.jpg "Action Map Popup"
+[ActionSpriteText_Inspector]: /Documentation~/ActionSpriteText_Inspector.png "Inspector for ActionSpriteText component"
+[ActionSpriteText_Runtime]: /Documentation~/ActionSpriteText_Runtime.gif "Action Sprite Text at Runtime"
+[InputActionMapPopup]: /Documentation~/InputActionMapPopup.jpg "Using Action Map Popup"
+[InputActionPopup]: /Documentation~/InputActionPopup.jpg "Using Input Action Popup"
+[MenuShowcase]: /Documentation~/MenuShowcase.gif "Using Input Sprites in Main Menu"
+[TMPSettings_SpriteAsset]: /Documentation~/TMPSettings_SpriteAsset.png "TMP Settings, Sprite Asset section"
