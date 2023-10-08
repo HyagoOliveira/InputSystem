@@ -29,9 +29,9 @@ You can use those sprites on UI when the input device changes:
 
 ![Input Device Change Showcase][MenuShowcase]
 
-## How to Display Button Sprites
+## Displaying Button Sprites
 
-Input sprites are displayed using TextMesh Pro (TMP) Sprite Tags. So, to do it, it's necessary to configure TMP Sprite Assets.
+Input sprites are displayed using TextMesh Pro (TMP) Sprite Tags. So, to do it, it's firt necessary to configure TMP Sprite Assets.
 
 ### Configuring TMP Settings
 
@@ -43,7 +43,7 @@ Go to the Default Sprite Asset section and check for the path where your Sprites
 
 You need to place there all Sprite Assets your project is going to use. Also, you need to configure them. Use the [official TMP Sprite Asset section](https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.2/manual/Sprites.html) to know how.
 
-If you wish to use the Sprites from Free Prompts Pack, just copy and paste any file from the [Sprite Assets folder](/Sprite Assets) to your project path where your Sprites Assets will be loaded. **You don't need to configure any of them**. They are already all set to use and its sprites are on the [Sprites Sheets folder](/Sprites/) (you don't need to copy any file from this folder for your project).
+If you wish to use the Sprites from Free Prompts Pack, just copy and paste any file from the [Sprite Assets folder](/Sprite Assets/) to your project path where your Sprites Assets will be loaded. **You don't need to configure any of them**. They are already all set to use and its sprites are on the [Sprites Sheets folder](/Sprites/) (you don't need to copy any file from this folder for your project).
 
 ### Show Input Sprites using Text Mesh Pro
 
