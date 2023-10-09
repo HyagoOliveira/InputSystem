@@ -65,13 +65,13 @@ At runtime, the Sprite tag corresponding to the provided Action will use the cur
 
 ![LocalizedSpriteText Runtime][LocalizedSpriteText_Runtime]
 
-### Using Custom Sprite and Animation
+### Using Custom Sprites and Animations
 
-Sometimes we just want to replace the input field by a specific sprite for an action. You can do it using the [CustomSpriteText](/Runtime/SpriteText/CustomSpriteText.cs) component and setting **Tags** dictionary, specifying the Sprite name (located on the Sprite Asset) to each input device you're going to use: 
+Sometimes we just want to replace the input field by a specific sprite for an action. You can do it using the [CustomSpriteText](/Runtime/SpriteText/CustomSpriteText.cs) component and setting its **Tags** dictionary, specifying the Sprite name (located on the Sprite Asset) to each input device you're going to use: 
 
 ![CustomSpriteText Inspector for Names][CustomSpriteText_Inspector_Name]
 
-You can also use Sprite Animations. To do this, you must find the initial and final sprite indexes located at the Sprite Assets:
+You can also use Sprite Animations. First, you must find the initial and final sprite indexes located at the Sprite Assets:
 
 ![Keyboard And Mouse Indexes][KeyboardAndMouseIndexes]
 ![Xbox Indexes][XboxIndexes]
@@ -80,7 +80,7 @@ Finally, set the **Value Type** to **Animation** and fill the **Initial/Final In
 
 ![CustomSpriteText Inspector for Animations][CustomSpriteText_Inspector_Animation]
 
-At runtime, TPM will play the Sprite Animation:
+At runtime, TPM will play the Sprite Animation using the indexes and speed you've set.
 
 ![CustomSpriteText Animation Runtime][CustomSpriteText_Animation_Runtime]
 
