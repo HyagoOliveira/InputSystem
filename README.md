@@ -65,6 +65,27 @@ At runtime, the Sprite tag corresponding to the provided Action will use the cur
 
 ![LocalizedSpriteText Runtime][LocalizedSpriteText_Runtime]
 
+### Using Custom Sprite and Animation
+
+Sometimes we just want to replace the input field by a specific sprite for an action. You can do it using the [CustomSpriteText](/Runtime/SpriteText/CustomSpriteText.cs) component and setting **Tags** dictionary, specifying the Sprite name (located on the Sprite Asset) to each input device you're going to use: 
+
+![CustomSpriteText Inspector for Names][CustomSpriteText_Inspector_Name]
+
+You can also use Sprite Animations. To do this, you must find the initial and final sprite indexes located at the Sprite Assets:
+
+![Keyboard And Mouse Indexes][KeyboardAndMouseIndexes]
+![Xbox Indexes][XboxIndexes]
+
+Finally, set the **Value Type** to **Animation** and fill the **Initial/Final Index** and **Speed** fields for each input device you're going to use: 
+
+![CustomSpriteText Inspector for Animations][CustomSpriteText_Inspector_Animation]
+
+At runtime, TPM will play the Sprite Animation:
+
+![CustomSpriteText Animation Runtime][CustomSpriteText_Animation_Runtime]
+
+Note that **Sprite Animation is done only using consecutive indexes** found at Sprite Asset. This is a limitation from TextMesh Pro package.
+
 ### Processors
 
 * **StickDeadzoneClampedProcessor**: clamps a Stick input axis between a minimum and maximum value.
@@ -108,9 +129,14 @@ You will need a **Git client** installed on your computer with the Path variable
 
 [ActionSpriteText_Inspector]: /Documentation~/ActionSpriteText_Inspector.png "Inspector for ActionSpriteText component"
 [ActionSpriteText_Runtime]: /Documentation~/ActionSpriteText_Runtime.gif "Action Sprite Text at Runtime"
+[CustomSpriteText_Inspector_Name]: /Documentation~/CustomSpriteText_Inspector_Name.png "Inspector for CustomSpriteText component using sprite name"
+[CustomSpriteText_Inspector_Animation]: /Documentation~/CustomSpriteText_Inspector_Animation.png "Inspector for CustomSpriteText component using sprite animation"
 [InputActionMapPopup]: /Documentation~/InputActionMapPopup.jpg "Using Action Map Popup"
 [InputActionPopup]: /Documentation~/InputActionPopup.jpg "Using Input Action Popup"
 [MenuShowcase]: /Documentation~/MenuShowcase.gif "Using Input Sprites in Main Menu"
 [TMPSettings_SpriteAsset]: /Documentation~/TMPSettings_SpriteAsset.png "TMP Settings, Sprite Asset section"
 [LocalizedSpriteText_Inspector]: /Documentation~/LocalizedSpriteText_Inspector.png "Inspector for LocalizedSpriteText component"
 [LocalizedSpriteText_Runtime]: /Documentation~/LocalizedSpriteText_Runtime.gif "LocalizedSpriteText at Runtime"
+[CustomSpriteText_Animation_Runtime]: /Documentation~/CustomSpriteText_Animation_Runtime.gif "CustomSpriteText Animation at Runtime"
+[XboxIndexes]: /Documentation~/XboxIndexes.png "Inspector for XboxIndexes"
+[KeyboardAndMouseIndexes]: /Documentation~/KeyboardAndMouseIndexes.png "Inspector for KeyboardAndMouseIndexes"
