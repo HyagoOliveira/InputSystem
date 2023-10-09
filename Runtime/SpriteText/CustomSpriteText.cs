@@ -16,7 +16,7 @@ namespace ActionCode.InputSystem
     /// Next, set the <see cref="tags"/>, specifying a Sprite tag by each input device you're going to use. 
     /// You can set this tag by name or animation.
     /// <br/><br/>
-    /// At runtime, all occurrences of  <c>{input}</c> will be replaced by a Sprite tag 
+    /// At runtime, all occurrences of <c>{input}</c> will be replaced by a Sprite tag 
     /// corresponding to the input device you have selected.
     /// 
     /// <para> 
@@ -25,7 +25,7 @@ namespace ActionCode.InputSystem
     /// </para>
     /// </remarks>
     [DisallowMultipleComponent]
-    public sealed class SpriteTagText : AbstractSpriteText
+    public sealed class CustomSpriteText : AbstractSpriteText
     {
         [SerializeField, Tooltip("The Sprite Tags by each Input Device.")]
         private SerializedDictionary<InputDeviceType, SpriteTag> tags = new();
