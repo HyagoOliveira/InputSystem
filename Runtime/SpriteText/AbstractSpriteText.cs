@@ -28,7 +28,11 @@ namespace ActionCode.InputSystem
         /// Updates the local <see cref="textMesh"/> using Sprites Tags according with the given device.
         /// </summary>
         /// <param name="device">The input device to update the Sprite Tags.</param>
-        public void UpdateTextWithSpriteTag(InputDeviceType device) => textMesh.text = GetTextWithSpriteTag(device);
+        public void UpdateTextWithSpriteTag(InputDeviceType device)
+        {
+            SpriteAssetFinder.TryUpdateDeviceUsingSystem(ref device);
+            textMesh.text = GetTextWithSpriteTag(device);
+        }
 
         protected abstract string GetTextWithSpriteTag(InputDeviceType device);
 
