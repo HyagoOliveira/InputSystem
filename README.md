@@ -12,26 +12,22 @@
 
 ## Input Sprites Pack
 
-You can show your game button inputs using sprites from the amazing [Free Prompts Pack, created by Nicolae (Xelu) Berbece](https://thoseawesomeguys.com/prompts/).
+Show your game button inputs using sprites from the amazing [Free Prompts Pack, created by Nicolae (Xelu) Berbece](https://thoseawesomeguys.com/prompts/). The sprites are free to use in any project (be it commercial or not).
 
-You can use all these sprites in any project you want to (be it commercial or not).
-
-Includes buttons prompts for:
+Includes buttons sprites in 100x100 pixels (png format) for:
 
 * Xbox 360/One
 * PlayStation 4/5
 * Nintendo Switch Pro Controller
 * Keyboard and Mouse
 
-All are in 100x100 pixels, in .png format.
-
-You can use those sprites on UI when the input device changes:
+For example, you can use those sprites on UI when the input device changes in a Main Menu:
 
 ![Input Device Change Showcase][MenuShowcase]
 
 ## Displaying Button Sprites
 
-Input sprites are displayed using TextMesh Pro (TMP) Sprite Tags. So, to do it, it's first necessary to configure TMP Sprite Assets.
+Input sprites are displayed using TextMesh Pro (TMP) Sprite Tags. So, it's necessary to configure TMP Sprite Assets.
 
 ### Configuring TMP Settings
 
@@ -41,9 +37,9 @@ Go to the Default Sprite Asset section and check for the path where your Sprites
 
 ![TMPSettings SpriteAsset][TMPSettings_SpriteAsset]
 
-You need to place there all Sprite Assets your project is going to use. Also, you need to configure them. Use the [official TMP Sprite Asset section](https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.2/manual/Sprites.html) to know how.
+You need to place there all the Sprite Assets your project is going to use. Also, you need to configure them. Use the [official TMP Sprite Asset section](https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.2/manual/Sprites.html) to know how.
 
-If you wish to use the Sprites from **Free Prompts Pack**, just copy and paste any file from the [Sprite Assets folder](/SpriteAssets/) to your project path where your Sprites Assets will be loaded. **You don't need to configure any of them**. They are already all set to use and its sprites are on the [Sprites Sheets folder](/Sprites/) (you don't need to copy any file from this folder for your project).
+If you wish to use the Sprites from **Free Prompts Pack**, just copy and paste any file from the [Sprite Assets folder](/SpriteAssets/) to your project Default Sprite Assets path. **You don't need to configure any of Free Prompts Pack TMP Sprite Assets**. They are already all set to use and its sprites are on the [Sprites Sheets folder](/Sprites/) (you don't need to copy any file from this folder for your project).
 
 ### Showing Input Sprites using TMP
 
@@ -51,7 +47,7 @@ Place an [ActionSpriteText](/Runtime/SpriteText/ActionSpriteText.cs) component i
 
 ![Action Sprite Text][ActionSpriteText_Inspector]
 
- At runtime, when any keyboard/gamepad button is pressed or gamepad axis/mouse movement, all occurrences of ```{input}``` will be replaced by a Sprite tag corresponding to the provided Action:
+ At runtime, when any keyboard/gamepad button is pressed or gamepad axis/mouse movement, all occurrences of ```{input}``` will be replaced by a Sprite tag corresponding to the provided **Action Popup** field:
 
 ![Action Sprite Text Runtime][ActionSpriteText_Runtime]
 
@@ -61,9 +57,11 @@ If your project uses the Localization System provided by Unity, you can also att
 
 ![Inspector for LocalizedSpriteText][LocalizedSpriteText_Inspector]
 
-At runtime, the Sprite tag corresponding to the provided Action will use the current language:
+At runtime, the Sprite Tag will use the current language:
 
 ![LocalizedSpriteText Runtime][LocalizedSpriteText_Runtime]
+
+If your project uses another Localization System, use [LocalizedSpriteText](/Runtime/SpriteText/LocalizedSpriteText.cs) component as a base to create your own binder between your Localization provider and this package [ActionSpriteText](/Runtime/SpriteText/ActionSpriteText.cs).
 
 ### Using Custom Sprites and Animations
 
@@ -71,7 +69,9 @@ Sometimes we just want to replace the input field by a specific sprite for an ac
 
 ![CustomSpriteText Inspector for Names][CustomSpriteText_Inspector_Name]
 
-You can also use Sprite Animations. First, you must find the initial and final sprite indexes located at the Sprite Assets:
+You can also use this same component to play Sprite Animations. 
+
+First, you must find the initial and final sprite indexes located at the Sprite Assets:
 
 ![Keyboard And Mouse Indexes][KeyboardAndMouseIndexes]
 ![Xbox Indexes][XboxIndexes]
