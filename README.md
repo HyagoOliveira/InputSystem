@@ -24,11 +24,9 @@ For example, you can use those sprites on UI when the input device changes in a 
 
 ![Menu Showcase](/Documentation~/MenuShowcase.gif)
 
-## Displaying Button Sprites
-
 Input sprites are displayed using TextMesh Pro (TMP) Sprite Tags. So, it's necessary to configure TMP Sprite Assets.
 
-### Configuring TMP Settings
+## Configuring TMP Settings
 
 Locate **TMP Settings** asset on your project (generally at ```Assets/TextMesh Pro/Resources/TMP Settings.asset```).
 
@@ -40,12 +38,12 @@ You need to place there all the Sprite Assets your project is going to use. Also
 
 If you wish to use the Sprites from **Free Prompts Pack**, just copy and paste any file from the [Sprite Assets folder](/SpriteAssets/) to your project Default Sprite Assets path. **You don't need to configure any of Free Prompts Pack TMP Sprite Assets**. They are already all set to use and its sprites are on the [Sprites Sheets folder](/Sprites/) (you don't need to copy any file from this folder for your project).
 
-### Showing Input Sprites using TMP
+## Showing Input Sprites using TMP
 
 Place a [SpriteText](/Runtime/SpriteTexts/SpriteText.cs) component into the same GameObject containing a **TextMeshPro** and edit its text field, placing one o more key worlds (like ```{input}```) where Sprite Tags will be placed. Next, set the **Input Sprite Tags** dictionary, using the key worlds as its keys.
 At runtime, all key worlds will be replaced by the Sprite Tag associated to it.
 
-#### Show Inputs from Input Action Assets
+### Show Inputs from Input Action Assets
 
 Create an **ActionSpriteTag** asset using the create menu, ActionCode > Input System > Action Sprite Tag and set its fields:
 
@@ -59,7 +57,7 @@ At runtime, when any keyboard/gamepad button is pressed or gamepad axis/mouse mo
 
 ![Attack Action Runtime](/Documentation~/AttackAction_Runtime.gif)
 
-#### Show Inputs using Animations
+### Show Inputs using Animations
 
 Create an **AnimationSpriteTag** asset using the create menu, ActionCode > Input System > Animation Sprite Tag and set its fields:
 
@@ -68,11 +66,11 @@ Create an **AnimationSpriteTag** asset using the create menu, ActionCode > Input
 You can find the initial and final indexes at the Sprite Assets:
 
 ![Keyboard And Mouse Indexes](/Documentation~/Indexes_KeyboardAndMouse.png)
-![Xbox Indexes][/Documentation~/Indexes_XBOX.png]
+![Xbox Indexes](/Documentation~/Indexes_XBOX.png)
 
 Note that **Sprite Animation is done only using consecutive indexes** found at Sprite Asset. This is a limitation from TextMesh Pro package.
 
-Referenciate it at your SpriteText component:
+Reference it at your SpriteText component:
 
 ![Hadouken Action SpriteText](/Documentation~/HadoukenAction_SpriteText.png)
 
