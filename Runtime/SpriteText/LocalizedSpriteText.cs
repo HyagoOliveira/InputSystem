@@ -5,25 +5,25 @@ using UnityEngine.Localization.Components;
 namespace ActionCode.InputSystem
 {
     /// <summary>
-    /// Updates any implementation of a local <see cref="AbstractSpriteText"/> 
-    /// component when a localization update event (from Unity Localization System) happens.
+    /// Updates the local <see cref="SpriteText"/> component using 
+    /// the localization update event (from Unity Localization System).
     /// </summary>
     /// <remarks>
-    /// if your project uses another Localization System, use this class as a base to create 
-    /// your own implementation.
+    /// If your project uses another Localization System, use this class 
+    /// as a base to create your own implementation.
     /// </remarks>
     [DisallowMultipleComponent]
     [RequireComponent(typeof(LocalizeStringEvent))]
     public sealed class LocalizedSpriteText : MonoBehaviour
     {
         [SerializeField, Tooltip("The local SpriteText component.")]
-        private AbstractSpriteText spriteText;
+        private SpriteText spriteText;
         [SerializeField, Tooltip("The local Localization component.")]
         private LocalizeStringEvent localization;
 
         private void Reset()
         {
-            spriteText = GetComponent<AbstractSpriteText>();
+            spriteText = GetComponent<SpriteText>();
             localization = GetComponent<LocalizeStringEvent>();
         }
 
@@ -32,9 +32,9 @@ namespace ActionCode.InputSystem
 
         private void HandleLocalizationChanged(string localizedText)
         {
-            spriteText.OriginalText = localizedText;
+            spriteText.SourceText = localizedText;
             if (InputSystem.LastDeviceType == InputDeviceType.None) return;
-            spriteText.UpdateTextWithSpriteTag(InputSystem.LastDeviceType);
+            spriteText.UpdateTextWithSpriteTags(InputSystem.LastDeviceType);
         }
     }
 }
