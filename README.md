@@ -107,18 +107,40 @@ At runtime, the Sprite Tag will use the current language:
 
 If your project uses another Localization System, use [LocalizedSpriteText](/Runtime/SpriteTexts/LocalizedSpriteText.cs) component as a base to create your own implementation between your Localization provider and this package [ActionSpriteText](/Runtime/SpriteTexts/SpriteText.cs).
 
-### Processors
+## Processors
 
-* **StickDeadzoneClampedProcessor**: clamps a Stick input axis between a minimum and maximum value.
+This package contains some useful processors you can use to improve how inputs are processed:
+
+* **StickDeadzoneClampedProcessor**: clamps a Stick input axis between a minimum and maximum value. Unity has a similar processor StickDeadzone but this one doe not clamp the vector.
 * **TruncateStickProcessor**: truncates an input axis using an absolute value.
 
-### Properties
+### InputActionPopup Property
 
-* **InputActionMapPopup**: displays the action maps from a given **InputActionAsset** as a Popup field.
-![Action Map Popup Showcase][InputActionMapPopup]
-    
-* **InputActionPopup**: displays the actions from a given **InputActionMap** as a Popup field.
-![Action Popup Showcase][InputActionPopup]
+This property displays the actions from a given **InputActionMap** as a Popup field.
+
+Suppose you have this Input Action Asset containing your player inputs:
+
+![Player Input](/Documentation~/PlayerInput.png)
+
+You can use the InputActionPopup as follow:
+
+```csharp
+using UnityEngine;
+using ActionCode.InputSystem;
+using UnityEngine.InputSystem;
+
+public sealed class InputActionPopupTest : MonoBehaviour
+{
+    [SerializeField] private InputActionAsset inputAsset;
+    [SerializeField] private InputActionPopup actionPopup = new(nameof(inputAsset));
+}
+```
+
+The [InputActionPopup](/Runtime/Properties/InputActionPopup.cs) will render a nice popup containing all your input actions:
+
+![Input Action Popup Tester](/Documentation~/InputActionPopupTester.gif)
+
+**Tip**: there is a similar component to display only the Action Maps from a InputActionMap: [InputActionMapPopup](/Runtime/Properties/InputActionMapPopup.cs) 
 
 ## Installation
 
