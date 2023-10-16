@@ -34,7 +34,7 @@ Go to the Default Sprite Asset section and check for the path where your Sprites
 
 ![TMPSettings Sprite Asset](/Documentation~/TMPSettings_SpriteAsset.png)
 
-You need to place there all the Sprite Assets your project is going to use. Also, you need to configure them. Use the [official TMP Sprite Asset section](https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.2/manual/Sprites.html) to know how.
+You need to place there all the Sprite Assets your project is going to use. Don't forget to configure them. Use the [official TMP Sprite Asset section](https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.2/manual/Sprites.html) to know how. Also, all Sprite Assets present in this folder should be named following the [InputDeviceType](/Runtime/InputDeviceType.cs) enum. You don't need to create a Sprite Assets for all elements on this enum since the code will search and use the nearest available on Resources folder.
 
 If you wish to use the Sprites from **Free Prompts Pack**, just copy and paste any file from the [Sprite Assets folder](/SpriteAssets/) to your project Default Sprite Assets path. **You don't need to configure any of Free Prompts Pack TMP Sprite Assets**. They are already all set to use and its sprites are on the [Sprites Sheets folder](/Sprites/) (you don't need to copy any file from this folder for your project).
 
@@ -57,6 +57,8 @@ At runtime, when any keyboard/gamepad button is pressed or gamepad axis/mouse mo
 
 ![Attack Action Runtime](/Documentation~/AttackAction_Runtime.gif)
 
+This approach is useful when showing an input that player can change on the game input settings.
+
 ### Show Inputs using Animations
 
 Create an **AnimationSpriteTag** asset using the create menu, ActionCode > Input System > Animation Sprite Tag and set its fields:
@@ -77,6 +79,8 @@ Reference it at your SpriteText component:
 At runtime, TPM will play the Sprite Animation using the indexes and speed you've set:
 
 ![Hadouken Action Runtime](/Documentation~/HadoukenAction_Runtime.gif)
+
+As you see, this approach is useful to show an input sequence like a combo.
 
 ### Using Unity Localization System
 
