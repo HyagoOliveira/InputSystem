@@ -35,8 +35,5 @@ namespace ActionCode.InputSystem
 
             return GetTagUsingName(assetName, spriteName);
         }
-
-        private static string GetTagUsingName(string assetName, string spriteName) =>
-            $"<sprite=\"{assetName}\" name=\"{spriteName}\">";
     }
 }

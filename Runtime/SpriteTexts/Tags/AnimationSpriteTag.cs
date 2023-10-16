@@ -17,8 +17,8 @@ namespace ActionCode.InputSystem
 
         public override string GetTag(InputDeviceType device)
         {
-            var assetName = device.ToString();
             var indexes = GetIndexes(device);
+            var assetName = device.ToString();
             return GetTagUsingAnimation(assetName, indexes.initialIndex, indexes.finalIndex, speed);
         }
 

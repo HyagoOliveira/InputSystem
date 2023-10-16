@@ -10,8 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - InputSystem.OnDeviceInputChanged: event fired when any input from any connected device changed
 - SpriteText: displays multiple Sprite Tags
 - LocalizedSpriteText: updates the local SpriteText component when a localization update event (from Unity Localization System) happens
-- Button sprites for Xbox 360, PlayStation 4/5, Nintentdo Switch Pro Controller and Keyboard/Mouse
+- Button sprites for Xbox 360, PlayStation 4/5, Nintendo Switch Pro Controller and Keyboard/Mouse
 - Serialized Dictionary dependency
+- Scriptable Objects for AnimationSpriteTag, ActionSpriteTag and CustomSpriteTag
 
 ### Changed
 - Update Input System package to 1.2.0

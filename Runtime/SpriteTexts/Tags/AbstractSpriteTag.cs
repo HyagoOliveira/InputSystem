@@ -15,5 +15,8 @@ namespace ActionCode.InputSystem
         /// <param name="device">The device used to find the appropriate Sprite Tag.</param>
         /// <returns>A string containing a TMP Sprite Tag</returns>
         public abstract string GetTag(InputDeviceType device);
+
+        protected static string GetTagUsingName(string assetName, string spriteName) =>
+            $"<sprite=\"{assetName}\" name=\"{spriteName}\">";
     }
 }
