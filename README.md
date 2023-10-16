@@ -82,6 +82,19 @@ At runtime, TPM will play the Sprite Animation using the indexes and speed you'v
 
 As you see, this approach is useful to show an input sequence like a combo.
 
+### Show Inputs using Custom Sprites
+
+Sometimes we just want to use a custom sprite to show an input. Do do this, create an **CustomSpriteTag** asset using the create menu, ActionCode > Input System > Custom Sprite Tag and set its fields:
+
+![Vertical Action](/Documentation~/VerticalAction.png)
+
+Again, find the sprite names using the Sprite Assets:
+
+![Name KeyboardAndMouse](/Documentation~/Name_KeyboardAndMouse.png)
+![Name XBOX](/Documentation~/Name_XBOX.png)
+
+Use this approach tho show sprites your know will never change or when the input system cannot detect the key.
+
 ### Using Unity Localization System
 
 If your project uses the Localization System provided by Unity, you can also attach the [LocalizedSpriteText](/Runtime/SpriteText/LocalizedSpriteText.cs) component in the same GameObject and configure its localization as usual:
