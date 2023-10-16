@@ -97,15 +97,15 @@ Use this approach tho show sprites your know will never change or when the input
 
 ### Using Unity Localization System
 
-If your project uses the Localization System provided by Unity, you can also attach the [LocalizedSpriteText](/Runtime/SpriteText/LocalizedSpriteText.cs) component in the same GameObject and configure its localization as usual:
+If your project uses the Localization System provided by Unity, you can also attach the [LocalizedSpriteText](/Runtime/SpriteTexts/LocalizedSpriteText.cs) component in the same GameObject where a SpriteText component is:
 
-![Inspector for LocalizedSpriteText][LocalizedSpriteText_Inspector]
+![Inspector for LocalizedSpriteText](/Documentation~/LocalizedSpriteText.png)
 
 At runtime, the Sprite Tag will use the current language:
 
-![LocalizedSpriteText Runtime][LocalizedSpriteText_Runtime]
+![LocalizedSpriteText Runtime](/Documentation~/LocalizedSpriteText_Runtime.gif)
 
-If your project uses another Localization System, use [LocalizedSpriteText](/Runtime/SpriteText/LocalizedSpriteText.cs) component as a base to create your own binder between your Localization provider and this package [ActionSpriteText](/Runtime/SpriteText/ActionSpriteText.cs).
+If your project uses another Localization System, use [LocalizedSpriteText](/Runtime/SpriteTexts/LocalizedSpriteText.cs) component as a base to create your own implementation between your Localization provider and this package [ActionSpriteText](/Runtime/SpriteTexts/SpriteText.cs).
 
 ### Processors
 
