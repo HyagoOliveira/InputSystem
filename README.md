@@ -111,10 +111,10 @@ If your project uses another Localization System, use [LocalizedSpriteText](/Run
 
 This package contains some useful processors you can use to improve how inputs are processed:
 
-* **StickDeadzoneClampedProcessor**: clamps a Stick input axis between a minimum and maximum value. Unity has a similar processor StickDeadzone but this one doe not clamp the vector.
+* **StickDeadzoneClampedProcessor**: clamps a Stick input axis between a minimum and maximum value. Unity has a similar processor (StickDeadzone) but this one does not clamp the vector.
 * **TruncateStickProcessor**: truncates an input axis using an absolute value.
 
-### InputActionPopup Property
+## InputActionPopup Property
 
 This property displays the actions from a given **InputActionMap** as a Popup field.
 
@@ -140,7 +140,7 @@ The [InputActionPopup](/Runtime/Properties/InputActionPopup.cs) will render a ni
 
 ![Input Action Popup Tester](/Documentation~/InputActionPopupTester.gif)
 
-**Tip**: there is a similar component to display only the Action Maps from a InputActionMap: [InputActionMapPopup](/Runtime/Properties/InputActionMapPopup.cs) 
+**Tip**: there is a similar component to display only the Action Maps from a InputActionMap: [InputActionMapPopup](/Runtime/Properties/InputActionMapPopup.cs)
 
 ## Installation
 
