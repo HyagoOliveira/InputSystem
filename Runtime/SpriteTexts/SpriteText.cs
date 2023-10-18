@@ -48,7 +48,7 @@ namespace ActionCode.InputSystem
         /// <param name="device">The input device to update the Sprite Tags.</param>
         public void UpdateTextWithSpriteTags(InputDeviceType device)
         {
-            SpriteAssetFinder.TryUpdateDeviceUsingSystem(ref device);
+            SpriteAssetFinder.TryUpdateToAvailableDevice(ref device);
             textMesh.text = GetTextWithSpriteTags(device);
         }
 
