@@ -93,9 +93,9 @@ Again, find the sprite names using the Sprite Assets:
 ![Name KeyboardAndMouse](/Documentation~/Name_KeyboardAndMouse.png)
 ![Name XBOX](/Documentation~/Name_XBOX.png)
 
-Use this approach tho show sprites your know will never change or when the input system cannot detect the key.
+Use this approach tho show sprites you know will never change or when the input system cannot detect the key.
 
-### Using Unity Localization System
+## Using Unity Localization System
 
 If your project uses the Localization System provided by Unity, you can also attach the [LocalizedSpriteText](/Runtime/SpriteTexts/LocalizedSpriteText.cs) component in the same GameObject where a SpriteText component is:
 
@@ -105,7 +105,7 @@ At runtime, the Sprite Tag will use the current language:
 
 ![LocalizedSpriteText Runtime](/Documentation~/LocalizedSpriteText_Runtime.gif)
 
-If your project uses another Localization System, use [LocalizedSpriteText](/Runtime/SpriteTexts/LocalizedSpriteText.cs) component as a base to create your own implementation between your Localization provider and this package [ActionSpriteText](/Runtime/SpriteTexts/SpriteText.cs).
+If your project uses another Localization System, use this same [LocalizedSpriteText](/Runtime/SpriteTexts/LocalizedSpriteText.cs) component as a base to create your own implementation between your Localization provider and this package [SpriteText](/Runtime/SpriteTexts/SpriteText.cs).
 
 ## Processors
 
