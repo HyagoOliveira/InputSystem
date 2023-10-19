@@ -205,14 +205,14 @@ MonoBehaviour:
     m_Unicode: 65534
     m_GlyphIndex: 20
     m_Scale: 1
-    m_Name: DpadVertical
-    m_HashCode: -1412688733
+    m_Name: dpad/y
+    m_HashCode: -472714233
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 21
     m_Scale: 1
-    m_Name: DpadHorizontal
-    m_HashCode: 1189487759
+    m_Name: dpad/x
+    m_HashCode: -472714234
   m_SpriteGlyphTable:
   - m_Index: 0
     m_Metrics:
