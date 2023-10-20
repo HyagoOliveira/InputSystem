@@ -61,7 +61,7 @@ This approach is useful when showing an input that player can change on the game
 
 #### How to name Sprites?
 
-If you created a new action and want to know how to name the Sprite for it, find your Input Actions asset, select your Action and click on the **T Button*** next to Path field. Copy only the string after ```<Device>/``` prefix:
+If you created a new action and want to know how to name the Sprite for it, find your Input Actions asset, select your Action and click on the **T Button** next to Path field. Copy only the string after ```<Device>/``` prefix:
 
 ![Finding Action Name](/Documentation~/FindingActionName.png)
 
