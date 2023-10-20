@@ -59,6 +59,16 @@ At runtime, when any keyboard/gamepad button is pressed or gamepad axis/mouse mo
 
 This approach is useful when showing an input that player can change on the game input settings.
 
+#### How to name Sprite Asset?
+
+If you created a new action and want to know how to name the Sprite for it, select your Input Actions asset, find your Action and click on the **T** button next to Path field. Copy only the string after ```<Device>/``` prefix:
+
+![Finding Action Name](/Documentation~/FindingActionName.png)
+
+Paste this string on the Sprite Asset field name:
+
+![Finding Action Name](/Documentation~/RenameAction.png)
+
 ### Show Inputs using Animations
 
 Create an **AnimationSpriteTag** asset using the create menu, ActionCode > Input System > Animation Sprite Tag and set its fields:
