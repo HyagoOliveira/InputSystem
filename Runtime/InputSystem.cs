@@ -25,19 +25,18 @@ namespace ActionCode.InputSystem
                 InternalOnDeviceInputChanged += value;
 
                 // InputSystem.onEvent is a heavy event executed in every Update()
-                // To save performance, only binds into its event when the first binder is present
+                // To improve performance, only binds into its event when the first binder is present
                 if (isFirstBinder) BindIntoInputOnEvent();
 
-#if UNITY_WEBGL && !UNITY_EDITOR
-                FindInitialDeviceOnWebGL();
-#endif
+                if (LastDeviceType == InputDeviceType.None) LastDeviceType = FindCurrentDeviceType();
+                value?.Invoke(LastDeviceType);
             }
 
             remove
             {
                 InternalOnDeviceInputChanged -= value;
 
-                // To save performance, unbinders from InputSystem.onEvent if no binder is present
+                // To improve performance, unbinders from InputSystem.onEvent if no binder is present
                 if (HasNoBinders()) UnbindFromInputOnEvent();
             }
         }
@@ -48,14 +47,13 @@ namespace ActionCode.InputSystem
         private static void BindIntoInputOnEvent() => UnityEngine.InputSystem.InputSystem.onEvent += HandleInputEvent;
         private static void UnbindFromInputOnEvent() => UnityEngine.InputSystem.InputSystem.onEvent -= HandleInputEvent;
 
-        private static void FindInitialDeviceOnWebGL()
+        private static InputDeviceType FindCurrentDeviceType()
         {
             var gamepad = Gamepad.current;
             var hasGamepad = gamepad != null;
             InputDevice device = hasGamepad ? gamepad : Keyboard.current;
 
-            LastDeviceType = device.GetInputDeviceType();
-            InternalOnDeviceInputChanged?.Invoke(LastDeviceType);
+            return device.GetInputDeviceType();
         }
 
         private static void HandleInputEvent(InputEventPtr eventPtr, InputDevice control)
