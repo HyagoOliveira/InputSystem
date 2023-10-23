@@ -117,12 +117,9 @@ At runtime, the Sprite Tag will use the current language:
 
 If your project uses another Localization System, use this same [LocalizedSpriteText](/Runtime/SpriteTexts/LocalizedSpriteText.cs) component as a base to create your own implementation between your Localization provider and this package [SpriteText](/Runtime/SpriteTexts/SpriteText.cs).
 
-## Processors
+## Truncate Stick Processor
 
-This package contains some useful processors you can use to improve how inputs are processed:
-
-* **StickDeadzoneClampedProcessor**: clamps a Stick input axis between a minimum and maximum value. Unity has a similar processor (StickDeadzone) but this one does not clamp the vector.
-* **TruncateStickProcessor**: truncates an input axis using an absolute value.
+This processor truncates an input axis using an absolute value.
 
 ## InputActionPopup Property
 
