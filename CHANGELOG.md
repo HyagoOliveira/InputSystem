@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Button sprites for Xbox 360, PlayStation 4/5, Nintendo Switch Pro Controller and Keyboard/Mouse
 - Serialized Dictionary dependency
 - Scriptable Objects for AnimationSpriteTag, ActionSpriteTag and CustomSpriteTag
+- AxisWiggleInteraction
 
 ### Changed
 - Update Input System package to 1.2.0
