@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Serialized Dictionary dependency
 - Scriptable Objects for AnimationSpriteTag, ActionSpriteTag and CustomSpriteTag
 - AxisWiggleInteraction
+- Vector2WiggleInteraction
 
 ### Changed
 - Update Input System package to 1.2.0
