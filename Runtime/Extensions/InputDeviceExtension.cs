@@ -1,4 +1,5 @@
 using UnityEngine.InputSystem;
+using UnityInputSystem = UnityEngine.InputSystem;
 
 namespace ActionCode.InputSystem
 {
@@ -21,33 +22,34 @@ namespace ActionCode.InputSystem
             var type = InputDeviceType.NotFound;
 
             if (device is Keyboard || device is Mouse) type = InputDeviceType.KeyboardAndMouse;
-            else if (device is UnityEngine.InputSystem.XInput.XInputController) type = InputDeviceType.XboxSystem;
-            else if (device is UnityEngine.InputSystem.DualShock.DualShockGamepad) type = InputDeviceType.PlaystationSystem;
+            else if (device is UnityInputSystem.XInput.XInputController) type = InputDeviceType.XboxSystem;
+            else if (device is UnityInputSystem.DualShock.DualShockGamepad) type = InputDeviceType.PlaystationSystem;
             else if (device is Gamepad) type = InputDeviceType.GenericGamepad;
 
 #if UNITY_EDITOR || UNITY_ANDROID
-            if (device is UnityEngine.InputSystem.Android.AndroidGamepad) type = InputDeviceType.AndroidGamepad;
-            else if (device is UnityEngine.InputSystem.Android.XboxOneGamepadAndroid) type = InputDeviceType.XboxOne;
+            if (device is UnityInputSystem.Android.AndroidGamepad) type = InputDeviceType.AndroidGamepad;
+            else if (device is UnityInputSystem.Android.XboxOneGamepadAndroid) type = InputDeviceType.XboxOne;
 #endif
 
 #if UNITY_EDITOR || UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN || UNITY_WSA || UNITY_PS3 || UNITY_PS4 || UNITY_PS5 || UNITY_SWITCH
-            if (device is UnityEngine.InputSystem.DualShock.DualShock3GamepadHID) type = InputDeviceType.Playstation3;
-            else if (device is UnityEngine.InputSystem.DualShock.DualShock4GamepadHID) type = InputDeviceType.Playstation4;
-            else if (device is UnityEngine.InputSystem.DualShock.DualSenseGamepadHID) type = InputDeviceType.Playstation5;
-            else if (device is UnityEngine.InputSystem.Switch.SwitchProControllerHID) type = InputDeviceType.SwitchProController;
+            if (device is UnityInputSystem.DualShock.DualShock3GamepadHID) type = InputDeviceType.Playstation3;
+            else if (device is UnityInputSystem.DualShock.DualShock4GamepadHID) type = InputDeviceType.Playstation4;
+            else if (device is UnityInputSystem.DualShock.DualSenseGamepadHID) type = InputDeviceType.Playstation5;
+            else if (device is UnityInputSystem.Switch.SwitchProControllerHID) type = InputDeviceType.SwitchProController;
 #endif
 
 #if UNITY_EDITOR || UNITY_IOS || UNITY_TVOS || UNITY_PS4
-            if (device is UnityEngine.InputSystem.iOS.DualShock4GampadiOS) type = InputDeviceType.Playstation4;
-            if (device is UnityEngine.InputSystem.iOS.DualSenseGampadiOS) type = InputDeviceType.Playstation5;
-            else if (device is UnityEngine.InputSystem.iOS.XboxOneGampadiOS) type = InputDeviceType.XboxOne;
-            else if (device is UnityEngine.InputSystem.iOS.iOSGameController) type = InputDeviceType.iOSGamepad;
+            if (device is UnityInputSystem.iOS.DualShock4GampadiOS) type = InputDeviceType.Playstation4;
+            if (device is UnityInputSystem.iOS.DualSenseGampadiOS) type = InputDeviceType.Playstation5;
+            else if (device is UnityInputSystem.iOS.XboxOneGampadiOS) type = InputDeviceType.XboxOne;
+            else if (device is UnityInputSystem.iOS.iOSGameController) type = InputDeviceType.iOSGamepad;
 #endif
 
 #if UNITY_WEBGL
-            if (device is UnityEngine.InputSystem.WebGL.WebGLGamepad)
+            if (device is UnityInputSystem.WebGL.WebGLGamepad)
             {
                 var description = device.description.product?.ToLower() ?? string.Empty;
+                //UnityEngine.Debug.Log(description);
 
                 if (description.Contains("xbox 360")) type = InputDeviceType.Xbox360;
                 else if (description.Contains("xbox")) type = InputDeviceType.XboxSystem;
