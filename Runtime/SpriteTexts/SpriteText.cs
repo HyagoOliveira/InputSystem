@@ -25,16 +25,13 @@ namespace ActionCode.InputSystem
     /// </remarks>
     [DisallowMultipleComponent]
     [RequireComponent(typeof(TMP_Text))]
-    public sealed class SpriteText : MonoBehaviour
+    public sealed class SpriteText : MonoBehaviour, ISpriteText
     {
         [SerializeField, Tooltip("The local TextMeshPro component.")]
         private TMP_Text textMesh;
         [SerializeField, Tooltip("The input sprite tags dictionary.")]
         private SerializedDictionary<string, AbstractSpriteTag> inputSpriteTags = new();
 
-        /// <summary>
-        /// The source text from <see cref="textMesh"/> component.
-        /// </summary>
         public string SourceText { get; internal set; }
 
         private void Reset() => textMesh = GetComponent<TMP_Text>();
@@ -42,10 +39,6 @@ namespace ActionCode.InputSystem
         private void OnEnable() => InputSystem.OnDeviceInputChanged += HandleDeviceInputChanged;
         private void OnDisable() => InputSystem.OnDeviceInputChanged -= HandleDeviceInputChanged;
 
-        /// <summary>
-        /// Updates the local <see cref="textMesh"/> using Sprites Tags according with the given device.
-        /// </summary>
-        /// <param name="device">The input device to update the Sprite Tags.</param>
         public void UpdateTextWithSpriteTags(InputDeviceType device)
         {
             SpriteAssetFinder.TryUpdateToAvailableDevice(ref device);
