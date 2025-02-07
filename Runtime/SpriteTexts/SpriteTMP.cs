@@ -25,7 +25,7 @@ namespace ActionCode.InputSystem
     /// </remarks>
     [DisallowMultipleComponent]
     [RequireComponent(typeof(TMP_Text))]
-    public sealed class SpriteText : MonoBehaviour, ISpriteText
+    public sealed class SpriteTMP : MonoBehaviour, ISpriteText
     {
         [SerializeField, Tooltip("The local TextMeshPro component.")]
         private TMP_Text textMesh;
