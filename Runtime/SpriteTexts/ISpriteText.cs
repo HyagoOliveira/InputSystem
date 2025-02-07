@@ -8,7 +8,7 @@ namespace ActionCode.InputSystem
         /// <summary>
         /// The source text content.
         /// </summary>
-        string SourceText { get; }
+        string SourceText { get; set; }
 
         /// <summary>
         /// Updates the text using Sprites Tags according with the given device.

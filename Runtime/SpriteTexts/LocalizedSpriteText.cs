@@ -17,13 +17,13 @@ namespace ActionCode.InputSystem
     public sealed class LocalizedSpriteText : MonoBehaviour
     {
         [SerializeField, Tooltip("The local SpriteText component.")]
-        private SpriteText spriteText;
+        private ISpriteText spriteText;
         [SerializeField, Tooltip("The local Localization component.")]
         private LocalizeStringEvent localization;
 
         private void Reset()
         {
-            spriteText = GetComponent<SpriteText>();
+            spriteText = GetComponent<ISpriteText>();
             localization = GetComponent<LocalizeStringEvent>();
         }
 

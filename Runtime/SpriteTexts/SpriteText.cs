@@ -32,7 +32,7 @@ namespace ActionCode.InputSystem
         [SerializeField, Tooltip("The input sprite tags dictionary.")]
         private SerializedDictionary<string, AbstractSpriteTag> inputSpriteTags = new();
 
-        public string SourceText { get; internal set; }
+        public string SourceText { get; set; }
 
         private void Reset() => textMesh = GetComponent<TMP_Text>();
         private void Awake() => SourceText = textMesh.text;
