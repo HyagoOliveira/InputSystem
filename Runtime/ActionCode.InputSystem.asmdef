@@ -19,6 +19,11 @@
             "name": "com.unity.localization",
             "expression": "1.0.0",
             "define": "UNITY_LOCALIZATION"
+        },
+        {
+            "name": "com.unity.modules.uielements",
+            "expression": "1.0.0",
+            "define": "UI_TOOLKIT"
         }
     ],
     "noEngineReferences": false
