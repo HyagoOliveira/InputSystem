@@ -24,23 +24,44 @@ For example, you can use those sprites on UI when the input device changes in a 
 
 ![Menu Showcase](/Documentation~/MenuShowcase.gif)
 
-Input sprites are displayed using TextMesh Pro (TMP) Sprite Tags. So, it's necessary to configure TMP Sprite Assets.
+Input sprites are displayed using TextMesh Pro (TMP) or UI Toolkit (UITK) Sprite Tags. 
+
+Before that, it's necessary to configure TMP or UITK Sprite Assets. If yor project uses both TMP and UITK, check where you need to use the buttons sprites and configure the assets according. 
+You can also use both TMP and UITK as well.
+
+## Configuring UITK Text Settings
+
+Locate **UITK Text Settings** asset on your project (generally at ```Assets/UI Toolkit/UITK Text Settings.asset```). If you don't find this asset, create one following this [instructions](https://docs.unity3d.com/6000.0/Documentation/Manual/UIE-text-setting-asset.html).
+
+Go to the Default Sprite Asset section and check for the path where your Sprites Assets will be loaded:
+
+![UITKTextSettings Sprite Asset](/Documentation~/UITKTextSettings_SpriteAsset.png)
+
+You need to place there all the Sprite Assets your project is going to use. Don't forget to configure them. Use the [official Include sprites in text section](https://docs.unity3d.com/Manual/UIE-sprite.html) to know how.
 
 ## Configuring TMP Settings
 
-Locate **TMP Settings** asset on your project (generally at ```Assets/TextMesh Pro/Resources/TMP Settings.asset```).
+Locate the **TMP Settings** asset on your project (generally at ```Assets/TextMesh Pro/Resources/TMP Settings.asset```).
 
-Go to the Default Sprite Asset section and check for the path where your Sprites Assets will be loaded.
+Go to the Default Sprite Asset section and check for the path where your Sprites Assets will be loaded:
 
 ![TMPSettings Sprite Asset](/Documentation~/TMPSettings_SpriteAsset.png)
 
-You need to place there all the Sprite Assets your project is going to use. Don't forget to configure them. Use the [official TMP Sprite Asset section](https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.2/manual/Sprites.html) to know how. Also, all Sprite Assets present in this folder should be named following the [InputDeviceType](/Runtime/InputDeviceType.cs) enum. You don't need to create a Sprite Assets for all elements on this enum since the code will search and use the nearest available on Resources folder.
+You need to place there all the Sprite Assets your project is going to use. Don't forget to configure them. Use the [official TMP Sprite Asset section](https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.2/manual/Sprites.html) to know how. 
 
-If you wish to use the Sprites from **Free Prompts Pack**, just copy and paste any file from the [Sprite Assets folder](/SpriteAssets/) to your project Default Sprite Assets path. **You don't need to configure any of Free Prompts Pack TMP Sprite Assets**. They are already all set to use and its sprites are on the [Sprites Sheets folder](/Sprites/) (you don't need to copy any file from this folder for your project).
+## Placing Sprite Assets to Folder
+
+All Sprite Assets present on Default Sprite Asset folder should be named following the [InputDeviceType](/Runtime/InputDeviceType.cs) enum. You don't need to create a Sprite Assets for all elements on this enum since the code will search and use the nearest available on this folder.
+
+If you wish to use the Sprites from **Free Prompts Pack**, just copy and paste to your project Default Sprite Assets path any file from the folder [UITK Sprite Assets](/SpriteAssets/UITK) (if using UITK) or [TMP Sprite Assets](/SpriteAssets/TMP) (if using TMP).
+
+ **You don't need to configure any of Free Prompts Pack TMP Sprite Assets**. They are already all set to use and its sprites are on the [Sprites Sheets folder](/Sprites/) (you don't need to copy any file from this folder to your project).
+
+ >> **Note**: When using Sprite Assets inside a Ressource folder, you don't need to place there the Sprite Atlas Texture.
 
 ## Showing Input Sprites using TMP
 
-Place a [SpriteText](/Runtime/SpriteTexts/SpriteText.cs) component into the same GameObject containing a **TextMeshPro** and edit its text field, placing one o more key worlds (like ```{input}```) where Sprite Tags will be placed. Next, set the **Input Sprite Tags** dictionary, using the key worlds as its keys.
+Place a [SpriteTMP](/Runtime/SpriteTexts/SpriteTMP.cs) component into the same GameObject containing a **TextMeshPro** and edit its text field, placing one or more key worlds (like ```{input}```) where Sprite Tags will be placed. Next, set the **Input Sprite Tags** dictionary, using the key worlds as its keys.
 At runtime, all key worlds will be replaced by the Sprite Tag associated to it.
 
 ### Show Inputs from Input Action Assets
