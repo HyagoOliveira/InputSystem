@@ -1,5 +1,0 @@
-If you want to use any of those Sprite Assets into your project, copy the one and place it on your TextMesh Pro Sprite Assets folder.
-
-Generally, TextMesh Pro folder is located at Assets/ root. In this case, copy the asset(s) to:
-
-<your_project_path>/Assets/TextMesh Pro/Resources/Sprite Assets/

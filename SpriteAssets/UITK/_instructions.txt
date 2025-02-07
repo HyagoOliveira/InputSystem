@@ -1,0 +1,3 @@
+If you want to use any of those Sprite Assets into your project, copy the one and past it into your UI Toolkit Sprite Assets folder.
+
+Check the README to know where this folder is.
