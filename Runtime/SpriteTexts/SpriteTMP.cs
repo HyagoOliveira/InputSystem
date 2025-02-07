@@ -25,14 +25,14 @@ namespace ActionCode.InputSystem
     /// </remarks>
     [DisallowMultipleComponent]
     [RequireComponent(typeof(TMP_Text))]
-    public sealed class SpriteTMP : MonoBehaviour, ISpriteText
+    public sealed class SpriteTMP : MonoBehaviour
     {
         [SerializeField, Tooltip("The local TextMeshPro component.")]
         private TMP_Text textMesh;
         [SerializeField, Tooltip("The input sprite tags dictionary.")]
         private SerializedDictionary<string, AbstractSpriteTag> inputSpriteTags = new();
 
-        public string SourceText { get; set; }
+        public string SourceText { get; internal set; }
 
         private void Reset() => textMesh = GetComponent<TMP_Text>();
         private void Awake() => SourceText = textMesh.text;

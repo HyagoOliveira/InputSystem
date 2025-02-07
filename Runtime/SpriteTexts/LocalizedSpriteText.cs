@@ -5,7 +5,7 @@ using UnityEngine.Localization.Components;
 namespace ActionCode.InputSystem
 {
     /// <summary>
-    /// Updates the local <see cref="SpriteText"/> component using 
+    /// Updates the local <see cref="SpriteTMP"/> component using 
     /// the localization update event (from Unity Localization System).
     /// </summary>
     /// <remarks>
@@ -17,13 +17,13 @@ namespace ActionCode.InputSystem
     public sealed class LocalizedSpriteText : MonoBehaviour
     {
         [SerializeField, Tooltip("The local SpriteText component.")]
-        private ISpriteText spriteText;
+        private SpriteTMP spriteText;
         [SerializeField, Tooltip("The local Localization component.")]
         private LocalizeStringEvent localization;
 
         private void Reset()
         {
-            spriteText = GetComponent<ISpriteText>();
+            spriteText = GetComponent<SpriteTMP>();
             localization = GetComponent<LocalizeStringEvent>();
         }
 
