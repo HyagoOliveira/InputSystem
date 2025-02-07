@@ -2,6 +2,7 @@ using TMPro;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 namespace ActionCode.InputSystem
 {
@@ -10,6 +11,11 @@ namespace ActionCode.InputSystem
         private static Dictionary<InputDeviceType, bool> DeviceAssets => lazyDeviceAssets.Value;
 
         private static readonly Lazy<Dictionary<InputDeviceType, bool>> lazyDeviceAssets = new(CreateLazyDeviceAssets);
+
+        /// <summary>
+        /// The default Sprite Asset folder path for UI Toolkit.
+        /// </summary>
+        public static string UITKDefaultSpriteAssetPath { get; internal set; }
 
         /// <summary>
         /// Updates the given input device using the closest TMP Sprite Asset available in the project.
@@ -47,17 +53,24 @@ namespace ActionCode.InputSystem
 
             foreach (var device in devices)
             {
-                var hasAsset = HasAssetFrom(device);
+                var hasAsset = HasAssetFromTMP(device) || HasAssetFromUITK(device);
                 deviceAssets.Add(device, hasAsset);
             }
 
             return deviceAssets;
         }
 
-        private static bool HasAssetFrom(InputDeviceType device)
+        private static bool HasAssetFromTMP(InputDeviceType device)
         {
             var path = TMP_Settings.defaultSpriteAssetPath + device.ToString();
             var asset = Resources.Load<TMP_SpriteAsset>(path);
+            return asset != null;
+        }
+
+        private static bool HasAssetFromUITK(InputDeviceType device)
+        {
+            var path = UITKDefaultSpriteAssetPath + device.ToString();
+            var asset = Resources.Load<SpriteAsset>(path);
             return asset != null;
         }
 
