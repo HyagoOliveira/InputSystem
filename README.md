@@ -179,14 +179,6 @@ The [InputActionPopup](/Runtime/Properties/InputActionPopup.cs) will render a ni
 
 > **Tip**: there is a similar component to display only the Action Maps from a InputActionMap: [InputActionMapPopup](/Runtime/Properties/InputActionMapPopup.cs)
 
-### UI Background Click Disabler
-
-Normally, when interacting with an UI, if you click outside a Visual Element, the last selected element is disabled. This is not good for UIs in games.
-
-To disable this behavior, use the [BackgroundClickDisabler](/Runtime/BackgroundClickDisabler.cs) component inside a Prefab using a EventSystem and InputSystemUIInputModule components:
-
-![Background Click Disabler](/Documentation~/BackgroundClickDisabler.png)
-
 ## Installation
 
 ### Using the Package Registry Server
