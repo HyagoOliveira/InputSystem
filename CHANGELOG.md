@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - SpriteUITK component
 - UITK Sprite Assets
 - Support for UI Toolkit
+- BackgroundClickDisabler component
 
 ### Changed
 - Update Input System package to 1.2.0
