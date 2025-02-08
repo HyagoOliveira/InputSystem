@@ -26,12 +26,12 @@ For example, you can use those sprites on UI when the input device changes in a 
 
 Input sprites are displayed using TextMesh Pro (TMP) or UI Toolkit (UITK) Sprite Tags. 
 
-Before that, it's necessary to configure TMP or UITK Sprite Assets. If yor project uses both TMP and UITK, check where you need to use the buttons sprites and configure the assets according. 
+Before that, it's necessary to configure TMP or UITK Sprite Assets. If yor project uses both TMP and UITK, check where you need to use the buttons sprites and configure the assets accordingly. 
 You can also use both TMP and UITK as well.
 
 ## Configuring UITK Text Settings
 
-Locate **UITK Text Settings** asset on your project (generally at ```Assets/UI Toolkit/UITK Text Settings.asset```). If you don't find this asset, create one following this [instructions](https://docs.unity3d.com/6000.0/Documentation/Manual/UIE-text-setting-asset.html).
+Locate **UITK Text Settings** asset on your project (generally at ```Assets/UI Toolkit/UITK Text Settings```). If you don't find this asset, create one following this [instructions](https://docs.unity3d.com/6000.0/Documentation/Manual/UIE-text-setting-asset.html).
 
 Go to the Default Sprite Asset section and check for the path where your Sprites Assets will be loaded:
 
@@ -41,7 +41,7 @@ You need to place there all the Sprite Assets your project is going to use. Don'
 
 ## Configuring TMP Settings
 
-Locate the **TMP Settings** asset on your project (generally at ```Assets/TextMesh Pro/Resources/TMP Settings.asset```).
+Locate the **TMP Settings** asset on your project (generally at ```Assets/TextMesh Pro/Resources/TMP Settings```).
 
 Go to the Default Sprite Asset section and check for the path where your Sprites Assets will be loaded:
 
@@ -55,13 +55,20 @@ All Sprite Assets present on Default Sprite Asset folder should be named followi
 
 If you wish to use the Sprites from **Free Prompts Pack**, just copy and paste to your project Default Sprite Assets path any file from the folder [UITK Sprite Assets](/SpriteAssets/UITK) (if using UITK) or [TMP Sprite Assets](/SpriteAssets/TMP) (if using TMP).
 
- **You don't need to configure any of Free Prompts Pack TMP Sprite Assets**. They are already all set to use and its sprites are on the [Sprites Sheets folder](/Sprites/) (you don't need to copy any file from this folder to your project).
+ **You don't need to configure any of Free Prompts Pack Sprite Assets**. They are already all set to use and its sprites are on the [Sprites folder](/Sprites/) (you don't need to copy any file from this folder to your project).
 
- >> **Note**: When using Sprite Assets inside a Ressource folder, you don't need to place there the Sprite Atlas Texture.
+ > **Note**: when using Sprite Assets inside a Ressource folder, you don't need to place there the Sprite Atlas Texture, just the Sprite Asset.
 
-## Showing Input Sprites using TMP
+## Showing Input Sprites 
 
-Place a [SpriteTMP](/Runtime/SpriteTexts/SpriteTMP.cs) component into the same GameObject containing a **TextMeshPro** and edit its text field, placing one or more key worlds (like ```{input}```) where Sprite Tags will be placed. Next, set the **Input Sprite Tags** dictionary, using the key worlds as its keys.
+### Using UITK
+
+Place a [SpriteUITK](/Runtime/SpriteTexts/SpriteUITK.cs) component into the same GameObject containing a **UI Document**. In the Source Asset, put one or more Labels using one or more key worlds (like ```{input}```) where the Sprite Tags will be placed. Next, set the **Input Sprite Tags** dictionary (section after next), using the key worlds as its keys.
+At runtime, all key worlds will be replaced by the Sprite Tag associated to it.
+
+### Using TMP
+
+Place a [SpriteTMP](/Runtime/SpriteTexts/SpriteTMP.cs) component into the same GameObject containing a **TextMeshPro** and edit its text field, placing one or more key worlds (like ```{input}```) where the Sprite Tags will be placed. Next, set the **Input Sprite Tags** dictionary (next section), using the key worlds as its keys.
 At runtime, all key worlds will be replaced by the Sprite Tag associated to it.
 
 ### Show Inputs from Input Action Assets
@@ -96,22 +103,22 @@ Create an **AnimationSpriteTag** asset using the create menu, ActionCode > Input
 
 ![Half Moon Action](/Documentation~/HalfMoonAction.png)
 
-You can find the initial and final indexes at the Sprite Assets:
+You can find the initial and final indexes in the Sprite Assets:
 
 ![Keyboard And Mouse Indexes](/Documentation~/Indexes_KeyboardAndMouse.png)
 ![Xbox Indexes](/Documentation~/Indexes_XBOX.png)
 
-Note that **Sprite Animation is done only using consecutive indexes** found at Sprite Asset. This is a limitation from TextMesh Pro package.
+> Note that **Sprite Animation is done only using consecutive indexes** found at Sprite Asset. This is a limitation from Sprite Asset.
 
-Reference it at your SpriteText component:
+Reference it at your SpriteTMP or SpriteUITK component:
 
 ![Hadouken Action SpriteText](/Documentation~/HadoukenAction_SpriteText.png)
 
-At runtime, TPM will play the Sprite Animation using the indexes and speed you've set:
+At runtime, the Sprite Animation will be played using the indexes and speed you've set:
 
 ![Hadouken Action Runtime](/Documentation~/HadoukenAction_Runtime.gif)
 
-As you see, this approach is useful to show an input sequence like a combo.
+As you can see, this approach is useful to show an input sequence like a combo.
 
 ### Show Inputs using Custom Sprites
 
@@ -128,7 +135,7 @@ Use this approach tho show sprites you know will never change or when the input 
 
 ## Using Unity Localization System
 
-If your project uses the Localization System provided by Unity, you can also attach the [LocalizedSpriteText](/Runtime/SpriteTexts/LocalizedSpriteText.cs) component in the same GameObject where a SpriteText component is:
+If your project uses the Localization System provided by Unity, you can also attach the [LocalizedSpriteText](/Runtime/SpriteTexts/LocalizedSpriteText.cs) component in the same GameObject where a SpriteTMP or SpriteUITK component is:
 
 ![Inspector for LocalizedSpriteText](/Documentation~/LocalizedSpriteText.png)
 
@@ -136,13 +143,15 @@ At runtime, the Sprite Tag will use the current language:
 
 ![LocalizedSpriteText Runtime](/Documentation~/LocalizedSpriteText_Runtime.gif)
 
-If your project uses another Localization System, use this same [LocalizedSpriteText](/Runtime/SpriteTexts/LocalizedSpriteText.cs) component as a base to create your own implementation between your Localization provider and this package [SpriteText](/Runtime/SpriteTexts/SpriteText.cs).
+If your project uses another Localization System, use this same [LocalizedSpriteText](/Runtime/SpriteTexts/LocalizedSpriteText.cs) component as a base to create your own implementation between your Localization provider and this package [SpriteTMP](/Runtime/SpriteTexts/SpriteTMP.cs) or [SpriteUITK](/Runtime/SpriteTexts/SpriteUITK.cs).
 
-## Truncate Stick Processor
+## Other Features
+
+### Truncate Stick Processor
 
 This processor truncates an input axis using an absolute value.
 
-## InputActionPopup Property
+### InputActionPopup Property
 
 This property displays the actions from a given **InputActionMap** as a Popup field.
 
@@ -168,7 +177,15 @@ The [InputActionPopup](/Runtime/Properties/InputActionPopup.cs) will render a ni
 
 ![Input Action Popup Tester](/Documentation~/InputActionPopupTester.gif)
 
-**Tip**: there is a similar component to display only the Action Maps from a InputActionMap: [InputActionMapPopup](/Runtime/Properties/InputActionMapPopup.cs)
+> **Tip**: there is a similar component to display only the Action Maps from a InputActionMap: [InputActionMapPopup](/Runtime/Properties/InputActionMapPopup.cs)
+
+### UI Background Click Disabler
+
+Normally, when interacting with an UI, if you click outside a Visual Element, the last selected element is disabled. This is not good for UIs in games.
+
+To disable this behavior, use the [BackgroundClickDisabler](/Runtime/BackgroundClickDisabler.cs) component inside a Prefab using a EventSystem and InputSystemUIInputModule components:
+
+![Background Click Disabler](/Documentation~/BackgroundClickDisabler.png)
 
 ## Installation
 
