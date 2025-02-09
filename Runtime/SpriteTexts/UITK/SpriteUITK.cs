@@ -23,7 +23,7 @@ namespace ActionCode.InputSystem
     /// 
     /// <para> 
     /// <b>Tip</b>: if your project uses the Localization System provided by Unity, also attach 
-    /// the <see cref="LocalizedSpriteText"/> component in the same GameObject.
+    /// the <see cref="LocalizedSpriteTMP"/> component in the same GameObject.
     /// </para>
     /// </remarks>
     [RequireComponent(typeof(UIDocument))]
@@ -37,9 +37,8 @@ namespace ActionCode.InputSystem
         private string className = "navegation-label";
 
         public VisualElement Root => document.rootVisualElement;
+        public Dictionary<Label, string> Labels { get; private set; }
         public string SpriteAssetPath => document.panelSettings.textSettings.defaultSpriteAssetPath;
-
-        private Dictionary<Label, string> labels;
 
         private void Reset() => document = GetComponent<UIDocument>();
         private void Awake() => SpriteAssetFinder.UITKDefaultSpriteAssetPath = SpriteAssetPath;
@@ -52,11 +51,13 @@ namespace ActionCode.InputSystem
 
         private void OnDisable() => InputSystem.OnDeviceInputChanged -= HandleDeviceInputChanged;
 
-        public void UpdateTextWithSpriteTags(InputDeviceType device)
+        public async void UpdateTextWithSpriteTags(InputDeviceType device)
         {
             SpriteAssetFinder.TryUpdateToAvailableDevice(ref device);
 
-            foreach (var (label, sourceText) in labels)
+            await Awaitable.NextFrameAsync();
+
+            foreach (var (label, sourceText) in Labels)
             {
                 label.text = GetTextWithSpriteTags(sourceText, device);
             }
@@ -74,7 +75,7 @@ namespace ActionCode.InputSystem
 
         private void FindOriginalSourceTexts()
         {
-            labels = Root.Query<Label>(className: className)
+            Labels = Root.Query<Label>(className: className)
                 .ToList()
                 .ToDictionary(label => label, label => label.text);
         }
