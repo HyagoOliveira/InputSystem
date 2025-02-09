@@ -5,6 +5,15 @@ using UnityEngine.Localization;
 
 namespace ActionCode.InputSystem
 {
+    /// <summary>
+    /// Updates the local <see cref="SpriteUITK"/> component using 
+    /// the localization binding from Unity Localization System.
+    /// <para>Don't forget to correct binding your Labels texts.</para>
+    /// </summary>
+    /// <remarks>
+    /// If your project uses another Localization System, use this class 
+    /// as a base to create your own implementation when the localization changes.
+    /// </remarks>
     [RequireComponent(typeof(SpriteUITK))]
     [DefaultExecutionOrder(SpriteUITK.EXECUTION_ORDER + 1)]
     public sealed class LocalizedSpriteUITK : MonoBehaviour

@@ -75,16 +75,6 @@ Create an **ActionSpriteTag** asset using the create menu, ActionCode > Input Sy
 
 Now you can use this asset to show sprites using TMP or UITK.
 
-#### How to name Sprites?
-
-If you created a new action and want to know how to name the Sprite for it, find your Input Actions asset, select your Action and click on the **T Button** next to Path field. Copy only the string after `<Device>/` prefix:
-
-![Finding Action Name](/Documentation~/FindingActionName.png)
-
-On each Sprite Asset, go to Sprite Character Table and paste this string on the field name:
-
-![Finding Action Name](/Documentation~/RenameAction.png)
-
 ### Using UITK
 
 Create a UI Document and add one or more Labels, setting its text using one or more key worlds (like `{attack}`) where the Sprite Tags will be placed:
@@ -131,7 +121,7 @@ At runtime, the Sprite Tag will use the current language:
 
 If your project uses another Localization System, use this same [LocalizedSpriteTMP](/Runtime/SpriteTexts/TMP/LocalizedSpriteTMP.cs) component as a base to create your own implementation between your Localization provider and this package [SpriteTMP](/Runtime/SpriteTexts/TMP/SpriteTMP.cs).
 
-### Show Inputs using Animations
+## Show Inputs using Animations
 
 Create an **AnimationSpriteTag** asset using the create menu, ActionCode > Input System > Animation Sprite Tag and set its fields:
 
@@ -154,7 +144,7 @@ At runtime, the Sprite Animation will be played using the indexes and speed you'
 
 As you can see, this approach is useful to show an input sequence like a combo.
 
-### Show Inputs using Custom Sprites
+## Show Inputs using Custom Sprites
 
 Sometimes we just want to use a custom sprite to show an input. Do do this, create an **CustomSpriteTag** asset using the create menu, ActionCode > Input System > Custom Sprite Tag and set its fields:
 
@@ -166,6 +156,16 @@ Again, find the sprite names using the Sprite Assets:
 ![Name XBOX](/Documentation~/Name_XBOX.png)
 
 Use this approach tho show sprites you know will never change or when the input system cannot detect the key.
+
+## How to name Sprites?
+
+If you created a new action and want to know how to name the Sprite for it, find your Input Actions asset, select your Action and click on the **T Button** next to Path field. Copy only the string after `<Device>/` prefix:
+
+![Finding Action Name](/Documentation~/FindingActionName.png)
+
+On each Sprite Asset, go to Sprite Character Table and paste this string on the field name:
+
+![Finding Action Name](/Documentation~/RenameAction.png)
 
 ## Other Features
 
