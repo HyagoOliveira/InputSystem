@@ -35,7 +35,7 @@ namespace ActionCode.InputSystem
         [SerializeField, Tooltip("The input sprite tags dictionary.")]
         private SerializedDictionary<string, AbstractSpriteTag> inputSpriteTags = new();
         [SerializeField]
-        private string className = "navegation-label";
+        private string className = "sprite-label";
 
         /// <summary>
         /// The document Root Visual Element.
