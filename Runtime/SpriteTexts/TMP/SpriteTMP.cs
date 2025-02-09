@@ -16,11 +16,11 @@ namespace ActionCode.InputSystem
     /// Next, set the <see cref="inputSpriteTags"/>, adding an entry with <c>{jump}</c> as key and an appropriated Sprite Tag asset.
     /// At runtime, all occurrences of <c>{jump}</c> will be replaced by this Sprite Tag.
     /// <br/>
-    /// You can create a Sprite Tag asset using the creating menu, ActionCode/Input System/.
+    /// You can create any Sprite Tag asset using the creating menu, ActionCode/Input System/.
     /// 
     /// <para> 
     /// <b>Tip</b>: if your project uses the Localization System provided by Unity, also attach 
-    /// the <see cref="LocalizedSpriteTMP"/> component in the same GameObject.
+    /// the LocalizedSpriteTMP component in the same GameObject.
     /// </para>
     /// </remarks>
     [DisallowMultipleComponent]
@@ -42,6 +42,10 @@ namespace ActionCode.InputSystem
         private void OnEnable() => InputSystem.OnDeviceInputChanged += HandleDeviceInputChanged;
         private void OnDisable() => InputSystem.OnDeviceInputChanged -= HandleDeviceInputChanged;
 
+        /// <summary>
+        /// Sets the current source text.
+        /// </summary>
+        /// <param name="text">A text without any Sprite Tag.</param>
         public void SetSourceText(string text)
         {
             SourceText = text;
