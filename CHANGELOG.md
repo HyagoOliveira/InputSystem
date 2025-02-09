@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.0.0] - 2025-02-09
 ### Added
 - TextMesh Pro package dependency
 - InputSystem.OnDeviceInputChanged: event fired when any input from any connected device changed
@@ -85,7 +87,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - README
 - Initial commit
 
-[Unreleased]: https://github.com/HyagoOliveira/InputSystem/compare/1.0.0-preview.6...main
+[Unreleased]: https://github.com/HyagoOliveira/InputSystem/compare/1.0.0
+[1.0.0]: https://github.com/HyagoOliveira/InputSystem/tree/1.0.0/
 [1.0.0-preview.6]: https://github.com/HyagoOliveira/InputSystem/tree/1.0.0-preview.6/
 [1.0.0-preview.5]: https://github.com/HyagoOliveira/InputSystem/tree/1.0.0-preview.5/
 [1.0.0-preview.4]: https://github.com/HyagoOliveira/InputSystem/tree/1.0.0-preview.4/
