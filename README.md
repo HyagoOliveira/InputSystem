@@ -65,7 +65,7 @@ If you wish to use the Sprites from **Free Prompts Pack**, just copy and paste t
 
 ## Showing Input Sprites 
 
-Before showing any Sprite on screen, it's necessary to create Sprite Tag assets.
+Before showing any Sprite on screen, it's necessary to create at least one Sprite Tag asset.
 
 ### Creating a Action Sprite Tag
 
@@ -75,17 +75,27 @@ Create an **ActionSpriteTag** asset using the create menu, ActionCode > Input Sy
 
 Now you can use this asset to show sprites using TMP or UITK.
 
+#### How to name Sprites?
+
+If you created a new action and want to know how to name the Sprite for it, find your Input Actions asset, select your Action and click on the **T Button** next to Path field. Copy only the string after `<Device>/` prefix:
+
+![Finding Action Name](/Documentation~/FindingActionName.png)
+
+On each Sprite Asset, go to Sprite Character Table and paste this string on the field name:
+
+![Finding Action Name](/Documentation~/RenameAction.png)
+
 ### Using UITK
 
-Create a UI Document and add one or more Labels using one or more key worlds (like `{attack}`) where the Sprite Tags will be placed:
+Create a UI Document and add one or more Labels, setting its text using one or more key worlds (like `{attack}`) where the Sprite Tags will be placed:
 
 ![UITK Sample](/Documentation~/UITK_Sample.png)
 
-Pay attention on the class name where those Labels are. In this example, we are using `sprite-label`.
+Pay attention to the class name where those Labels are. In this example, we added the `sprite-label` class.
 
 ![UITK Sample Class](/Documentation~/UITK_Sample-Class.png)
 
-Select the GameObject containing the UI Document component using the Source Asset and place a [SpriteUITK](/Runtime/SpriteTexts/UITK/SpriteUITK.cs) component on it. Next, set the **Input Sprite Tags** dictionary using the same key worlds as its keys (`{attack}` in this case) and the Action Sprite Tag you created in the last section.
+Select the GameObject containing the UI Document component using the Source Asset above and place a [SpriteUITK](/Runtime/SpriteTexts/UITK/SpriteUITK.cs) component on it. Next, set the **Input Sprite Tags** dictionary using the same key worlds as its keys (`{attack}` in this case) and the Action Sprite Tag you created in the last section.
 
 ![Sprite UITK](/Documentation~/SpriteUITK.png)
 
@@ -97,7 +107,7 @@ At runtime, when any keyboard/gamepad button is pressed or gamepad axis/mouse mo
 
 ### Using TMP
 
-Place a [SpriteTMP](/Runtime/SpriteTexts/TMP/SpriteTMP.cs) component into the same GameObject containing a **TextMeshPro** and edit its text field, placing one or more key worlds (like `{attack}`) where the Sprite Tags will be placed. Next, set the **Input Sprite Tags** dictionary using the key worlds as its keys.
+Place a [SpriteTMP](/Runtime/SpriteTexts/TMP/SpriteTMP.cs) component into the same GameObject containing a **TextMeshPro** and edit its text field, placing one or more key worlds (like `{attack}`) where the Sprite Tags will be placed. Next, set the **Input Sprite Tags** dictionary using the key worlds as its keys (`{attack}` in this case) and the Action Sprite Tag you created in the last section.
 
 ![Attack Action SpriteText](/Documentation~/AttackAction_SpriteText.png)
 
@@ -105,15 +115,21 @@ At runtime, when any keyboard/gamepad button is pressed or gamepad axis/mouse mo
 
 ![Attack Action Runtime](/Documentation~/AttackAction_Runtime.gif)
 
-#### How to name Sprites?
+### Using Unity Localization System
 
-If you created a new action and want to know how to name the Sprite for it, find your Input Actions asset, select your Action and click on the **T Button** next to Path field. Copy only the string after `<Device>/` prefix:
+If your project uses the Localization System provided by Unity, you can also attach the [LocalizedSpriteTMP](/Runtime/SpriteTexts/TMP/LocalizedSpriteTMP.cs) component in the same GameObject where a SpriteTMP component is.
 
-![Finding Action Name](/Documentation~/FindingActionName.png)
+![Inspector for LocalizedSpriteText](/Documentation~/LocalizedSpriteText.png)
 
-On each Sprite Asset, go to Sprite Character Table and paste this string on the field name:
+If you are using UITK, after [binding your labels](https://docs.unity3d.com/Packages/com.unity.localization@1.5/manual/UIToolkit.html#ui-builder-authoring), use the [LocalizedSpriteUITK](/Runtime/SpriteTexts/UITK/LocalizedSpriteUITK.cs) component in the same GameObject where a SpriteUITK component is:
 
-![Finding Action Name](/Documentation~/RenameAction.png)
+![Inspector for LocalizedSpriteUITK](/Documentation~/LocalizedSpriteUITK.png)
+
+At runtime, the Sprite Tag will use the current language:
+
+![LocalizedSpriteText Runtime](/Documentation~/LocalizedSpriteText_Runtime.gif)
+
+If your project uses another Localization System, use this same [LocalizedSpriteTMP](/Runtime/SpriteTexts/TMP/LocalizedSpriteTMP.cs) component as a base to create your own implementation between your Localization provider and this package [SpriteTMP](/Runtime/SpriteTexts/TMP/SpriteTMP.cs).
 
 ### Show Inputs using Animations
 
@@ -150,18 +166,6 @@ Again, find the sprite names using the Sprite Assets:
 ![Name XBOX](/Documentation~/Name_XBOX.png)
 
 Use this approach tho show sprites you know will never change or when the input system cannot detect the key.
-
-## Using Unity Localization System
-
-If your project uses the Localization System provided by Unity, you can also attach the [LocalizedSpriteTMP](/Runtime/SpriteTexts/TMP/LocalizedSpriteTMP.cs) component in the same GameObject where a SpriteTMP component is:
-
-![Inspector for LocalizedSpriteText](/Documentation~/LocalizedSpriteText.png)
-
-At runtime, the Sprite Tag will use the current language:
-
-![LocalizedSpriteText Runtime](/Documentation~/LocalizedSpriteText_Runtime.gif)
-
-If your project uses another Localization System, use this same [LocalizedSpriteTMP](/Runtime/SpriteTexts/TMP/LocalizedSpriteTMP.cs) component as a base to create your own implementation between your Localization provider and this package [SpriteTMP](/Runtime/SpriteTexts/TMP/SpriteTMP.cs).
 
 ## Other Features
 
