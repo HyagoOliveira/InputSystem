@@ -32,14 +32,24 @@ namespace ActionCode.InputSystem
         [SerializeField, Tooltip("The input sprite tags dictionary.")]
         private SerializedDictionary<string, AbstractSpriteTag> inputSpriteTags = new();
 
-        public string SourceText { get; internal set; }
+        /// <summary>
+        /// The current source text without any Sprite Tag.
+        /// </summary>
+        public string SourceText { get; private set; }
 
         private void Reset() => textMesh = GetComponent<TMP_Text>();
         private void Awake() => SourceText = textMesh.text;
         private void OnEnable() => InputSystem.OnDeviceInputChanged += HandleDeviceInputChanged;
         private void OnDisable() => InputSystem.OnDeviceInputChanged -= HandleDeviceInputChanged;
 
-        public void UpdateTextWithSpriteTags(InputDeviceType device)
+        public void SetSourceText(string text)
+        {
+            SourceText = text;
+            if (InputSystem.LastDeviceType != InputDeviceType.None)
+                UpdateTextWithSpriteTags(InputSystem.LastDeviceType);
+        }
+
+        private void UpdateTextWithSpriteTags(InputDeviceType device)
         {
             SpriteAssetFinder.TryUpdateToAvailableDevice(ref device);
             textMesh.text = GetTextWithSpriteTags(device);

@@ -30,12 +30,8 @@ namespace ActionCode.InputSystem
         private void OnEnable() => localization.OnUpdateString.AddListener(HandleLocalizationChanged);
         private void OnDisable() => localization.OnUpdateString.RemoveListener(HandleLocalizationChanged);
 
-        private void HandleLocalizationChanged(string localizedText)
-        {
-            spriteText.SourceText = localizedText;
-            if (InputSystem.LastDeviceType == InputDeviceType.None) return;
-            spriteText.UpdateTextWithSpriteTags(InputSystem.LastDeviceType);
-        }
+        private void HandleLocalizationChanged(string localizedText) =>
+            spriteText.SetSourceText(localizedText);
     }
 }
 #endif
