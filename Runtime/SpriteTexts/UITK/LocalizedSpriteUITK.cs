@@ -1,4 +1,4 @@
-#if UI_TOOLKIT
+#if UI_TOOLKIT && UNITY_LOCALIZATION
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.Localization;
