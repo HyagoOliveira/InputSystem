@@ -68,7 +68,7 @@ At runtime, all key worlds will be replaced by the Sprite Tag associated to it.
 
 ### Using TMP
 
-Place a [SpriteTMP](/Runtime/SpriteTexts/SpriteTMP.cs) component into the same GameObject containing a **TextMeshPro** and edit its text field, placing one or more key worlds (like ```{input}```) where the Sprite Tags will be placed. Next, set the **Input Sprite Tags** dictionary (next section), using the key worlds as its keys.
+Place a [SpriteTMP](/Runtime/SpriteTexts/TMP/SpriteTMP.cs) component into the same GameObject containing a **TextMeshPro** and edit its text field, placing one or more key worlds (like ```{input}```) where the Sprite Tags will be placed. Next, set the **Input Sprite Tags** dictionary (next section), using the key worlds as its keys.
 At runtime, all key worlds will be replaced by the Sprite Tag associated to it.
 
 ### Show Inputs from Input Action Assets
@@ -135,7 +135,7 @@ Use this approach tho show sprites you know will never change or when the input 
 
 ## Using Unity Localization System
 
-If your project uses the Localization System provided by Unity, you can also attach the [LocalizedSpriteText](/Runtime/SpriteTexts/LocalizedSpriteText.cs) component in the same GameObject where a SpriteTMP or SpriteUITK component is:
+If your project uses the Localization System provided by Unity, you can also attach the [LocalizedSpriteTMP](/Runtime/SpriteTexts/TMP/LocalizedSpriteTMP.cs) component in the same GameObject where a SpriteTMP component is:
 
 ![Inspector for LocalizedSpriteText](/Documentation~/LocalizedSpriteText.png)
 
@@ -143,7 +143,7 @@ At runtime, the Sprite Tag will use the current language:
 
 ![LocalizedSpriteText Runtime](/Documentation~/LocalizedSpriteText_Runtime.gif)
 
-If your project uses another Localization System, use this same [LocalizedSpriteText](/Runtime/SpriteTexts/LocalizedSpriteText.cs) component as a base to create your own implementation between your Localization provider and this package [SpriteTMP](/Runtime/SpriteTexts/SpriteTMP.cs) or [SpriteUITK](/Runtime/SpriteTexts/SpriteUITK.cs).
+If your project uses another Localization System, use this same [LocalizedSpriteTMP](/Runtime/SpriteTexts/TMP/LocalizedSpriteTMP.cs) component as a base to create your own implementation between your Localization provider and this package [SpriteTMP](/Runtime/SpriteTexts/TMP/SpriteTMP.cs).
 
 ## Other Features
 

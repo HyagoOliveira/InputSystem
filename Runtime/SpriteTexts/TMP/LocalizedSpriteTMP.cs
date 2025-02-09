@@ -10,11 +10,11 @@ namespace ActionCode.InputSystem
     /// </summary>
     /// <remarks>
     /// If your project uses another Localization System, use this class 
-    /// as a base to create your own implementation.
+    /// as a base to create your own implementation when the localization changes.
     /// </remarks>
     [DisallowMultipleComponent]
     [RequireComponent(typeof(LocalizeStringEvent))]
-    public sealed class LocalizedSpriteText : MonoBehaviour
+    public sealed class LocalizedSpriteTMP : MonoBehaviour
     {
         [SerializeField, Tooltip("The local SpriteText component.")]
         private SpriteTMP spriteText;

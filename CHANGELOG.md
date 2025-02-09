@@ -27,6 +27,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Increase Unity minimum version to >= 2020.2
 - Move TMP_Sprite Assets into TMP folder
 - Rename SpriteText -> SpriteTMP
+- Rename LocalizedSpriteText -> LocalizedSpriteTMP
 
 ### Removed
 - DeviceDisplayControl

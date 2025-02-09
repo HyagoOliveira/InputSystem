@@ -20,7 +20,7 @@ namespace ActionCode.InputSystem
     /// 
     /// <para> 
     /// <b>Tip</b>: if your project uses the Localization System provided by Unity, also attach 
-    /// the <see cref="LocalizedSpriteText"/> component in the same GameObject.
+    /// the <see cref="LocalizedSpriteTMP"/> component in the same GameObject.
     /// </para>
     /// </remarks>
     [DisallowMultipleComponent]
