@@ -97,7 +97,7 @@ At runtime, when any keyboard/gamepad button is pressed or gamepad axis/mouse mo
 
 ### Using TMP
 
-Place a [SpriteTMP](/Runtime/SpriteTexts/TMP/SpriteTMP.cs) component into the same GameObject containing a **TextMeshPro** and edit its text field, placing one or more key worlds (like `{attack}`) where the Sprite Tags will be placed. Next, set the **Input Sprite Tags** dictionary using the key worlds as its keys (`{attack}` in this case) and the Action Sprite Tag you created in the last section.
+Place a [SpriteTMP](/Runtime/SpriteTexts/TMP/SpriteTMP.cs) component into the same GameObject containing a **TextMeshPro** and edit its text field, placing one or more key worlds where the Sprite Tags will be placed. Next, set the **Input Sprite Tags** dictionary using the key worlds as its keys (`{attack}` in this case) and the Action Sprite Tag you created in the last section.
 
 ![Attack Action SpriteText](/Documentation~/AttackAction_SpriteText.png)
 
@@ -146,7 +146,7 @@ As you can see, this approach is useful to show an input sequence like a combo.
 
 ## Show Inputs using Custom Sprites
 
-Sometimes we just want to use a custom sprite to show an input. Do do this, create an **CustomSpriteTag** asset using the create menu, ActionCode > Input System > Custom Sprite Tag and set its fields:
+Sometimes we just want to use a custom sprite to show an input. To do this, create an **CustomSpriteTag** asset using the create menu, ActionCode > Input System > Custom Sprite Tag and set its fields:
 
 ![Vertical Action](/Documentation~/VerticalAction.png)
 
@@ -157,13 +157,13 @@ Again, find the sprite names using the Sprite Assets:
 
 Use this approach tho show sprites you know will never change or when the input system cannot detect the key.
 
-## How to name Sprites?
+### How to name Sprites?
 
 If you created a new action and want to know how to name the Sprite for it, find your Input Actions asset, select your Action and click on the **T Button** next to Path field. Copy only the string after `<Device>/` prefix:
 
 ![Finding Action Name](/Documentation~/FindingActionName.png)
 
-On each Sprite Asset, go to Sprite Character Table and paste this string on the field name:
+On each Sprite Asset, go to Sprite Character Table and paste the string on its name field:
 
 ![Finding Action Name](/Documentation~/RenameAction.png)
 
