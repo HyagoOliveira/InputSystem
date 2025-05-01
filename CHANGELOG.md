@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- AnyButtonPressedListener
+
 ## [1.0.0] - 2025-02-09
 ### Added
 - TextMesh Pro package dependency
