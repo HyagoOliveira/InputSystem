@@ -19,11 +19,25 @@ namespace ActionCode.InputSystem
         /// </summary>
         public UnityEvent OnActionPerformed;
 
-        private void OnEnable() => GetAction().performed += HandleActionPerformed;
-        private void OnDisable() => GetAction().performed -= HandleActionPerformed;
+        private InputAction action;
+
+        private void Awake()
+        {
+            FindAction();
+            EnableAction();
+        }
+
+        private void OnEnable() => action.performed += HandleActionPerformed;
+        private void OnDisable() => action.performed -= HandleActionPerformed;
 
         private void HandleActionPerformed(InputAction.CallbackContext _) => OnActionPerformed?.Invoke();
 
-        private InputAction GetAction() => inputAsset.FindAction(actionPopup.GetPath());
+        private void FindAction() => action = inputAsset.FindAction(actionPopup.GetPath(), throwIfNotFound: true);
+
+        private void EnableAction()
+        {
+            action.actionMap.Enable();
+            action.Enable();
+        }
     }
 }
