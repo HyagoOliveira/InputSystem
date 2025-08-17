@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.2.0] - 2025-08-17
 ### Added
 - SetEnabled extension functions for InputAction and InputActionMap
 
@@ -94,7 +96,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - README
 - Initial commit
 
-[Unreleased]: https://github.com/HyagoOliveira/InputSystem/compare/1.1.0
+[Unreleased]: https://github.com/HyagoOliveira/InputSystem/compare/1.2.0
+[1.2.0]: https://github.com/HyagoOliveira/InputSystem/tree/1.2.0/
 [1.1.0]: https://github.com/HyagoOliveira/InputSystem/tree/1.1.0/
 [1.0.0]: https://github.com/HyagoOliveira/InputSystem/tree/1.0.0/
 [1.0.0-preview.6]: https://github.com/HyagoOliveira/InputSystem/tree/1.0.0-preview.6/
