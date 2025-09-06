@@ -207,7 +207,7 @@ Attach the [DisableCursorListener](/Runtime/Listeners/DisableCursorListener.cs) 
 
 On Editor, if the mouse is outside the GameView, the cursor will be set to visible regardless if using gamepad or not.
 
->Note: your GaveView should be focused in order to DisableCursorListener work. On Editor, you should first click on the GameView.
+>Note: your GaveView should be focused. On Editor, you need to click on the GameView first.
 
 ## Installation
 
