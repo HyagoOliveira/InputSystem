@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityInputSystem = UnityEngine.InputSystem;
 
@@ -98,6 +99,20 @@ namespace ActionCode.InputSystem
             var isKeyboard = device == InputDeviceType.KeyboardAndMouse;
             var group = isKeyboard ? "Keyboard&Mouse" : "Gamepad";
             return InputBinding.MaskByGroup(group);
+        }
+
+        /// <summary>
+        /// Whether the current mouse cursor is inside the Game View.
+        /// </summary>
+        /// <param name="mouse"></param>
+        /// <returns></returns>
+        public static bool IsInsideGameView(this Mouse mouse)
+        {
+            var position = Vector2Int.FloorToInt(mouse.position.value);
+            // The first mouse click outside Game View has Position = (0, 0)
+            return
+                position.x > 0 && position.x <= Screen.width &&
+                position.y > 0 && position.y <= Screen.height;
         }
 
         // Very common and accessible Nintendo Switch Pro controller
