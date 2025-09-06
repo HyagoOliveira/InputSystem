@@ -201,6 +201,12 @@ The [InputActionPopup](/Runtime/Properties/InputActionPopup.cs) will render a ni
 
 > **Tip**: there is a similar component to display only the Action Maps from a InputActionMap: [InputActionMapPopup](/Runtime/Properties/InputActionMapPopup.cs)
 
+### Disables Mouse when using Gamepad
+
+Attach the [DisableCursorListener](/Runtime/Listeners/DisableCursorListener.cs) component in any GameObject to disables the mouse cursor when a gamepad is used and enables it again when keyboard/mouse is used.
+
+On Editor, if the mouse is outside the GameView, the cursor will be set to visible regardless if using gamepad or not.
+
 ## Installation
 
 ### Using the Package Registry Server

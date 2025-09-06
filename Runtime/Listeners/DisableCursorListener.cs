@@ -3,9 +3,9 @@ using UnityEngine;
 namespace ActionCode.InputSystem
 {
     /// <summary>
-    /// Disables the mouse cursor when gamepad is used and enables it when keyboard/mouse are used.
+    /// Disables the mouse cursor when a gamepad is used and enables it again when keyboard/mouse is used.
     /// <para>
-    /// On Editor, if mouse is outside GameView, the cursor will be set to visible regardless 
+    /// On Editor, if the mouse is outside the GameView, the cursor will be set to visible regardless 
     /// if using gamepad or not.
     /// </para>
     /// </summary>
