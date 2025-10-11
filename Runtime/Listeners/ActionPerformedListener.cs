@@ -10,6 +10,10 @@ namespace ActionCode.InputSystem
     [DisallowMultipleComponent]
     public sealed class ActionPerformedListener : MonoBehaviour
     {
+        [Min(0f), Tooltip("Time (in seconds) to wait before listen for the input.")]
+        public float waitingTime = 1f;
+
+        [Space]
         [SerializeField] private InputActionAsset inputAsset;
         [SerializeField] private InputActionPopup actionPopup = new(nameof(inputAsset));
 
@@ -22,14 +26,13 @@ namespace ActionCode.InputSystem
         private void Awake()
         {
             FindAction();
-            EnableAction();
+            Invoke(nameof(EnableAction), waitingTime);
         }
 
         private void OnEnable() => action.performed += HandleActionPerformed;
         private void OnDisable() => action.performed -= HandleActionPerformed;
 
         private void HandleActionPerformed(InputAction.CallbackContext _) => OnActionPerformed?.Invoke();
-
         private void FindAction() => action = inputAsset.FindAction(actionPopup.GetPath(), throwIfNotFound: true);
 
         private void EnableAction()
