@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace ActionCode.InputSystem
@@ -12,6 +13,11 @@ namespace ActionCode.InputSystem
     [DisallowMultipleComponent]
     public sealed class DisableCursorListener : MonoBehaviour
     {
+        /// <summary>
+        /// Event fired when Mouse visibility changed.
+        /// </summary>
+        public static event Action<bool> OnVisibilityChanged;
+
         private void OnEnable() => InputSystem.OnDeviceInputChanged += HandleDeviceInputChanged;
         private void OnDisable() => InputSystem.OnDeviceInputChanged -= HandleDeviceInputChanged;
 
@@ -33,7 +39,9 @@ namespace ActionCode.InputSystem
         public static void SetCursorVisibility(bool isVisible)
         {
             if (!isVisible) isVisible = IsMouseOutsideGameView();
+
             Cursor.visible = isVisible;
+            OnVisibilityChanged?.Invoke(isVisible);
         }
 
         private static bool IsMouseOutsideGameView()
