@@ -14,9 +14,7 @@ namespace ActionCode.InputSystem
         [SerializeField] private InputActionPopup actionPopup = new(nameof(inputAsset));
 
         [Space]
-        /// <summary>
-        /// Event fired when the serialized action is performed.
-        /// </summary>
+        [Tooltip("Event fired when the serialized action is performed.")]
         public UnityEvent OnActionPerformed;
 
         private InputAction action;

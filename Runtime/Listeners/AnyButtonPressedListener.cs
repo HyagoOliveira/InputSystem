@@ -12,7 +12,7 @@ namespace ActionCode.InputSystem
     [DisallowMultipleComponent]
     public sealed class AnyButtonPressedListener : MonoBehaviour
     {
-        [Tooltip("Time (in seconds) to wait before listen for any input")]
+        [Min(0f), Tooltip("Time (in seconds) to wait before listen for any input")]
         public float waitingTime = 1f;
 
         [Space]
