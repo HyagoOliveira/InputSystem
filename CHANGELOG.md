@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - AnyButtonPressedListener.waitingTime
 - DisableCursorListener.OnVisibilityChanged event
 
+### Changed
+- Update Serialized Dictionary package to 1.2.0
+
 ## [1.3.0] - 2025-09-06
 ### Added
 - DisableCursorListener component
