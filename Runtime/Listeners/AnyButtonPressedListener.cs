@@ -12,16 +12,20 @@ namespace ActionCode.InputSystem
     [DisallowMultipleComponent]
     public sealed class AnyButtonPressedListener : MonoBehaviour
     {
-        /// <summary>
-        /// Event fired when any button is pressed once.
-        /// </summary>
+        [Tooltip("Time (in seconds) to wait before listen for any input")]
+        public float waitingTime = 1f;
+
+        [Space]
+        [Tooltip("Event fired when any button is pressed once.")]
         public UnityEvent OnAnyButtonPressed;
 
         private IDisposable anyButtonListener;
 
-        private void OnEnable() => anyButtonListener = UnityEngine.InputSystem.InputSystem.onAnyButtonPress.CallOnce(HandleAnyButtonPressed);
+        private void OnEnable() => Invoke(nameof(StartListenForAnyButtonPress), waitingTime);
         private void OnDisable() => anyButtonListener?.Dispose();
 
+        private void StartListenForAnyButtonPress() => anyButtonListener =
+            UnityEngine.InputSystem.InputSystem.onAnyButtonPress.CallOnce(HandleAnyButtonPressed);
         private void HandleAnyButtonPressed(InputControl _) => OnAnyButtonPressed?.Invoke();
     }
 }
