@@ -121,6 +121,23 @@ At runtime, the Sprite Tag will use the current language:
 
 If your project uses another Localization System, use this same [LocalizedSpriteTMP](/Runtime/SpriteTexts/TMP/LocalizedSpriteTMP.cs) component as a base to create your own implementation between your Localization provider and this package [SpriteTMP](/Runtime/SpriteTexts/TMP/SpriteTMP.cs).
 
+### Performing the Action
+
+You can perform the action on gameplay using the following code:
+
+```csharp
+public ActionSpriteTag attackInput;
+
+public InputAction AttackAction { get; private set; }
+
+private void Awake() => AttackAction = attackInput.GetAction();
+private void OnEnable() => AttackAction.performed += HandleAttackActionPerformed;
+private void OnDisable() => AttackAction.performed -= HandleAttackActionPerformed;
+private void OnDestroy() => AttackAction?.Dispose();
+
+private void HandleAttackActionPerformed(InputAction.CallbackContext _) => Debug.Log("Attack performed!");
+```
+
 ## Show Inputs using Animations
 
 Create an **AnimationSpriteTag** asset using the create menu, ActionCode > Input System > Animation Sprite Tag and set its fields:
