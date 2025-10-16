@@ -35,5 +35,11 @@ namespace ActionCode.InputSystem
 
             return GetTagUsingName(assetName, spriteName);
         }
+
+        /// <summary>
+        /// Gets the action from the Input Action.
+        /// </summary>
+        /// <returns></returns>
+        public InputAction GetAction() => inputAsset.FindAction(actionPopup.GetPath(), throwIfNotFound: true);
     }
 }
