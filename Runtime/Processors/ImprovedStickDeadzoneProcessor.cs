@@ -46,6 +46,18 @@ namespace ActionCode.InputSystem
             return Mathf.Sign(value) * TruncateBy2(absValue);
         }
 
+        /// <summary>
+        /// Truncates the given analog input value.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static float TruncateAnalogInput(float value)
+        {
+            const float analogTopRightInput = 0.98f;
+            if (value > analogTopRightInput) return 1f;
+            return Mathf.Clamp01(value);
+        }
+
         private static float TruncateBy2(float value) => (float)System.Math.Truncate(value * 100) / 100;
     }
 }
