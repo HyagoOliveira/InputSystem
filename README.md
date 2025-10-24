@@ -188,7 +188,11 @@ On each Sprite Asset, go to Sprite Character Table and paste the string on its n
 
 ### Truncate Stick Processor
 
-This processor truncates an input axis using an absolute value.
+This processor truncates an input axis using an absolute value. If analog stick is above the given value, the analog value will be set to this value. Zero otherwise.
+
+### Improved Stick Deadzone Processor
+
+Applies a better Dead Zone to a stick input by clamping each axis individually and truncating the values to two decimal places. Always use this for 3D moving games.
 
 ### InputActionPopup Property
 
