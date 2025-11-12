@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- On AnyButtonPressedListener component, option to call OnAnyButtonPressed event multiple times
 
 ## [1.6.0] - 2025-10-24
 ### Added
