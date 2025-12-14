@@ -14,8 +14,8 @@ namespace ActionCode.InputSystem
     {
         [Min(0f), Tooltip("Time (in seconds) to wait before listen for any input.")]
         public float waitingTime = 1f;
-        [Tooltip("If enabled, it will call OnAnyButtonPressed event only one time.")]
-        public bool callOnce = true;
+        [Tooltip("If enabled, it will disable this component after OnAnyButtonPressed event is fired.")]
+        public bool disableAfterEvent = true;
 
         [Space]
         [Tooltip("Event fired when any button is pressed once.")]
@@ -29,10 +29,17 @@ namespace ActionCode.InputSystem
         private void StartListenForAnyButtonPress()
         {
             var pressEvent = UnityEngine.InputSystem.InputSystem.onAnyButtonPress;
-            anyButtonListener = callOnce ?
-                pressEvent.CallOnce(HandleAnyButtonPressed) :
-                pressEvent.Call(HandleAnyButtonPressed);
+            anyButtonListener = pressEvent.Call(HandleAnyButtonPressed);
         }
-        private void HandleAnyButtonPressed(InputControl _) => OnAnyButtonPressed?.Invoke();
+
+        private void HandleAnyButtonPressed(InputControl input)
+        {
+            if (!IsValidDevicePress(input.device)) return;
+
+            OnAnyButtonPressed?.Invoke();
+            if (disableAfterEvent) enabled = false;
+        }
+
+        private static bool IsValidDevicePress(InputDevice device) => device is not Mouse mouse || mouse.IsInsideGameView();
     }
 }
