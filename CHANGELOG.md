@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.8.1] - 2026-01-28
 ### Fixed
 - Correctly dispose AnyButtonPressedListener
 
@@ -129,7 +130,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - README
 - Initial commit
 
-[Unreleased]: https://github.com/HyagoOliveira/InputSystem/compare/1.8.0
+[Unreleased]: https://github.com/HyagoOliveira/InputSystem/compare/1.8.1
+[1.8.1]: https://github.com/HyagoOliveira/InputSystem/tree/1.8.1/
 [1.8.0]: https://github.com/HyagoOliveira/InputSystem/tree/1.8.0/
 [1.7.0]: https://github.com/HyagoOliveira/InputSystem/tree/1.7.0/
 [1.6.0]: https://github.com/HyagoOliveira/InputSystem/tree/1.6.0/
