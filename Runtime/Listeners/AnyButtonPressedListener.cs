@@ -24,7 +24,12 @@ namespace ActionCode.InputSystem
         private IDisposable anyButtonListener;
 
         private void OnEnable() => Invoke(nameof(StartListenForAnyButtonPress), waitingTime);
-        private void OnDisable() => anyButtonListener?.Dispose();
+
+        private void OnDisable()
+        {
+            CancelInvoke();
+            anyButtonListener?.Dispose();
+        }
 
         private void StartListenForAnyButtonPress()
         {

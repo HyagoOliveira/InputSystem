@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+- Correctly dispose AnyButtonPressedListener
+
 ## [1.8.0] - 2025-12-14
 ### Changed
 - Refact AnyButtonPressedListener to validate Mouse input inside Game Screen
