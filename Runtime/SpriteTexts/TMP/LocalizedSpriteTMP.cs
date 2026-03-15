@@ -13,6 +13,7 @@ namespace ActionCode.InputSystem
     /// as a base to create your own implementation when the localization changes.
     /// </remarks>
     [DisallowMultipleComponent]
+    [DefaultExecutionOrder(-1)]
     [RequireComponent(typeof(LocalizeStringEvent))]
     public sealed class LocalizedSpriteTMP : MonoBehaviour
     {
