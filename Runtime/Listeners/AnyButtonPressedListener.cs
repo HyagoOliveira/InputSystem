@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
+using ActionCode.AwaitableSystem;
 
 namespace ActionCode.InputSystem
 {
@@ -23,7 +24,7 @@ namespace ActionCode.InputSystem
 
         private IDisposable anyButtonListener;
 
-        private void OnEnable() => Invoke(nameof(StartListenForAnyButtonPress), waitingTime);
+        private void OnEnable() => WaitAndStartListen();
 
         private void OnDisable()
         {
@@ -43,6 +44,12 @@ namespace ActionCode.InputSystem
 
             OnAnyButtonPressed?.Invoke();
             if (disableAfterEvent) enabled = false;
+        }
+
+        private async void WaitAndStartListen()
+        {
+            await AwaitableUtility.WaitForSecondsRealtimeAsync(waitingTime);
+            StartListenForAnyButtonPress();
         }
 
         private static bool IsValidDevicePress(InputDevice device) => device is not Mouse mouse || mouse.IsInsideGameView();

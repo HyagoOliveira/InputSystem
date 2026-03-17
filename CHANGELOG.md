@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 - LocalizedSpriteTMP shows correct Sprite Tag on initialization
+- Input Listeners when TimeScale is 0
 
 ### Changed
 - Increase Unity Minimum version to 6000.3
