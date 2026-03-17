@@ -5,9 +5,10 @@
 * Current version: **1.8.1**
 * License: **MIT**
 * Dependencies:
+	- Awaitable System: [1.3.0](https://github.com/HyagoOliveira/AwaitableSystem/releases/tag/1.3.0)
 	- Unity.Input System : [1.2.0](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.2/changelog/CHANGELOG.html)
 	- Unity.TextMesh Pro : [1.0.0](https://docs.unity3d.com/Packages/com.unity.textmeshpro@1.0/changelog/CHANGELOG.html)
-	- Serialized Dictionary : [1.2.0](https://github.com/HyagoOliveira/SerializedDictionary/tree/1.2.0)
+	- Serialized Dictionary : [1.2.0](https://github.com/HyagoOliveira/SerializedDictionary/releases/tag/1.2.0)
 
 ## Input Sprites Pack
 

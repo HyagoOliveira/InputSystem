@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using ActionCode.AwaitableSystem;
 
 namespace ActionCode.InputSystem
 {
@@ -23,22 +24,31 @@ namespace ActionCode.InputSystem
 
         private InputAction action;
 
-        private void Awake()
+        private void Awake() => FindAction();
+
+        private void OnEnable()
         {
-            FindAction();
-            Invoke(nameof(EnableAction), waitingTime);
+            WaitAndEnableAction();
+            action.performed += HandleActionPerformed;
         }
 
-        private void OnEnable() => action.performed += HandleActionPerformed;
-        private void OnDisable() => action.performed -= HandleActionPerformed;
+        private void OnDisable()
+        {
+            action.performed -= HandleActionPerformed;
+            DisableAction();
+        }
 
         private void HandleActionPerformed(InputAction.CallbackContext _) => OnActionPerformed?.Invoke();
         private void FindAction() => action = inputAsset.FindAction(actionPopup.GetPath(), throwIfNotFound: true);
 
-        private void EnableAction()
+        private async void WaitAndEnableAction()
         {
-            action.actionMap.Enable();
-            action.Enable();
+            await AwaitableUtility.WaitForSecondsRealtimeAsync(waitingTime);
+
+            if (!action.actionMap.enabled) action.actionMap.Enable();
+            if (!action.enabled) action.Enable();
         }
+
+        private void DisableAction() => action.Disable();
     }
 }
