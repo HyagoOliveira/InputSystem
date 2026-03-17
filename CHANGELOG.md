@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - LocalizedSpriteTMP shows correct Sprite Tag on initialization
 
+### Changed
+- Increase Unity Minimum version to 6000.3
+
 ## [1.8.1] - 2026-01-28
 ### Fixed
 - Correctly dispose AnyButtonPressedListener

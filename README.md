@@ -1,7 +1,7 @@
 # Input System Extension
 
 * This package is an extension for Unity new Input System.
-* Unity minimum version: **2020.2**
+* Unity minimum version: **6000.3**
 * Current version: **1.8.1**
 * License: **MIT**
 * Dependencies:
