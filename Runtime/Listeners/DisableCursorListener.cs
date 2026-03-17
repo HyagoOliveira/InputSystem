@@ -4,12 +4,13 @@ using UnityEngine;
 namespace ActionCode.InputSystem
 {
     /// <summary>
-    /// Disables the mouse cursor when a gamepad is used and enables it again when keyboard/mouse is used.
-    /// <para>
-    /// On Editor, if the mouse is outside the GameView, the cursor will be set to visible regardless 
-    /// if using gamepad or not.
-    /// </para>
+    /// Disables the mouse cursor when a Gamepad is used and enables it again when Keyboard/Mouse is used.<br/>
+    /// When the mouse is disabled, its position is warped to the Screen top-left corner so it do not stay over any Selectable UI.
     /// </summary>
+    /// <remarks>
+    /// On Editor, if the Mouse is outside the GameView, the cursor will be set to visible regardless 
+    /// if using Gamepad or not.
+    /// </remarks>
     [DisallowMultipleComponent]
     public sealed class DisableCursorListener : MonoBehaviour
     {
@@ -36,13 +37,24 @@ namespace ActionCode.InputSystem
         /// </para>
         /// </summary>
         /// <param name="isVisible">Whether mouse cursor is visible.</param>
-        public static void SetCursorVisibility(bool isVisible)
+        public static async void SetCursorVisibility(bool isVisible)
         {
             if (!isVisible) isVisible = IsMouseOutsideGameView();
+
+            if (!isVisible && Cursor.visible)
+            {
+                // Move outside any Selectable UI
+                MoveMousePosition();
+                await Awaitable.NextFrameAsync();
+                // After the Move command, necessary to wait until next frame to set Cursor.visible
+            }
 
             Cursor.visible = isVisible;
             OnVisibilityChanged?.Invoke(isVisible);
         }
+
+        private static void MoveMousePosition() =>
+            UnityEngine.InputSystem.Mouse.current?.WarpCursorPosition(new Vector2(10f, Screen.height - 10f));
 
         private static bool IsMouseOutsideGameView()
         {
