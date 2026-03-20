@@ -2,7 +2,7 @@
 
 * This package is an extension for Unity new Input System.
 * Unity minimum version: **6000.3**
-* Current version: **1.8.2**
+* Current version: **1.8.3**
 * License: **MIT**
 * Dependencies:
 	- Awaitable System: [1.3.0](https://github.com/HyagoOliveira/AwaitableSystem/releases/tag/1.3.0)
