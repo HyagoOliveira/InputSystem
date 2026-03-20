@@ -4,11 +4,6 @@
 * Unity minimum version: **6000.3**
 * Current version: **1.8.3**
 * License: **MIT**
-* Dependencies:
-	- Awaitable System: [1.3.0](https://github.com/HyagoOliveira/AwaitableSystem/releases/tag/1.3.0)
-	- Unity.Input System : [1.18.0](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.18/changelog/CHANGELOG.html)
-	- Unity.TextMesh Pro : [1.0.0](https://docs.unity3d.com/Packages/com.unity.textmeshpro@1.0/changelog/CHANGELOG.html)
-	- Serialized Dictionary : [1.2.0](https://github.com/HyagoOliveira/SerializedDictionary/releases/tag/1.2.0)
 
 ## Input Sprites Pack
 
