@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using ActionCode.AwaitableSystem;
+using System.Collections;
 
 namespace ActionCode.InputSystem
 {
     /// <summary>
-    /// Invokes <see cref="OnActionPerformed"/> event when the serialized action is performed.
+    /// Invokes <see cref="OnActionPerformed"/> event when the <see cref="actionPopup"/> is performed.
     /// </summary>
     [DisallowMultipleComponent]
     public sealed class ActionPerformedListener : MonoBehaviour
@@ -41,10 +41,20 @@ namespace ActionCode.InputSystem
         private void HandleActionPerformed(InputAction.CallbackContext _) => OnActionPerformed?.Invoke();
         private void FindAction() => action = inputAsset.FindAction(actionPopup.GetPath(), throwIfNotFound: true);
 
-        private async void WaitAndEnableAction()
+        private void WaitAndEnableAction()
         {
-            await AwaitableUtility.WaitForSecondsRealtimeAsync(waitingTime);
+            StopAllCoroutines();
+            StartCoroutine(WaitAndEnableActionRoutine());
+        }
 
+        private IEnumerator WaitAndEnableActionRoutine()
+        {
+            yield return new WaitForSecondsRealtime(waitingTime);
+            EnableAction();
+        }
+
+        private void EnableAction()
+        {
             if (!action.actionMap.enabled) action.actionMap.Enable();
             if (!action.enabled) action.Enable();
         }

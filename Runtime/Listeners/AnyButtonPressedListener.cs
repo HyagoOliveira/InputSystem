@@ -1,9 +1,9 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
-using ActionCode.AwaitableSystem;
 
 namespace ActionCode.InputSystem
 {
@@ -25,15 +25,17 @@ namespace ActionCode.InputSystem
         private IDisposable anyButtonListener;
 
         private void OnEnable() => WaitAndStartListen();
+        private void OnDisable() => Dispose();
 
-        private void OnDisable()
+        private void Dispose()
         {
-            CancelInvoke();
             anyButtonListener?.Dispose();
+            anyButtonListener = null;
         }
 
         private void StartListenForAnyButtonPress()
         {
+            Dispose();
             var pressEvent = UnityEngine.InputSystem.InputSystem.onAnyButtonPress;
             anyButtonListener = pressEvent.Call(HandleAnyButtonPressed);
         }
@@ -46,9 +48,15 @@ namespace ActionCode.InputSystem
             if (disableAfterEvent) enabled = false;
         }
 
-        private async void WaitAndStartListen()
+        private void WaitAndStartListen()
         {
-            await AwaitableUtility.WaitForSecondsRealtimeAsync(waitingTime);
+            StopAllCoroutines();
+            StartCoroutine(WaitAndStartListenRoutine());
+        }
+
+        private IEnumerator WaitAndStartListenRoutine()
+        {
+            yield return new WaitForSecondsRealtime(waitingTime);
             StartListenForAnyButtonPress();
         }
 
