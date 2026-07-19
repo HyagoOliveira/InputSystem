@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.9.0] - 2026-07-19
 ### Added
 - InputTag class
 - Gamepad rumble effect support by RumbleManager
@@ -154,7 +155,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - README
 - Initial commit
 
-[Unreleased]: https://github.com/HyagoOliveira/InputSystem/compare/1.8.3
+[Unreleased]: https://github.com/HyagoOliveira/InputSystem/compare/1.9.0
+[1.9.0]: https://github.com/HyagoOliveira/InputSystem/tree/1.9.0/
 [1.8.3]: https://github.com/HyagoOliveira/InputSystem/tree/1.8.3/
 [1.8.2]: https://github.com/HyagoOliveira/InputSystem/tree/1.8.2/
 [1.8.1]: https://github.com/HyagoOliveira/InputSystem/tree/1.8.1/
