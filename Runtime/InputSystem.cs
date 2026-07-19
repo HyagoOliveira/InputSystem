@@ -43,6 +43,9 @@ namespace ActionCode.InputSystem
 
         private static event Action<InputDeviceType> InternalOnDeviceInputChanged;
 
+        public static bool IsUsingKeyboardOrMouse() => LastDeviceType == InputDeviceType.KeyboardAndMouse;
+        public static bool IsUsingAnyGamepad() => !IsUsingKeyboardOrMouse() && LastDeviceType != InputDeviceType.NotFound;
+
         private static bool HasNoBinders() => InternalOnDeviceInputChanged == null;
         private static void BindIntoInputOnEvent() => UnityEngine.InputSystem.InputSystem.onEvent += HandleInputEvent;
         private static void UnbindFromInputOnEvent() => UnityEngine.InputSystem.InputSystem.onEvent -= HandleInputEvent;
