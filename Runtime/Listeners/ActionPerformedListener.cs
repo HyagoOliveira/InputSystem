@@ -1,7 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using System.Collections;
 
 namespace ActionCode.InputSystem
 {
@@ -18,9 +18,13 @@ namespace ActionCode.InputSystem
         [SerializeField] private InputActionAsset inputAsset;
         [SerializeField] private InputActionPopup actionPopup = new(nameof(inputAsset));
 
-        [Space]
+        [Header("Events")]
+        [Tooltip("Event fired when the serialized action is started.")]
+        public UnityEvent OnActionStarted;
         [Tooltip("Event fired when the serialized action is performed.")]
         public UnityEvent OnActionPerformed;
+        [Tooltip("Event fired when the serialized action is canceled.")]
+        public UnityEvent OnActionCanceled;
 
         private InputAction action;
 
@@ -29,16 +33,22 @@ namespace ActionCode.InputSystem
         private void OnEnable()
         {
             WaitAndEnableAction();
+            action.started += HandleActionStarted;
+            action.canceled += HandleActionCanceled;
             action.performed += HandleActionPerformed;
         }
 
         private void OnDisable()
         {
+            action.started -= HandleActionStarted;
+            action.canceled -= HandleActionCanceled;
             action.performed -= HandleActionPerformed;
             DisableAction();
         }
 
+        private void HandleActionStarted(InputAction.CallbackContext _) => OnActionStarted?.Invoke();
         private void HandleActionPerformed(InputAction.CallbackContext _) => OnActionPerformed?.Invoke();
+        private void HandleActionCanceled(InputAction.CallbackContext _) => OnActionCanceled?.Invoke();
         private void FindAction() => action = inputAsset.FindAction(actionPopup.GetPath(), throwIfNotFound: true);
 
         private void WaitAndEnableAction()
