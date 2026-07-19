@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- Action Events into Sprite Tags
+
+## [1.8.3] - 2026-03-20
 ### Fixed
 - Wait time for Button Listener components
 

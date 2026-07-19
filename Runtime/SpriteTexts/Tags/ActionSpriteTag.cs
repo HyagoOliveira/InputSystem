@@ -9,11 +9,6 @@ namespace ActionCode.InputSystem
     [CreateAssetMenu(fileName = "ActionSpriteTag", menuName = MENU_NAME + "Action Sprite Tag", order = 110)]
     public sealed class ActionSpriteTag : AbstractSpriteTag
     {
-        [SerializeField, Tooltip("The Input Asset where your action is.")]
-        private InputActionAsset inputAsset;
-        [SerializeField, Tooltip("The Input Action.")]
-        private InputActionPopup actionPopup = new(nameof(inputAsset));
-
         public override string GetTag(InputDeviceType device)
         {
             var action = inputAsset.FindAction(
@@ -35,11 +30,5 @@ namespace ActionCode.InputSystem
 
             return GetTagUsingName(assetName, spriteName);
         }
-
-        /// <summary>
-        /// Gets the action from the Input Action.
-        /// </summary>
-        /// <returns></returns>
-        public InputAction GetAction() => inputAsset.FindAction(actionPopup.GetPath(), throwIfNotFound: true);
     }
 }

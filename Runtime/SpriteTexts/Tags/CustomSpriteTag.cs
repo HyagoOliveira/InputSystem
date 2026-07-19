@@ -8,6 +8,7 @@ namespace ActionCode.InputSystem
     [CreateAssetMenu(fileName = "CustomSpriteTag", menuName = MENU_NAME + "Custom Sprite Tag", order = 112)]
     public sealed class CustomSpriteTag : AbstractSpriteTag
     {
+        [Space]
         [SerializeField, Tooltip("The animation name for keyboard and mouse.")]
         private string keyboard;
         [SerializeField, Tooltip("The animation name for any gamepad.")]
