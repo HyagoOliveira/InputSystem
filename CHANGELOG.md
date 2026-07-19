@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+- InputTag class
 - Gamepad rumble effect support by RumbleManager
 - RumbleData struct
 - HoldInteractionListener component
